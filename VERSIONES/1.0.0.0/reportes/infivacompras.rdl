@@ -1,0 +1,3824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description>
+  </Description>
+  <Author>
+  </Author>
+  <PageHeight>8.3in</PageHeight>
+  <PageWidth>11.7in</PageWidth>
+  <Width>7.5in</Width>
+  <TopMargin>.25in</TopMargin>
+  <LeftMargin>.25in</LeftMargin>
+  <RightMargin>.25in</RightMargin>
+  <BottomMargin>.25in</BottomMargin>
+  <DataSets>
+    <DataSet Name="Data">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT r.id,r.`CbteFecha`,
+CAST(r.`CbteFecha` AS DATE) Fecha,r.`Denominacion`,r.`Letra`,
+r.`CbteTipo`,r.`CbtePtoVta`,r.`CbteNumero`,r.`RazonSocial`,
+r.`DocumentoTipo`,r.`DocumentoNro`,IF(r.`Tipo`='C',r.`ImporteTributos`*-1,r.`ImporteTributos`) ImporteTributos,
+IF(r.`Tipo`='C',r.`ImporteOpExentas`*-1,r.`ImporteOpExentas`) `ImporteOpExentas`,
+IF(r.`Tipo`='C',r.`ImporteTotalConceptos`*-1,r.`ImporteTotalConceptos`) `ImporteTotalConceptos`,
+IF(r.`Tipo`='C',r.`ImporteNeto`*-1,r.`ImporteNeto`) `ImporteNeto`,
+IF(r.`Tipo`='C',r.`ImporteIVA`*-1,r.`ImporteIVA`) `ImporteIVA`,
+IF(r.`Tipo`='C',r.`ImporteTotal`*-1,r.`ImporteTotal`) `ImporteTotal`,
+r.`Tiporesponsable`,t.`Descripcion`,
+IFNULL(tribnac.importe ,0)*IF(r.`Tipo`='C',-1,1) impnacional,
+IFNULL(tribpro.importe ,0)*IF(r.`Tipo`='C',-1,1) impprovincial,
+IFNULL(tribmun.importe ,0)*IF(r.`Tipo`='C',-1,1) impmunicipal,
+IFNULL(tribint.importe ,0)*IF(r.`Tipo`='C',-1,1) impimpint,
+IFNULL(tribotro.importe ,0)*IF(r.`Tipo`='C',-1,1) impotros,
+IFNULL(trib25413.importe ,0)*IF(r.`Tipo`='C',-1,1) imp25413,
+IF(r.`Tipo`='C',r.`Importenoinscripto`*-1,r.`Importenoinscripto`) `Importenoinscripto`
+FROM `cpracabecera` r
+INNER JOIN `tiporesponsable` t ON r.`Tiporesponsable` = t.`Codigo`
+LEFT JOIN
+(SELECT cpratributo.`CbteId`,SUM(`cpratributo`.`Importe`) importe FROM `cpratributo` WHERE `cpratributo`.`Codigo`=1 GROUP BY cpratributo.`CbteId`,`cpratributo`.`Codigo`) tribnac ON r.`Id` = tribnac.cbteid
+LEFT JOIN
+(SELECT cpratributo.`CbteId`,SUM(`cpratributo`.`Importe`) importe FROM `cpratributo` WHERE `cpratributo`.`Codigo`=2 GROUP BY cpratributo.`CbteId`,`cpratributo`.`Codigo`) tribpro ON r.`Id` = tribpro.cbteid
+LEFT JOIN
+(SELECT cpratributo.`CbteId`,SUM(`cpratributo`.`Importe`) importe FROM `cpratributo` WHERE `cpratributo`.`Codigo`=3 GROUP BY cpratributo.`CbteId`,`cpratributo`.`Codigo`) tribmun ON r.`Id` = tribmun.cbteid
+LEFT JOIN
+(SELECT cpratributo.`CbteId`,SUM(`cpratributo`.`Importe`) importe FROM `cpratributo` WHERE `cpratributo`.`Codigo`=4 GROUP BY cpratributo.`CbteId`,`cpratributo`.`Codigo`) tribint ON r.`Id` = tribint.cbteid
+LEFT JOIN
+(SELECT cpratributo.`CbteId`,SUM(`cpratributo`.`Importe`) importe FROM `cpratributo` WHERE `cpratributo`.`Codigo`=5 GROUP BY cpratributo.`CbteId`,`cpratributo`.`Codigo`) tribotro ON r.`Id` = tribotro.cbteid
+LEFT JOIN
+(SELECT cpratributo.`CbteId`,SUM(`cpratributo`.`Importe`) importe FROM `cpratributo` WHERE `cpratributo`.`Codigo`=1 AND `cpratributo`.`Descripcion` LIKE 'Per./Ret. Ley 25413' GROUP BY cpratributo.`CbteId`,`cpratributo`.`Codigo`) trib25413 ON r.`Id` = trib25413.cbteid
+WHERE
+CASE @tipo
+	WHEN 'F' THEN r.`CbteTipo` IN (1,2,3,6,7,8,81,82,83,11,12,13,51,52,53,110.111,112,113)
+	WHEN 'P' THEN r.`CbteTipo` IN (991,992)
+	ELSE r.`CbteTipo` IN (1,2,3,6,7,8,81,82,83,11,12,13,51,52,53,110.111,112,113,991,992)
+END AND
+CASE @filtraGasto
+	WHEN '0' THEN r.`codGastoV` LIKE '%%'
+	WHEN '1' THEN r.`codGastoV`=@codGastoV
+END
+AND r.`CbteFecha` &gt;= @fdesde
+AND r.`CbteFecha` &lt;= @fhasta
+AND LEFT(r.FechaServicioDesde,6) LIKE @periodo
+AND r.`ProveedorId` &gt;= @cdesde
+AND r.`ProveedorId` &lt;= @chasta
+ORDER BY r.CbteFecha,r.id</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@cdesde">
+            <Value>=Parameters!cdesde</Value>
+          </QueryParameter>
+          <QueryParameter Name="@chasta">
+            <Value>=Parameters!chasta</Value>
+          </QueryParameter>
+          <QueryParameter Name="@fdesde">
+            <Value>=Format(Parameters!fdesde,'yyyyMMdd')</Value>
+          </QueryParameter>
+          <QueryParameter Name="@fhasta">
+            <Value>=Format(Parameters!fhasta,'yyyyMMdd')</Value>
+          </QueryParameter>
+          <QueryParameter Name="@tipo">
+            <Value>=Parameters!tipo</Value>
+          </QueryParameter>
+          <QueryParameter Name="@periodo">
+            <Value>=Parameters!periodo</Value>
+          </QueryParameter>
+          <QueryParameter Name="@filtraGasto">
+            <Value>=Parameters!filtraGasto</Value>
+          </QueryParameter>
+          <QueryParameter Name="@codGastoV">
+            <Value>=Parameters!codGastoV</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="CbteFecha">
+          <DataField>CbteFecha</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fecha">
+          <DataField>Fecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Denominacion">
+          <DataField>Denominacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Letra">
+          <DataField>Letra</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CbteTipo">
+          <DataField>CbteTipo</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CbtePtoVta">
+          <DataField>CbtePtoVta</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CbteNumero">
+          <DataField>CbteNumero</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="RazonSocial">
+          <DataField>RazonSocial</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DocumentoTipo">
+          <DataField>DocumentoTipo</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DocumentoNro">
+          <DataField>DocumentoNro</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ImporteTributos">
+          <DataField>ImporteTributos</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="ImporteOpExentas">
+          <DataField>ImporteOpExentas</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="ImporteTotalConceptos">
+          <DataField>ImporteTotalConceptos</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="ImporteNeto">
+          <DataField>ImporteNeto</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="ImporteIVA">
+          <DataField>ImporteIVA</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="ImporteTotal">
+          <DataField>ImporteTotal</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Tiporesponsable">
+          <DataField>Tiporesponsable</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Descripcion">
+          <DataField>Descripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="impnacional">
+          <DataField>impnacional</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="impprovincial">
+          <DataField>impprovincial</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="impmunicipal">
+          <DataField>impmunicipal</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="impimpint">
+          <DataField>impimpint</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="impotros">
+          <DataField>impotros</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="imp25413">
+          <DataField>imp25413</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Importenoinscripto">
+          <DataField>Importenoinscripto</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataTrib">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT cpratributo.*,tipotributo.descripcion tipo,SUM(IF(cpracabecera.Tipo='C',cpratributo.importe*-1,cpratributo.importe)) ImporteTotal FROM cpratributo,tipotributo,cpracabecera
+WHERE cpratributo.codigo=tipotributo.codigo
+AND cpratributo.CbteId=cpracabecera.Id
+AND
+CASE @tipo
+	WHEN 'F' THEN cpracabecera.`CbteTipo` IN (1,2,3,6,7,8,81,82,83,11,12,13,51,52,53,110.111,112,113)
+	WHEN 'P' THEN cpracabecera.`CbteTipo` IN (991,992)
+	ELSE cpracabecera.`CbteTipo` IN (1,2,3,6,7,8,81,82,83,11,12,13,51,52,53,110.111,112,113,991,992)
+END AND
+CASE @filtraGasto
+	WHEN '0' THEN cpracabecera.`codGastoV` LIKE '%%'
+	WHEN '1' THEN cpracabecera.`codGastoV`=@codGastoV
+END
+AND cpracabecera.`CbteFecha` &gt;= @fdesde
+AND cpracabecera.`CbteFecha` &lt;= @fhasta
+
+AND LEFT(cpracabecera.FechaServicioDesde,6) LIKE @periodo
+AND cpracabecera.`ProveedorId` &gt;= @cdesde
+AND cpracabecera.`ProveedorId` &lt;= @chasta
+GROUP BY tipotributo.descripcion,cpratributo.descripcion
+ORDER BY tipotributo.descripcion,cpratributo.descripcion
+
+
+/*
+CASE @filtraGasto
+	WHEN '0' THEN r.`codGastoV` LIKE '%%'
+	WHEN '1' THEN r.`codGastoV`=@codGastoV
+	ELSE r.`CbteTipo` IN (1,2,3,6,7,8,81,82,83,11,12,13,51,52,53,110.111,112,113,991,992)
+END
+*/</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@fdesde">
+            <Value>=Format(Parameters!fdesde,'yyyyMMdd')</Value>
+          </QueryParameter>
+          <QueryParameter Name="@fhasta">
+            <Value>=Format(Parameters!fhasta,'yyyyMMdd')</Value>
+          </QueryParameter>
+          <QueryParameter Name="@tipo">
+            <Value>=Parameters!tipo</Value>
+          </QueryParameter>
+          <QueryParameter Name="@cdesde">
+            <Value>=Parameters!cdesde</Value>
+          </QueryParameter>
+          <QueryParameter Name="@chasta">
+            <Value>=Parameters!chasta</Value>
+          </QueryParameter>
+          <QueryParameter Name="@periodo">
+            <Value>=Parameters!periodo</Value>
+          </QueryParameter>
+          <QueryParameter Name="@filtraGasto">
+            <Value>=Parameters!filtraGasto</Value>
+          </QueryParameter>
+          <QueryParameter Name="@codGastoV">
+            <Value>=Parameters!codGastoV</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <TypeName>System.Int64</TypeName>
+        </Field>
+        <Field Name="CbteId">
+          <DataField>CbteId</DataField>
+          <TypeName>System.Int64</TypeName>
+        </Field>
+        <Field Name="Codigo">
+          <DataField>Codigo</DataField>
+          <TypeName>System.Int32</TypeName>
+        </Field>
+        <Field Name="Descripcion">
+          <DataField>Descripcion</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="Importe">
+          <DataField>Importe</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+        <Field Name="Alicuota">
+          <DataField>Alicuota</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+        <Field Name="BaseImponible">
+          <DataField>BaseImponible</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+        <Field Name="Referencia">
+          <DataField>Referencia</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="tipo">
+          <DataField>tipo</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="ImporteTotal">
+          <DataField>ImporteTotal</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataAlicuotas">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT cpraalicuota.*,tipocondicioniva.descripcion tipo,
+SUM(cpraalicuota.importe*IF(cpracabecera.Tipo='C',-1,1)) ImporteTotal,
+SUM(cpraalicuota.`BaseImponible`*IF(cpracabecera.Tipo='C',-1,1)) NetoTotal
+FROM cpraalicuota,tipocondicioniva,cpracabecera
+WHERE cpraalicuota.codigo=tipocondicioniva.codigo
+AND cpraalicuota.CbteId=cpracabecera.Id
+AND
+CASE @tipo
+	WHEN 'F' THEN cpracabecera.`CbteTipo` IN (1,2,3,6,7,8,81,82,83,11,12,13,51,52,53,110.111,112,113)
+	WHEN 'P' THEN cpracabecera.`CbteTipo` IN (991,992)
+	ELSE cpracabecera.`CbteTipo` IN (1,2,3,6,7,8,81,82,83,11,12,13,51,52,53,110.111,112,113,991,992)
+END AND
+CASE @filtraGasto
+	WHEN '0' THEN cpracabecera.`codGastoV` LIKE '%%'
+	WHEN '1' THEN cpracabecera.`codGastoV`=@codGastoV
+END
+AND cpracabecera.`CbteFecha` &gt;= @fdesde
+AND cpracabecera.`CbteFecha` &lt;= @fhasta
+
+AND LEFT(cpracabecera.FechaServicioDesde,6) LIKE @periodo
+AND cpracabecera.`ProveedorId` &gt;= @cdesde
+AND cpracabecera.`ProveedorId` &lt;= @chasta
+GROUP BY tipocondicioniva.`Codigo`
+ORDER BY tipocondicioniva.`Codigo`</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@fdesde">
+            <Value>=Format(Parameters!fdesde,'yyyyMMdd')</Value>
+          </QueryParameter>
+          <QueryParameter Name="@fhasta">
+            <Value>=Format(Parameters!fhasta,'yyyyMMdd')</Value>
+          </QueryParameter>
+          <QueryParameter Name="@tipo">
+            <Value>=Parameters!tipo</Value>
+          </QueryParameter>
+          <QueryParameter Name="@cdesde">
+            <Value>=Parameters!cdesde</Value>
+          </QueryParameter>
+          <QueryParameter Name="@chasta">
+            <Value>=Parameters!chasta</Value>
+          </QueryParameter>
+          <QueryParameter Name="@periodo">
+            <Value>=Parameters!periodo</Value>
+          </QueryParameter>
+          <QueryParameter Name="@filtraGasto">
+            <Value>=Parameters!filtraGasto</Value>
+          </QueryParameter>
+          <QueryParameter Name="@codGastoV">
+            <Value>=Parameters!codGastoV</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <TypeName>System.Int64</TypeName>
+        </Field>
+        <Field Name="CbteId">
+          <DataField>CbteId</DataField>
+          <TypeName>System.Int64</TypeName>
+        </Field>
+        <Field Name="Codigo">
+          <DataField>Codigo</DataField>
+          <TypeName>System.Int32</TypeName>
+        </Field>
+        <Field Name="Descripcion">
+          <DataField>Descripcion</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="Importe">
+          <DataField>Importe</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+        <Field Name="Alicuota">
+          <DataField>Alicuota</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+        <Field Name="BaseImponible">
+          <DataField>BaseImponible</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+        <Field Name="tipo">
+          <DataField>tipo</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="ImporteTotal">
+          <DataField>ImporteTotal</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+        <Field Name="NetoTotal">
+          <DataField>NetoTotal</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataRet">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT 'RET./PERC.' c1,'COMPRAS' c2,cpratributo.Codigo,cpratributo.Descripcion,IF(cpracabecera.Tipo='C',cpratributo.Importe*-1,cpratributo.Importe) Importe,tipotributo.descripcion tipo,
+cpracabecera.`CbteTipo`,cpracabecera.`CbtePtoVta`,cpracabecera.`CbteNumero`,CAST(cpracabecera.`CbteFecha` AS DATE) Fecha,
+cpracabecera.`DocumentoTipo`,cpracabecera.`DocumentoNro`,cpracabecera.`RazonSocial`,
+CONCAT(cpracabecera.`RazonSocial`,' [',CAST(`cpracabecera`.`DocumentoNro` AS CHAR),']') RazonSocialCuit,
+CONCAT(' [',LPAD(CAST(cpracabecera.`CbteTipo` AS CHAR),3,'0'),'] ',LPAD(CAST(`cpracabecera`.`CbtePtoVta` AS CHAR),4,'0'),'-',LPAD(CAST(`cpracabecera`.`CbteNumero` AS CHAR),8,'0')) Comprobante
+FROM cpratributo,tipotributo,cpracabecera
+WHERE cpratributo.codigo=tipotributo.codigo
+AND cpratributo.CbteId=cpracabecera.Id
+AND
+CASE @tipo
+	WHEN 'F' THEN cpracabecera.`CbteTipo` IN (1,2,3,6,7,8,81,82,83,11,12,13,51,52,53,110.111,112,113)
+	WHEN 'P' THEN cpracabecera.`CbteTipo` IN (991,992)
+	ELSE cpracabecera.`CbteTipo` IN (1,2,3,6,7,8,81,82,83,11,12,13,51,52,53,110.111,112,113,991,992)
+END
+AND cpracabecera.`CbteFecha` &gt;= @fdesde
+AND cpracabecera.`CbteFecha` &lt;= @fhasta
+
+AND LEFT(cpracabecera.FechaServicioDesde,6) LIKE @periodo
+AND cpracabecera.`ProveedorId` &gt;= @cdesde
+AND cpracabecera.`ProveedorId` &lt;= @chasta
+AND cpratributo.Codigo NOT IN (4,99)
+AND cpratributo.Descripcion NOT IN ('Impuestos Internos','Otros Tributos')
+
+UNION ALL
+
+SELECT 'RET./PERC.' c1,'COBRANZAS' c2,cbtetributo.Codigo,cbtetributo.Descripcion,cbtetributo.Importe,tipotributo.descripcion tipo,
+cbtecabecera.`CbteTipo`,cbtecabecera.`CbtePtoVta`,cbtecabecera.`CbteNumero`,CAST(cbtecabecera.`CbteFecha` AS DATE) Fecha,
+cbtecabecera.`DocumentoTipo`,cbtecabecera.`DocumentoNro`,cbtecabecera.`RazonSocial`,
+CONCAT(cbtecabecera.`RazonSocial`,' [',CAST(`cbtecabecera`.`DocumentoNro` AS CHAR),']') RazonSocialCuit,
+CONCAT(' [',LPAD(CAST(cbtecabecera.`CbteTipo` AS CHAR),3,'0'),'] ',LPAD(CAST(`cbtecabecera`.`CbtePtoVta` AS CHAR),4,'0'),'-',LPAD(CAST(`cbtecabecera`.`CbteNumero` AS CHAR),8,'0')) Comprobante
+FROM cbtetributo,tipotributo,cbtecabecera
+WHERE cbtetributo.codigo=tipotributo.codigo
+AND cbtetributo.CbteId=cbtecabecera.Id
+AND
+CASE @tipo
+	WHEN 'F' THEN cbtecabecera.`CbteTipo` IN (1,2,3,6,7,8,81,82,83,11,12,13,51,52,53,110.111,112,113,993)
+	WHEN 'P' THEN cbtecabecera.`CbteTipo` IN (991,992,995)
+	ELSE cbtecabecera.`CbteTipo` IN (1,2,3,6,7,8,81,82,83,11,12,13,51,52,53,110.111,112,113,991,992,993,995)
+END
+AND cbtecabecera.`CbteFecha` &gt;= @fdesde
+AND cbtecabecera.`CbteFecha` &lt;= @fhasta
+AND LEFT(cbtecabecera.FechaServicioDesde,6) LIKE @periodo
+AND cbtetributo.Codigo NOT IN (4,99)
+AND cbtetributo.Descripcion NOT IN ('Impuestos Internos','Otros Tributos')</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@fdesde">
+            <Value>=Format(Parameters!fdesde,'yyyyMMdd')</Value>
+          </QueryParameter>
+          <QueryParameter Name="@fhasta">
+            <Value>=Format(Parameters!fhasta,'yyyyMMdd')</Value>
+          </QueryParameter>
+          <QueryParameter Name="@tipo">
+            <Value>=Parameters!tipo</Value>
+          </QueryParameter>
+          <QueryParameter Name="@cdesde">
+            <Value>=Parameters!cdesde</Value>
+          </QueryParameter>
+          <QueryParameter Name="@chasta">
+            <Value>=Parameters!chasta</Value>
+          </QueryParameter>
+          <QueryParameter Name="@periodo">
+            <Value>=Parameters!periodo</Value>
+          </QueryParameter>
+          <QueryParameter Name="@filtraGasto">
+            <Value>=Parameters!filtraGasto</Value>
+          </QueryParameter>
+          <QueryParameter Name="@codGastoV">
+            <Value>=Parameters!codGastoV</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="c1">
+          <DataField>c1</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="c2">
+          <DataField>c2</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="Codigo">
+          <DataField>Codigo</DataField>
+          <TypeName>System.Int32</TypeName>
+        </Field>
+        <Field Name="Descripcion">
+          <DataField>Descripcion</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="Importe">
+          <DataField>Importe</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+        <Field Name="tipo">
+          <DataField>tipo</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="CbteTipo">
+          <DataField>CbteTipo</DataField>
+          <TypeName>System.Int32</TypeName>
+        </Field>
+        <Field Name="CbtePtoVta">
+          <DataField>CbtePtoVta</DataField>
+          <TypeName>System.Int32</TypeName>
+        </Field>
+        <Field Name="CbteNumero">
+          <DataField>CbteNumero</DataField>
+          <TypeName>System.Int64</TypeName>
+        </Field>
+        <Field Name="Fecha">
+          <DataField>Fecha</DataField>
+          <TypeName>System.DateTime</TypeName>
+        </Field>
+        <Field Name="DocumentoTipo">
+          <DataField>DocumentoTipo</DataField>
+          <TypeName>System.Int32</TypeName>
+        </Field>
+        <Field Name="DocumentoNro">
+          <DataField>DocumentoNro</DataField>
+          <TypeName>System.Decimal</TypeName>
+        </Field>
+        <Field Name="RazonSocial">
+          <DataField>RazonSocial</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="RazonSocialCuit">
+          <DataField>RazonSocialCuit</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="Comprobante">
+          <DataField>Comprobante</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <PageHeader>
+    <Height>102.1pt</Height>
+    <ReportItems>
+      <Textbox Name="Textbox1">
+        <Top>61.10pt</Top>
+        <Left>9.30pt</Left>
+        <Width>755.13pt</Width>
+        <Height>18.12pt</Height>
+        <Value>=Parameters!titulo.Value</Value>
+        <Style>
+          <FontSize>12pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <VerticalAlign>Middle</VerticalAlign>
+          <TextAlign>Center</TextAlign>
+        </Style>
+        <CanGrow>true</CanGrow>
+      </Textbox>
+      <Textbox Name="Textbox5">
+        <Height>12.75pt</Height>
+        <Width>149.16pt</Width>
+        <Value>='Emisión ' &amp; Format(Today(),'dd/MM/yyyy')</Value>
+        <Left>588.1pt</Left>
+        <Top>7.1pt</Top>
+        <CanGrow>true</CanGrow>
+        <Style>
+          <TextAlign>Right</TextAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox3">
+        <Height>14.28pt</Height>
+        <Width>755.12pt</Width>
+        <Value>=iif(Parameters!periodo.Value&lt;&gt;'%','Período ' &amp; right(Parameters!periodo.Value,2) &amp; '-' &amp; left(Parameters!periodo.Value,4) ,
+'Entorno de Fechas: ' &amp; Format(Parameters!fdesde.Value,'dd/MM/yyyy') &amp; ' - ' &amp;  Format(Parameters!fhasta.Value,'dd/MM/yyyy'))</Value>
+        <Left>8.9pt</Left>
+        <Top>82.5pt</Top>
+        <Style>
+          <TextAlign>Center</TextAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox105" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>7.8pt</Top>
+        <Left>9.4pt</Left>
+        <Width>326.18pt</Width>
+        <Height>14.34pt</Height>
+        <Value>=Parameters!enca1.Value</Value>
+        <Style>
+          <FontSize>11pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox106" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>22.2pt</Top>
+        <Left>9.9pt</Left>
+        <Width>326.18pt</Width>
+        <Height>12.09pt</Height>
+        <Value>=Parameters!enca2.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox107" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>34.3pt</Top>
+        <Left>9.5pt</Left>
+        <Width>326.18pt</Width>
+        <Height>12.09pt</Height>
+        <Value>=Parameters!enca3.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox111" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>46.6pt</Top>
+        <Left>9.6pt</Left>
+        <Width>326.18pt</Width>
+        <Height>12.09pt</Height>
+        <Value>=Parameters!enca4.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageHeader>
+  <Body>
+    <Height>257.5pt</Height>
+    <ReportItems>
+      <Table Name="DetalleComprobantes">
+        <DataSetName>Data</DataSetName>
+        <NoRows>No hay datos para mostrar</NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>43.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>21.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>21.8pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>20.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>41.6pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>102.4pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>16.3pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>54.2pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>45.0pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>35.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>50.4pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>43.2pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>39.5pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>43.4pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>41.0pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>50.9pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>46.4pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>47.8pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>17.5pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox2">
+                      <Value>Fecha</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox6">
+                      <Value>Letra</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox7">
+                      <Value>Tipo</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox8">
+                      <Value>Nº Comprobante</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                  <ColSpan>2</ColSpan>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox10">
+                      <Value>Razón Social</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox11">
+                      <Value>Documento</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                  <ColSpan>2</ColSpan>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="TextboxTributos">
+                      <Value>Ret.IVA / Otros Trib.</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox88">
+                      <Value>Ret. Ley 25413</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox23">
+                      <Value>Impuesto Interno</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox26">
+                      <Value>Ret. API IIBB</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox14">
+                      <Value>Exento</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox15">
+                      <Value>No Gravado</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox102">
+                      <Value>Otras Compras</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox16">
+                      <Value>Imp. Neto</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox17">
+                      <Value>Imp. IVA</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox18">
+                      <Value>Imp. Total</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Footer>
+          <TableRows>
+            <TableRow>
+              <Height>13.6pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox34">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox36">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox37">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox38">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox39">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox40">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox41">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox42">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox43">
+                      <Value>=Sum(Fields!ImporteTributos.Value-Fields!impimpint.Value-Fields!impprovincial.Value-Fields!imp25413.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox89">
+                      <Value>=Sum(Fields!imp25413.Value)</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox24">
+                      <Value>=Sum(Fields!impimpint.Value)</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox29">
+                      <Value>=Sum(Fields!impprovincial.Value)</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox44">
+                      <Value>=Sum(Fields!ImporteOpExentas.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox45">
+                      <Value>=Sum(Fields!ImporteTotalConceptos.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox103">
+                      <Value>=Sum(Fields!Importenoinscripto.Value)</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox46">
+                      <Value>=Sum(Fields!ImporteNeto.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox47">
+                      <Value>=Sum(Fields!ImporteIVA.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox48">
+                      <Value>=Sum(Fields!ImporteTotal.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>7pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Footer>
+        <Left>10.2pt</Left>
+        <Top>9.9pt</Top>
+        <TableGroups>
+          <TableGroup>
+            <Grouping Name="grpCbte">
+              <PageBreakAtStart>false</PageBreakAtStart>
+              <PageBreakAtEnd>false</PageBreakAtEnd>
+              <GroupExpressions>
+                <GroupExpression>=Fields!id.Value</GroupExpression>
+              </GroupExpressions>
+            </Grouping>
+            <Header>
+              <RepeatOnNewPage>false</RepeatOnNewPage>
+              <TableRows>
+                <TableRow>
+                  <Height>13.7pt</Height>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox116" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!Fecha.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <Format>dd/MM/yyyy</Format>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox115" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!Letra.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox114" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!CbteTipo.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Center</TextAlign>
+                            <Format>000</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox94" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!CbtePtoVta.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <Format>0000</Format>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox93" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!CbteNumero.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <Format>00000000</Format>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox92" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Left(Fields!RazonSocial.Value,18)</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextDecoration>None</TextDecoration>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox91" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!DocumentoTipo.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox90" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!DocumentoNro.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox13" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!ImporteTributos.Value-Fields!impimpint.Value-Fields!impprovincial.Value-Fields!imp25413.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Right</TextAlign>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox101">
+                          <Value>=Fields!imp25413.Value</Value>
+                          <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Right</TextAlign>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox25">
+                          <Value>=Fields!impimpint.Value</Value>
+                          <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Right</TextAlign>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox30">
+                          <Value>=Fields!impprovincial.Value</Value>
+                          <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Right</TextAlign>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox49" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!ImporteOpExentas.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Right</TextAlign>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox62" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!ImporteTotalConceptos.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Right</TextAlign>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox104">
+                          <Value>=Fields!Importenoinscripto.Value</Value>
+                          <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Right</TextAlign>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox64" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!ImporteNeto.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Right</TextAlign>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox68" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!ImporteIVA.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Right</TextAlign>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox69" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                          <Value>=Fields!ImporteTotal.Value</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <FontSize>7pt</FontSize>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Right</TextAlign>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                </TableRow>
+              </TableRows>
+            </Header>
+          </TableGroup>
+        </TableGroups>
+      </Table>
+      <Table Name="DetalleResponsables" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <DataSetName>Data</DataSetName>
+        <NoRows>
+        </NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>54.8pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>30.3pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>29.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>33.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>44.8pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>104.9pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>20.3pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>89.6pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>60.0pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>53.9pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>56.9pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>60.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>62.3pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>64.7pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox4">
+                      <Value>Detalle de Totales según Responsabilidad de IVA</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                  <ColSpan>8</ColSpan>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox51">
+                      <Value>Otros Trib.</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox52">
+                      <Value>Op. Exentas</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox53">
+                      <Value>No Gravado</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox54">
+                      <Value>Imp. Neto</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox55">
+                      <Value>Imp. IVA</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox56">
+                      <Value>Imp. Total</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Footer>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox71">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox72">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox73">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox74">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox75">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox76">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox77">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox78">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox79">
+                      <Value>=Sum(Fields!ImporteTributos.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox80">
+                      <Value>=Sum(Fields!ImporteOpExentas.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox81">
+                      <Value>=Sum(Fields!ImporteTotalConceptos.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox82">
+                      <Value>=Sum(Fields!ImporteNeto.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox83">
+                      <Value>=Sum(Fields!ImporteIVA.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox84">
+                      <Value>=Sum(Fields!ImporteTotal.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Footer>
+        <Left>9.5pt</Left>
+        <Top>58.3pt</Top>
+        <TableGroups>
+          <TableGroup>
+            <Grouping Name="grpResponsabilidad">
+              <Label>=Fields!Descripcion.Value</Label>
+              <PageBreakAtStart>false</PageBreakAtStart>
+              <PageBreakAtEnd>false</PageBreakAtEnd>
+              <GroupExpressions>
+                <GroupExpression>=Fields!Tiporesponsable.Value</GroupExpression>
+              </GroupExpressions>
+            </Grouping>
+            <Header>
+              <RepeatOnNewPage>false</RepeatOnNewPage>
+              <TableRows>
+                <TableRow>
+                  <Height>12.1pt</Height>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox87">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontSize>8pt</FontSize>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <Value>=Fields!Descripcion.Value</Value>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                      <ColSpan>8</ColSpan>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox95">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontSize>8pt</FontSize>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                          <Value>=Sum(Fields!ImporteTributos.Value)</Value>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox96">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontSize>8pt</FontSize>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                          <Value>=Sum(Fields!ImporteOpExentas.Value)</Value>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox97">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontSize>8pt</FontSize>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                          <Value>=Sum(Fields!ImporteTotalConceptos.Value)</Value>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox98">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontSize>8pt</FontSize>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                          <Value>=Sum(Fields!ImporteNeto.Value)</Value>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox99">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontSize>8pt</FontSize>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                          <Value>=Sum(Fields!ImporteIVA.Value)</Value>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox100">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontSize>8pt</FontSize>
+                            <Format>#,##0.00</Format>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                          <Value>=Sum(Fields!ImporteTotal.Value)</Value>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                </TableRow>
+              </TableRows>
+            </Header>
+          </TableGroup>
+        </TableGroups>
+      </Table>
+      <Table Name="Tributos" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <DataSetName>DataTrib</DataSetName>
+        <NoRows>
+        </NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>None</Default>
+            <Left>None</Left>
+            <Right>None</Right>
+            <Top>None</Top>
+            <Bottom>None</Bottom>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>114.3pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>191.9pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>64.7pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox9">
+                      <Value>Detalle de Totales por Tributos</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                  <ColSpan>2</ColSpan>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox58">
+                      <Value>Imp. Total</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Footer>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox60">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox61">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox86">
+                      <Value>=Sum(Fields!ImporteTotal.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Footer>
+        <Left>10.0pt</Left>
+        <Top>100.4pt</Top>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12.2pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox108">
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <Value>=Fields!tipo.Value</Value>
+                      <CanShrink>true</CanShrink>
+                      <CanGrow>false</CanGrow>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox109">
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <Value>=Fields!Descripcion.Value</Value>
+                      <CanShrink>true</CanShrink>
+                      <CanGrow>false</CanGrow>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox110">
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                      <Value>=Fields!ImporteTotal.Value</Value>
+                      <CanShrink>true</CanShrink>
+                      <CanGrow>false</CanGrow>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+      </Table>
+      <Table Name="Alicuotas" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <DataSetName>DataAlicuotas</DataSetName>
+        <NoRows>
+        </NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>None</Default>
+            <Left>None</Left>
+            <Right>None</Right>
+            <Top>None</Top>
+            <Bottom>None</Bottom>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>142.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>67.8pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>64.7pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox12">
+                      <Value>Totales por Alícuotas de I.V.A.</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                  <ColSpan>1</ColSpan>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox65">
+                      <Value>Base Imponible</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox20">
+                      <Value>Imp. Total</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanGrow>false</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Footer>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox35">
+                      <Value>
+                      </Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox67">
+                      <Value>=Sum(Fields!NetoTotal.Value)</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <TextAlign>Right</TextAlign>
+                        <Format>#,##0.00</Format>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox57">
+                      <Value>=Sum(Fields!ImporteTotal.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Footer>
+        <Left>384.6pt</Left>
+        <Top>100.0pt</Top>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12.2pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox59">
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                      <Value>=Fields!Descripcion.Value</Value>
+                      <CanShrink>true</CanShrink>
+                      <CanGrow>false</CanGrow>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox66">
+                      <Value>=Fields!NetoTotal.Value</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox63">
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <Format>#,##0.00</Format>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                      <Value>=Fields!ImporteTotal.Value</Value>
+                      <CanShrink>true</CanShrink>
+                      <CanGrow>false</CanGrow>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+      </Table>
+      <Matrix Name="DetalleRetenciones">
+        <DataSetName>DataRet</DataSetName>
+        <NoRows>No hay datos para mostrar</NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+            <Left>Solid</Left>
+            <Right>Solid</Right>
+            <Top>Solid</Top>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <Corner>
+          <ReportItems>
+            <Textbox Name="Textbox19">
+              <Value>Listado de Retenciones por Comprobantes</Value>
+              <Style>
+                <BorderStyle>
+                  <Default>None</Default>
+                  <Left>None</Left>
+                  <Right>None</Right>
+                  <Top>None</Top>
+                  <Bottom>None</Bottom>
+                </BorderStyle>
+                <BorderWidth>
+                  <Left>1pt</Left>
+                  <Right>1pt</Right>
+                  <Top>1pt</Top>
+                  <Bottom>1pt</Bottom>
+                </BorderWidth>
+                <FontWeight>bold</FontWeight>
+                <FontSize>8pt</FontSize>
+                <VerticalAlign>Middle</VerticalAlign>
+                <BorderColor />
+                <BackgroundColor>#ADD5FC</BackgroundColor>
+                <TextAlign>Center</TextAlign>
+              </Style>
+              <CanGrow>true</CanGrow>
+            </Textbox>
+          </ReportItems>
+        </Corner>
+        <ColumnGroupings>
+          <ColumnGrouping>
+            <Height>12pt</Height>
+            <DynamicColumns>
+              <Grouping Name="DynamicColumnsGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Descripcion.Value</GroupExpression>
+                </GroupExpressions>
+                <PageBreakAtStart>false</PageBreakAtStart>
+                <PageBreakAtEnd>false</PageBreakAtEnd>
+              </Grouping>
+              <ReportItems>
+                <Textbox Name="Textbox21">
+                  <Value>=Fields!Descripcion.Value</Value>
+                  <Style>
+                    <BorderStyle>
+                      <Default>None</Default>
+                      <Left>None</Left>
+                      <Right>None</Right>
+                      <Top>None</Top>
+                      <Bottom>None</Bottom>
+                    </BorderStyle>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <TextAlign>Center</TextAlign>
+                    <BorderColor />
+                    <BorderWidth />
+                    <BackgroundColor>#ADD5FC</BackgroundColor>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                </Textbox>
+              </ReportItems>
+              <Subtotal>
+                <ReportItems>
+                  <Textbox Name="Textbox22">
+                    <Value>Subtotal</Value>
+                    <Style>
+                      <BorderStyle>
+                        <Default>None</Default>
+                        <Left>None</Left>
+                        <Right>None</Right>
+                        <Top>None</Top>
+                        <Bottom>None</Bottom>
+                      </BorderStyle>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <TextAlign>Center</TextAlign>
+                      <BorderColor />
+                      <BorderWidth />
+                      <BackgroundColor>#ADD5FC</BackgroundColor>
+                    </Style>
+                    <CanGrow>true</CanGrow>
+                  </Textbox>
+                </ReportItems>
+              </Subtotal>
+            </DynamicColumns>
+          </ColumnGrouping>
+        </ColumnGroupings>
+        <RowGroupings>
+          <RowGrouping>
+            <Width>63.0pt</Width>
+            <DynamicRows>
+              <Grouping Name="DynamicRowsGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!c1.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <ReportItems>
+                <Textbox Name="Textbox27">
+                  <Value>=Fields!c1.Value</Value>
+                  <Style>
+                    <BorderStyle>
+                      <Default>None</Default>
+                      <Left>None</Left>
+                      <Right>None</Right>
+                      <Top>None</Top>
+                      <Bottom>None</Bottom>
+                    </BorderStyle>
+                    <FontSize>8pt</FontSize>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <BorderColor />
+                    <BorderWidth />
+                    <FontWeight>Bold</FontWeight>
+                    <TextAlign>Center</TextAlign>
+                    <BackgroundColor>#ADD5FC</BackgroundColor>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                </Textbox>
+              </ReportItems>
+              <Subtotal>
+                <ReportItems>
+                  <Textbox Name="Textbox28">
+                    <Value>Totales</Value>
+                    <Style>
+                      <BorderStyle>
+                        <Default>None</Default>
+                        <Left>None</Left>
+                        <Right>None</Right>
+                        <Top>None</Top>
+                        <Bottom>None</Bottom>
+                      </BorderStyle>
+                      <FontSize>8pt</FontSize>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <TextAlign>Center</TextAlign>
+                      <FontWeight>Bold</FontWeight>
+                      <BorderColor />
+                      <BorderWidth />
+                      <BackgroundColor>#ADD5FC</BackgroundColor>
+                    </Style>
+                    <CanGrow>true</CanGrow>
+                  </Textbox>
+                </ReportItems>
+              </Subtotal>
+            </DynamicRows>
+          </RowGrouping>
+          <RowGrouping>
+            <Width>55.7pt</Width>
+            <DynamicRows>
+              <Grouping Name="DynamicRowsGroup2">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!c2.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <ReportItems>
+                <Textbox Name="Textbox31">
+                  <Value>=Fields!c2.Value</Value>
+                  <Style>
+                    <BorderStyle>
+                      <Default>None</Default>
+                      <Left>None</Left>
+                      <Right>None</Right>
+                      <Top>None</Top>
+                      <Bottom>None</Bottom>
+                    </BorderStyle>
+                    <FontSize>8pt</FontSize>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <BorderColor />
+                    <BorderWidth />
+                    <FontWeight>Bold</FontWeight>
+                    <TextAlign>Center</TextAlign>
+                    <BackgroundColor>#ADD5FC</BackgroundColor>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                </Textbox>
+              </ReportItems>
+              <Subtotal>
+                <ReportItems>
+                  <Textbox Name="Textbox32">
+                    <Value>Subtotal</Value>
+                    <Style>
+                      <BorderStyle>
+                        <Default>None</Default>
+                        <Left>None</Left>
+                        <Right>None</Right>
+                        <Top>None</Top>
+                        <Bottom>None</Bottom>
+                      </BorderStyle>
+                      <FontSize>8pt</FontSize>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <TextAlign>Center</TextAlign>
+                      <FontWeight>Bold</FontWeight>
+                      <BorderColor />
+                      <BorderWidth />
+                      <BackgroundColor>#ADD5FC</BackgroundColor>
+                    </Style>
+                    <CanGrow>true</CanGrow>
+                  </Textbox>
+                </ReportItems>
+              </Subtotal>
+            </DynamicRows>
+          </RowGrouping>
+          <RowGrouping>
+            <Width>178.3pt</Width>
+            <DynamicRows>
+              <Grouping Name="DynamicRowsGroup3">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!RazonSocialCuit.Value</GroupExpression>
+                </GroupExpressions>
+                <PageBreakAtStart>false</PageBreakAtStart>
+                <PageBreakAtEnd>false</PageBreakAtEnd>
+              </Grouping>
+              <ReportItems>
+                <Textbox Name="Textbox33">
+                  <Value>=Fields!RazonSocialCuit.Value</Value>
+                  <Style>
+                    <BorderStyle>
+                      <Default>None</Default>
+                      <Left>None</Left>
+                      <Right>None</Right>
+                      <Top>None</Top>
+                      <Bottom>None</Bottom>
+                    </BorderStyle>
+                    <FontSize>8pt</FontSize>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <BorderColor />
+                    <BorderWidth />
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                </Textbox>
+              </ReportItems>
+            </DynamicRows>
+          </RowGrouping>
+          <RowGrouping>
+            <Width>87.4pt</Width>
+            <DynamicRows>
+              <Grouping Name="DynamicRowsGroup4">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Comprobante.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <ReportItems>
+                <Textbox Name="Textbox70">
+                  <Value>=Fields!Comprobante.Value</Value>
+                  <Style>
+                    <BorderStyle>
+                      <Default>None</Default>
+                      <Left>None</Left>
+                      <Right>None</Right>
+                      <Top>None</Top>
+                      <Bottom>None</Bottom>
+                    </BorderStyle>
+                    <FontSize>8pt</FontSize>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <BorderColor />
+                    <BorderWidth />
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                </Textbox>
+              </ReportItems>
+            </DynamicRows>
+          </RowGrouping>
+        </RowGroupings>
+        <MatrixColumns>
+          <MatrixColumn>
+            <Width>63.3pt</Width>
+          </MatrixColumn>
+        </MatrixColumns>
+        <MatrixRows>
+          <MatrixRow>
+            <Height>11.2pt</Height>
+            <MatrixCells>
+              <MatrixCell>
+                <ReportItems>
+                  <Textbox Name="Textbox85">
+                    <Value>=Sum(Fields!Importe.Value)</Value>
+                    <Style>
+                      <BorderStyle>
+                        <Default>None</Default>
+                        <Left>None</Left>
+                        <Right>None</Right>
+                        <Top>None</Top>
+                        <Bottom>None</Bottom>
+                      </BorderStyle>
+                      <FontSize>8pt</FontSize>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <TextAlign>Right</TextAlign>
+                      <Format>#,##0.00</Format>
+                      <BorderColor />
+                      <BorderWidth />
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                    <CanGrow>true</CanGrow>
+                  </Textbox>
+                </ReportItems>
+              </MatrixCell>
+            </MatrixCells>
+          </MatrixRow>
+        </MatrixRows>
+        <Left>10.2pt</Left>
+        <Top>142.8pt</Top>
+        <Visibility>
+          <Hidden>=Parameters!listaret.Value=0</Hidden>
+        </Visibility>
+        <Filters>
+          <Filter>
+            <FilterExpression>=Fields!Codigo.Value</FilterExpression>
+            <Operator>NotEqual</Operator>
+            <FilterValues>
+              <FilterValue>4</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+      </Matrix>
+    </ReportItems>
+    <Columns>1</Columns>
+  </Body>
+  <PageFooter>
+    <Height>14pt</Height>
+    <ReportItems>
+      <Textbox Name="Textbox50">
+        <Top>1pt</Top>
+        <Left>10pt</Left>
+        <Height>12pt</Height>
+        <Width>3in</Width>
+        <Value>=Globals!PageNumber + ' de ' + Globals!TotalPages</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageFooter>
+  <DataElementStyle>AttributeNormal</DataElementStyle>
+  <DataElementName>Report</DataElementName>
+  <DataSources>
+    <DataSource Name="DS1">
+      <ConnectionProperties>
+        <DataProvider>ODBC</DataProvider>
+        <ConnectString>=Parameters!dsn.Value</ConnectString>
+        <IntegratedSecurity>false</IntegratedSecurity>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <ReportParameters >
+    <ReportParameter Name="titulo">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Listado generico</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="cdesde">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="chasta">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>999999</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="fdesde">
+      <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>01/01/2000</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="fhasta">
+      <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>31/12/9999</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="nombre">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="tipo">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>F</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="periodo">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>%</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="listaret">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="filtraGasto">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="codGastoV">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>200</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="dsn">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>driver={Mysql ODBC 5.1 Driver};server=localhost;uid=root;pwd=5826;database=gestion;port=3306;connection=</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="enca1">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="enca2">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="enca3">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="enca4">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+  </ReportParameters>
+</Report>

@@ -1,0 +1,2517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A6E2A16-8F81-420F-92BF-90925632029A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Principal.My.MyApplication</StartupObject>
+    <RootNamespace>Principal</RootNamespace>
+    <AssemblyName>Principal</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Principal.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Principal.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Principal.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Principal.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Principal.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Principal.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iconoo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CapaLogica">
+      <HintPath>..\CapaLogica\bin\Debug\CapaLogica.dll</HintPath>
+    </Reference>
+    <Reference Include="Entidades">
+      <HintPath>..\Entidades\bin\Debug\Entidades.dll</HintPath>
+    </Reference>
+    <Reference Include="GeneradorReportes">
+      <HintPath>..\GeneradorReportes\bin\Debug\GeneradorReportes.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.EpsonFPHostControlX">
+      <HintPath>obj\x86\Debug\Interop.EpsonFPHostControlX.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Reference Assemblies\Microsoft\VBPowerPacks\v10.0\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectListView, Version=2.8.1.27332, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ObjectListView.dll</HintPath>
+    </Reference>
+    <Reference Include="RdlEngine, Version=4.13.6332.20159, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\RdlEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="RdlViewer, Version=4.13.6332.20238, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\RdlViewer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CbteElectronico.vb" />
+    <Compile Include="CtlArticulos.Designer.vb">
+      <DependentUpon>CtlArticulos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CtlArticulos.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlCustomCombo.Designer.vb">
+      <DependentUpon>CtlCustomCombo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CtlCustomCombo.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlDetalleCbteAnterior.Designer.vb">
+      <DependentUpon>CtlDetalleCbteAnterior.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CtlDetalleCbteAnterior.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlDetalleCbte.Designer.vb">
+      <DependentUpon>CtlDetalleCbte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CtlDetalleCbte.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormABMArticulo.Designer.vb">
+      <DependentUpon>FormABMArticulo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMArticulo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMBanco.Designer.vb">
+      <DependentUpon>FormABMBanco.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMBanco.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMCategoria.Designer.vb">
+      <DependentUpon>FormABMCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMCliente.Designer.vb">
+      <DependentUpon>FormABMCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMConceptobancario.Designer.vb">
+      <DependentUpon>FormABMConceptobancario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMConceptobancario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMCuentabancaria.Designer.vb">
+      <DependentUpon>FormABMCuentabancaria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMCuentabancaria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMFormaPago.Designer.vb">
+      <DependentUpon>FormABMFormaPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMFormaPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMLocalidad.Designer.vb">
+      <DependentUpon>FormABMLocalidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMLocalidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMParametro.Designer.vb">
+      <DependentUpon>FormABMParametro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMParametro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMPerfil.designer.vb">
+      <DependentUpon>FormABMPerfil.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMPerfil.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMPersonal.Designer.vb">
+      <DependentUpon>FormABMPersonal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMPersonal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMProveedor.Designer.vb">
+      <DependentUpon>FormABMProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMProvincias.Designer.vb">
+      <DependentUpon>FormABMProvincias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMProvincias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMRubro.Designer.vb">
+      <DependentUpon>FormABMRubro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMRubro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMRubroGcia.Designer.vb">
+      <DependentUpon>FormABMRubroGcia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMRubroGcia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMRubroMaestro.Designer.vb">
+      <DependentUpon>FormABMRubroMaestro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMRubroMaestro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMTransporte.Designer.vb">
+      <DependentUpon>FormABMTransporte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMTransporte.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMVendedor.Designer.vb">
+      <DependentUpon>FormABMVendedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMVendedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMZona.Designer.vb">
+      <DependentUpon>FormABMZona.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMZona.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnulacionDepositoCartera.designer.vb">
+      <DependentUpon>FormAnulacionDepositoCartera.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnulacionDepositoCartera.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnulaMovCtas.Designer.vb">
+      <DependentUpon>FormAnulaMovCtas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnulaMovCtas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAplicacionAnticipos.Designer.vb">
+      <DependentUpon>FormAplicacionAnticipos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAplicacionAnticipos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAplicacionAnticiposProveedores.Designer.vb">
+      <DependentUpon>FormAplicacionAnticiposProveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAplicacionAnticiposProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormArticulo.Designer.vb">
+      <DependentUpon>FormArticulo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormArticulo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormArticuloAnterior.Designer.vb">
+      <DependentUpon>FormArticuloAnterior.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormArticuloAnterior.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAutorizar.Designer.vb">
+      <DependentUpon>FormAutorizar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAutorizar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBanco.Designer.vb">
+      <DependentUpon>FormBanco.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBanco.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBusqueda.Designer.vb">
+      <DependentUpon>FormBusqueda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBusqueda.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCategoria.Designer.vb">
+      <DependentUpon>FormCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCbteCobro.Designer.vb">
+      <DependentUpon>FormCbteCobro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCbteCobro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCbteCompra.Designer.vb">
+      <DependentUpon>FormCbteCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCbteCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCbteOrdenCompra.designer.vb">
+      <DependentUpon>FormCbteOrdenCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCbteOrdenCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCbtePago.Designer.vb">
+      <DependentUpon>FormCbtePago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCbtePago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCbteRemito.designer.vb">
+      <DependentUpon>FormCbteRemito.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCbteRemito.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCbteVentaKiosco.Designer.vb">
+      <DependentUpon>FormCbteVentaKiosco.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCbteVentaKiosco.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCbteVenta.Designer.vb">
+      <DependentUpon>FormCbteVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCbteVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCbteVenta2.designer.vb">
+      <DependentUpon>FormCbteVenta2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCbteVenta2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCbteVentaNF.Designer.vb">
+      <DependentUpon>FormCbteVentaNF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCbteVentaNF.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCDC.Designer.vb">
+      <DependentUpon>FormCDC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCDC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCfgEmpresa.Designer.vb">
+      <DependentUpon>FormCfgEmpresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCfgEmpresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCfgTerminal.Designer.vb">
+      <DependentUpon>FormCfgTerminal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCfgTerminal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClave.Designer.vb">
+      <DependentUpon>FormClave.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormClave.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCliente.Designer.vb">
+      <DependentUpon>FormCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormComision.Designer.vb">
+      <DependentUpon>FormComision.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormComision.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormComisionDetalle.Designer.vb">
+      <DependentUpon>FormComisionDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormComisionDetalle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConCbteVenta2.designer.vb">
+      <DependentUpon>FormConCbteVenta2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormConCbteVenta2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConceptobancario.Designer.vb">
+      <DependentUpon>FormConceptobancario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormConceptobancario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsultaCheque.Designer.vb">
+      <DependentUpon>FormConsultaCheque.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormConsultaCheque.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsultaCompras.Designer.vb">
+      <DependentUpon>FormConsultaCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormConsultaCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsultaComprobantes.Designer.vb">
+      <DependentUpon>FormConsultaComprobantes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormConsultaComprobantes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsultaOrdenCompra.Designer.vb">
+      <DependentUpon>FormConsultaOrdenCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormConsultaOrdenCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCtaCteCliente.Designer.vb">
+      <DependentUpon>FormCtaCteCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCtaCteCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCtaCteProveedor.Designer.vb">
+      <DependentUpon>FormCtaCteProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCtaCteProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCuentabancaria.Designer.vb">
+      <DependentUpon>FormCuentabancaria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCuentabancaria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDepositoCartera.Designer.vb">
+      <DependentUpon>FormDepositoCartera.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDepositoCartera.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDiario.Designer.vb">
+      <DependentUpon>FormDiario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDiario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmail.designer.vb">
+      <DependentUpon>FormEmail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEmail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmisionValesConsumo.Designer.vb">
+      <DependentUpon>FormEmisionValesConsumo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEmisionValesConsumo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFormasdePago.Designer.vb">
+      <DependentUpon>FormFormasdePago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFormasdePago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFpDialog.Designer.vb">
+      <DependentUpon>FormFpDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFpDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfBalanceIngEgr.Designer.vb">
+      <DependentUpon>FormInfBalanceIngEgr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInfBalanceIngEgr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfOrdenCompra.Designer.vb">
+      <DependentUpon>FormInfOrdenCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInfOrdenCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformeCartera.Designer.vb">
+      <DependentUpon>FormInformeCartera.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformeCartera.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformeComprasArtProv.Designer.vb">
+      <DependentUpon>FormInformeComprasArtProv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformeComprasArtProv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformeComprasProveedor.Designer.vb">
+      <DependentUpon>FormInformeComprasProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformeComprasProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformeComprasRubArt.Designer.vb">
+      <DependentUpon>FormInformeComprasRubArt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformeComprasRubArt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformeConsumoArticulo.Designer.vb">
+      <DependentUpon>FormInformeConsumoArticulo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformeConsumoArticulo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformeConsumoRubro.Designer.vb">
+      <DependentUpon>FormInformeConsumoRubro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformeConsumoRubro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformeDiario.Designer.vb">
+      <DependentUpon>FormInformeDiario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformeDiario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformeEdoCta.Designer.vb">
+      <DependentUpon>FormInformeEdoCta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformeEdoCta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformeEgresosPeriodo.Designer.vb">
+      <DependentUpon>FormInformeEgresosPeriodo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformeEgresosPeriodo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformeMailingClientes.Designer.vb">
+      <DependentUpon>FormInformeMailingClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformeMailingClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformeRemitos.Designer.vb">
+      <DependentUpon>FormInformeRemitos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformeRemitos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformeSubdiarioIngresos.Designer.vb">
+      <DependentUpon>FormInformeSubdiarioIngresos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformeSubdiarioIngresos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfSaldoConcepto.Designer.vb">
+      <DependentUpon>FormInfSaldoConcepto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInfSaldoConcepto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInputDialog.Designer.vb">
+      <DependentUpon>FormInputDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInputDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInventario.Designer.vb">
+      <DependentUpon>FormInventario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInventario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListaPrecios.Designer.vb">
+      <DependentUpon>FormListaPrecios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormListaPrecios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListaStock.Designer.vb">
+      <DependentUpon>FormListaStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormListaStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLocalidad.Designer.vb">
+      <DependentUpon>FormLocalidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLocalidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.vb">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMovimiento.Designer.vb">
+      <DependentUpon>FormMovimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormMovimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMovimientoEntreCtas.Designer.vb">
+      <DependentUpon>FormMovimientoEntreCtas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormMovimientoEntreCtas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNumeracion.Designer.vb">
+      <DependentUpon>FormNumeracion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormNumeracion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPagoProveedor.Designer.vb">
+      <DependentUpon>FormPagoProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPagoProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPagoProveedorCtaCte.Designer.vb">
+      <DependentUpon>FormPagoProveedorCtaCte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPagoProveedorCtaCte.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormParametro.Designer.vb">
+      <DependentUpon>FormParametro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormParametro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPerfil.designer.vb">
+      <DependentUpon>FormPerfil.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPerfil.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPeriodoCompras.Designer.vb">
+      <DependentUpon>FormPeriodoCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPeriodoCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonal.Designer.vb">
+      <DependentUpon>FormPersonal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPersonal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrincipal.Designer.vb">
+      <DependentUpon>FormPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrincipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProveedor.Designer.vb">
+      <DependentUpon>FormProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProvincias.Designer.vb">
+      <DependentUpon>FormProvincias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormProvincias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRubro.Designer.vb">
+      <DependentUpon>FormRubro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRubro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRubrogcia.Designer.vb">
+      <DependentUpon>FormRubrogcia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRubrogcia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRubromaestro.Designer.vb">
+      <DependentUpon>FormRubromaestro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRubromaestro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTransportes.Designer.vb">
+      <DependentUpon>FormTransportes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTransportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVendedor.Designer.vb">
+      <DependentUpon>FormVendedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVendedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormZona.Designer.vb">
+      <DependentUpon>FormZona.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormZona.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImpresion.Designer.vb">
+      <DependentUpon>frmImpresion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmImpresion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General.vb" />
+    <Compile Include="Importes.vb" />
+    <Compile Include="lstArticulos.Designer.vb">
+      <DependentUpon>lstArticulos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="lstArticulos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lstLocalidades.Designer.vb">
+      <DependentUpon>lstLocalidades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="lstLocalidades.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lstPrimario.Designer.vb">
+      <DependentUpon>lstPrimario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="lstPrimario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lstRubrosArt.Designer.vb">
+      <DependentUpon>lstRubrosArt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="lstRubrosArt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailSender.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="NamedDescriptionDecoration.vb" />
+    <Compile Include="Web References\wscdc\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsfev1\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CtlArticulos.resx">
+      <DependentUpon>CtlArticulos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlCustomCombo.resx">
+      <DependentUpon>CtlCustomCombo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlDetalleCbteAnterior.resx">
+      <DependentUpon>CtlDetalleCbteAnterior.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlDetalleCbte.resx">
+      <DependentUpon>CtlDetalleCbte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMArticulo.resx">
+      <DependentUpon>FormABMArticulo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMBanco.resx">
+      <DependentUpon>FormABMBanco.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMCategoria.resx">
+      <DependentUpon>FormABMCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMCliente.resx">
+      <DependentUpon>FormABMCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMConceptobancario.resx">
+      <DependentUpon>FormABMConceptobancario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMCuentabancaria.resx">
+      <DependentUpon>FormABMCuentabancaria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMFormaPago.resx">
+      <DependentUpon>FormABMFormaPago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMLocalidad.resx">
+      <DependentUpon>FormABMLocalidad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMParametro.resx">
+      <DependentUpon>FormABMParametro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMPerfil.resx">
+      <DependentUpon>FormABMPerfil.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMPersonal.resx">
+      <DependentUpon>FormABMPersonal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMProveedor.resx">
+      <DependentUpon>FormABMProveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMProvincias.resx">
+      <DependentUpon>FormABMProvincias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMRubro.resx">
+      <DependentUpon>FormABMRubro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMRubroGcia.resx">
+      <DependentUpon>FormABMRubroGcia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMRubroMaestro.resx">
+      <DependentUpon>FormABMRubroMaestro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMTransporte.resx">
+      <DependentUpon>FormABMTransporte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMVendedor.resx">
+      <DependentUpon>FormABMVendedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMZona.resx">
+      <DependentUpon>FormABMZona.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnulacionDepositoCartera.resx">
+      <DependentUpon>FormAnulacionDepositoCartera.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnulaMovCtas.resx">
+      <DependentUpon>FormAnulaMovCtas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAplicacionAnticipos.resx">
+      <DependentUpon>FormAplicacionAnticipos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAplicacionAnticiposProveedores.resx">
+      <DependentUpon>FormAplicacionAnticiposProveedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormArticulo.resx">
+      <DependentUpon>FormArticulo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormArticuloAnterior.resx">
+      <DependentUpon>FormArticuloAnterior.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAutorizar.resx">
+      <DependentUpon>FormAutorizar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBanco.resx">
+      <DependentUpon>FormBanco.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBusqueda.resx">
+      <DependentUpon>FormBusqueda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCategoria.resx">
+      <DependentUpon>FormCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCbteCobro.resx">
+      <DependentUpon>FormCbteCobro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCbteCompra.resx">
+      <DependentUpon>FormCbteCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCbteOrdenCompra.resx">
+      <DependentUpon>FormCbteOrdenCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCbtePago.resx">
+      <DependentUpon>FormCbtePago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCbteRemito.resx">
+      <DependentUpon>FormCbteRemito.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCbteVentaKiosco.resx">
+      <DependentUpon>FormCbteVentaKiosco.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCbteVenta.resx">
+      <DependentUpon>FormCbteVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCbteVenta2.resx">
+      <DependentUpon>FormCbteVenta2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCbteVentaNF.resx">
+      <DependentUpon>FormCbteVentaNF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCDC.resx">
+      <DependentUpon>FormCDC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCfgEmpresa.resx">
+      <DependentUpon>FormCfgEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCfgTerminal.resx">
+      <DependentUpon>FormCfgTerminal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormClave.resx">
+      <DependentUpon>FormClave.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCliente.resx">
+      <DependentUpon>FormCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormComision.resx">
+      <DependentUpon>FormComision.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormComisionDetalle.resx">
+      <DependentUpon>FormComisionDetalle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConCbteVenta2.resx">
+      <DependentUpon>FormConCbteVenta2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConceptobancario.resx">
+      <DependentUpon>FormConceptobancario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConsultaCheque.resx">
+      <DependentUpon>FormConsultaCheque.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConsultaCompras.resx">
+      <DependentUpon>FormConsultaCompras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConsultaComprobantes.resx">
+      <DependentUpon>FormConsultaComprobantes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConsultaOrdenCompra.resx">
+      <DependentUpon>FormConsultaOrdenCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCtaCteCliente.resx">
+      <DependentUpon>FormCtaCteCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCtaCteProveedor.resx">
+      <DependentUpon>FormCtaCteProveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCuentabancaria.resx">
+      <DependentUpon>FormCuentabancaria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDepositoCartera.resx">
+      <DependentUpon>FormDepositoCartera.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDiario.resx">
+      <DependentUpon>FormDiario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEmail.resx">
+      <DependentUpon>FormEmail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEmisionValesConsumo.resx">
+      <DependentUpon>FormEmisionValesConsumo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFormasdePago.resx">
+      <DependentUpon>FormFormasdePago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFpDialog.resx">
+      <DependentUpon>FormFpDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInfBalanceIngEgr.resx">
+      <DependentUpon>FormInfBalanceIngEgr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInfOrdenCompra.resx">
+      <DependentUpon>FormInfOrdenCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformeCartera.resx">
+      <DependentUpon>FormInformeCartera.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformeComprasArtProv.resx">
+      <DependentUpon>FormInformeComprasArtProv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformeComprasProveedor.resx">
+      <DependentUpon>FormInformeComprasProveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformeComprasRubArt.resx">
+      <DependentUpon>FormInformeComprasRubArt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformeConsumoArticulo.resx">
+      <DependentUpon>FormInformeConsumoArticulo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformeConsumoRubro.resx">
+      <DependentUpon>FormInformeConsumoRubro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformeDiario.resx">
+      <DependentUpon>FormInformeDiario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformeEdoCta.resx">
+      <DependentUpon>FormInformeEdoCta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformeEgresosPeriodo.resx">
+      <DependentUpon>FormInformeEgresosPeriodo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformeMailingClientes.resx">
+      <DependentUpon>FormInformeMailingClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformeRemitos.resx">
+      <DependentUpon>FormInformeRemitos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformeSubdiarioIngresos.resx">
+      <DependentUpon>FormInformeSubdiarioIngresos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInfSaldoConcepto.resx">
+      <DependentUpon>FormInfSaldoConcepto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInputDialog.resx">
+      <DependentUpon>FormInputDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInventario.resx">
+      <DependentUpon>FormInventario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListaPrecios.resx">
+      <DependentUpon>FormListaPrecios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListaStock.resx">
+      <DependentUpon>FormListaStock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLocalidad.resx">
+      <DependentUpon>FormLocalidad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMovimiento.resx">
+      <DependentUpon>FormMovimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMovimientoEntreCtas.resx">
+      <DependentUpon>FormMovimientoEntreCtas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNumeracion.resx">
+      <DependentUpon>FormNumeracion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPagoProveedor.resx">
+      <DependentUpon>FormPagoProveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPagoProveedorCtaCte.resx">
+      <DependentUpon>FormPagoProveedorCtaCte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormParametro.resx">
+      <DependentUpon>FormParametro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPerfil.resx">
+      <DependentUpon>FormPerfil.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPeriodoCompras.resx">
+      <DependentUpon>FormPeriodoCompras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPersonal.resx">
+      <DependentUpon>FormPersonal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProveedor.resx">
+      <DependentUpon>FormProveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProvincias.resx">
+      <DependentUpon>FormProvincias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRubro.resx">
+      <DependentUpon>FormRubro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRubrogcia.resx">
+      <DependentUpon>FormRubrogcia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRubromaestro.resx">
+      <DependentUpon>FormRubromaestro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTransportes.resx">
+      <DependentUpon>FormTransportes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVendedor.resx">
+      <DependentUpon>FormVendedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormZona.resx">
+      <DependentUpon>FormZona.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImpresion.resx">
+      <DependentUpon>frmImpresion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lstArticulos.resx">
+      <DependentUpon>lstArticulos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lstLocalidades.resx">
+      <DependentUpon>lstLocalidades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lstPrimario.resx">
+      <DependentUpon>lstPrimario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lstRubrosArt.resx">
+      <DependentUpon>lstRubrosArt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\wscdc\CbteTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wscdc\CmpResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wscdc\DocTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wscdc\DummyResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wscdc\FacModTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wscdc\OpcionalTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wscdc\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\wscdc\service.wsdl" />
+    <None Include="Web References\wsfev1\CbteTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\ConceptoTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\DocTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\DummyResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\FECAEAGetResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\FECAEAResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\FECAEASinMovConsResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\FECAEASinMovResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\FECAEResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\FECompConsultaResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\FECotizacionResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\FEPaisResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\FEPtoVentaResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\FERecuperaLastCbteResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\FERegXReqResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\FETributoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\IvaTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\MonedaResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\OpcionalTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsfev1\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\wsfev1\service.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="iconoo.ico" />
+    <Content Include="Resources\accept.png" />
+    <Content Include="Resources\ActualSizeHS.png" />
+    <Content Include="Resources\add.png" />
+    <Content Include="Resources\AddTableHS.png" />
+    <Content Include="Resources\AddToFavoritesHS.png" />
+    <Content Include="Resources\AlignObjectsBottomHS.png" />
+    <Content Include="Resources\AlignObjectsCenteredHorizontalHS.png" />
+    <Content Include="Resources\AlignObjectsCenteredVerticalHS.png" />
+    <Content Include="Resources\AlignObjectsLeftHS.png" />
+    <Content Include="Resources\AlignObjectsRightHS.png" />
+    <Content Include="Resources\AlignObjectsTopHS.png" />
+    <Content Include="Resources\AlignTableCellMiddleCenterHS.png" />
+    <Content Include="Resources\AlignTableCellMiddleLeftJustHS.PNG" />
+    <Content Include="Resources\AlignTableCellMiddleRightHS.png" />
+    <Content Include="Resources\AlignToGridHS.png" />
+    <Content Include="Resources\anchor.png" />
+    <Content Include="Resources\application.png" />
+    <Content Include="Resources\application_add.png" />
+    <Content Include="Resources\application_cascade.png" />
+    <Content Include="Resources\application_delete.png" />
+    <Content Include="Resources\application_double.png" />
+    <Content Include="Resources\application_edit.png" />
+    <Content Include="Resources\application_error.png" />
+    <Content Include="Resources\application_form.png" />
+    <Content Include="Resources\application_form_add.png" />
+    <Content Include="Resources\application_form_delete.png" />
+    <Content Include="Resources\application_form_edit.png" />
+    <Content Include="Resources\application_form_magnify.png" />
+    <Content Include="Resources\application_get.png" />
+    <Content Include="Resources\application_go.png" />
+    <Content Include="Resources\application_home.png" />
+    <Content Include="Resources\application_key.png" />
+    <Content Include="Resources\application_lightning.png" />
+    <Content Include="Resources\application_link.png" />
+    <Content Include="Resources\application_osx.png" />
+    <Content Include="Resources\application_osx_terminal.png" />
+    <Content Include="Resources\application_put.png" />
+    <Content Include="Resources\application_side_boxes.png" />
+    <Content Include="Resources\application_side_contract.png" />
+    <Content Include="Resources\application_side_expand.png" />
+    <Content Include="Resources\application_side_list.png" />
+    <Content Include="Resources\application_side_tree.png" />
+    <Content Include="Resources\application_split.png" />
+    <Content Include="Resources\application_tile_horizontal.png" />
+    <Content Include="Resources\application_tile_vertical.png" />
+    <Content Include="Resources\application_view_columns.png" />
+    <Content Include="Resources\application_view_detail.png" />
+    <Content Include="Resources\application_view_gallery.png" />
+    <Content Include="Resources\application_view_icons.png" />
+    <Content Include="Resources\application_view_list.png" />
+    <Content Include="Resources\application_view_tile.png" />
+    <Content Include="Resources\application_xp.png" />
+    <Content Include="Resources\application_xp_terminal.png" />
+    <Content Include="Resources\ArrangeSideBySideHS.png" />
+    <Content Include="Resources\ArrangeWindowsHS.png" />
+    <Content Include="Resources\arrow_branch.png" />
+    <Content Include="Resources\arrow_divide.png" />
+    <Content Include="Resources\arrow_down.png" />
+    <Content Include="Resources\arrow_in.png" />
+    <Content Include="Resources\arrow_inout.png" />
+    <Content Include="Resources\arrow_join.png" />
+    <Content Include="Resources\arrow_left.png" />
+    <Content Include="Resources\arrow_merge.png" />
+    <Content Include="Resources\arrow_out.png" />
+    <Content Include="Resources\arrow_redo.png" />
+    <Content Include="Resources\arrow_refresh.png" />
+    <Content Include="Resources\arrow_refresh_small.png" />
+    <Content Include="Resources\arrow_right.png" />
+    <Content Include="Resources\arrow_rotate_anticlockwise.png" />
+    <Content Include="Resources\arrow_rotate_clockwise.png" />
+    <Content Include="Resources\arrow_switch.png" />
+    <Content Include="Resources\arrow_turn_left.png" />
+    <Content Include="Resources\arrow_turn_right.png" />
+    <Content Include="Resources\arrow_undo.png" />
+    <Content Include="Resources\arrow_up.png" />
+    <Content Include="Resources\asterisk_orange.png" />
+    <Content Include="Resources\asterisk_yellow.png" />
+    <Content Include="Resources\attach.png" />
+    <Content Include="Resources\AttachmentHS.png" />
+    <Content Include="Resources\AudioHS.png" />
+    <Content Include="Resources\award_star_add.png" />
+    <Content Include="Resources\award_star_bronze_1.png" />
+    <Content Include="Resources\award_star_bronze_2.png" />
+    <Content Include="Resources\award_star_bronze_3.png" />
+    <Content Include="Resources\award_star_delete.png" />
+    <Content Include="Resources\award_star_gold_1.png" />
+    <Content Include="Resources\award_star_gold_2.png" />
+    <Content Include="Resources\award_star_gold_3.png" />
+    <Content Include="Resources\award_star_silver_1.png" />
+    <Content Include="Resources\award_star_silver_2.png" />
+    <Content Include="Resources\award_star_silver_3.png" />
+    <Content Include="Resources\BackgroundSoundHS.png" />
+    <Content Include="Resources\BarCodeHS.png" />
+    <Content Include="Resources\basket.png" />
+    <Content Include="Resources\basket_add.png" />
+    <Content Include="Resources\basket_delete.png" />
+    <Content Include="Resources\basket_edit.png" />
+    <Content Include="Resources\basket_error.png" />
+    <Content Include="Resources\basket_go.png" />
+    <Content Include="Resources\basket_put.png" />
+    <Content Include="Resources\basket_remove.png" />
+    <Content Include="Resources\BehindTextHS.png" />
+    <Content Include="Resources\bell.png" />
+    <Content Include="Resources\bell_add.png" />
+    <Content Include="Resources\bell_delete.png" />
+    <Content Include="Resources\bell_error.png" />
+    <Content Include="Resources\bell_go.png" />
+    <Content Include="Resources\bell_link.png" />
+    <Content Include="Resources\bin.png" />
+    <Content Include="Resources\bin_closed.png" />
+    <Content Include="Resources\bin_empty.png" />
+    <Content Include="Resources\boldhs.png" />
+    <Content Include="Resources\bomb.png" />
+    <Content Include="Resources\book.png" />
+    <Content Include="Resources\book_add.png" />
+    <Content Include="Resources\book_addresses.png" />
+    <Content Include="Resources\book_addressHS.png" />
+    <Content Include="Resources\Book_angleHS.png" />
+    <Content Include="Resources\book_delete.png" />
+    <Content Include="Resources\book_edit.png" />
+    <Content Include="Resources\book_error.png" />
+    <Content Include="Resources\book_go.png" />
+    <Content Include="Resources\book_key.png" />
+    <Content Include="Resources\book_link.png" />
+    <Content Include="Resources\book_next.png" />
+    <Content Include="Resources\book_open.png" />
+    <Content Include="Resources\Book_openHS.png" />
+    <Content Include="Resources\book_previous.png" />
+    <Content Include="Resources\book_reportHS.png" />
+    <Content Include="Resources\Book_StackOfReportsHS.png" />
+    <Content Include="Resources\box.png" />
+    <Content Include="Resources\BreakpointHS.png" />
+    <Content Include="Resources\brick.png" />
+    <Content Include="Resources\bricks.png" />
+    <Content Include="Resources\brick_add.png" />
+    <Content Include="Resources\brick_delete.png" />
+    <Content Include="Resources\brick_edit.png" />
+    <Content Include="Resources\brick_error.png" />
+    <Content Include="Resources\brick_go.png" />
+    <Content Include="Resources\brick_link.png" />
+    <Content Include="Resources\briefcase.png" />
+    <Content Include="Resources\BringForwardHS.png" />
+    <Content Include="Resources\BringToFrontHS.png" />
+    <Content Include="Resources\bug.png" />
+    <Content Include="Resources\bug_add.png" />
+    <Content Include="Resources\bug_delete.png" />
+    <Content Include="Resources\bug_edit.png" />
+    <Content Include="Resources\bug_error.png" />
+    <Content Include="Resources\bug_go.png" />
+    <Content Include="Resources\bug_link.png" />
+    <Content Include="Resources\building.png" />
+    <Content Include="Resources\building_add.png" />
+    <Content Include="Resources\building_delete.png" />
+    <Content Include="Resources\building_edit.png" />
+    <Content Include="Resources\building_error.png" />
+    <Content Include="Resources\building_go.png" />
+    <Content Include="Resources\building_key.png" />
+    <Content Include="Resources\building_link.png" />
+    <Content Include="Resources\bullet_add.png" />
+    <Content Include="Resources\bullet_arrow_bottom.png" />
+    <Content Include="Resources\bullet_arrow_down.png" />
+    <Content Include="Resources\bullet_arrow_top.png" />
+    <Content Include="Resources\bullet_arrow_up.png" />
+    <Content Include="Resources\bullet_black.png" />
+    <Content Include="Resources\bullet_blue.png" />
+    <Content Include="Resources\bullet_delete.png" />
+    <Content Include="Resources\bullet_disk.png" />
+    <Content Include="Resources\bullet_error.png" />
+    <Content Include="Resources\bullet_feed.png" />
+    <Content Include="Resources\bullet_go.png" />
+    <Content Include="Resources\bullet_green.png" />
+    <Content Include="Resources\bullet_key.png" />
+    <Content Include="Resources\bullet_orange.png" />
+    <Content Include="Resources\bullet_picture.png" />
+    <Content Include="Resources\bullet_pink.png" />
+    <Content Include="Resources\bullet_purple.png" />
+    <Content Include="Resources\bullet_red.png" />
+    <Content Include="Resources\bullet_star.png" />
+    <Content Include="Resources\bullet_toggle_minus.png" />
+    <Content Include="Resources\bullet_toggle_plus.png" />
+    <Content Include="Resources\bullet_white.png" />
+    <Content Include="Resources\bullet_wrench.png" />
+    <Content Include="Resources\bullet_yellow.png" />
+    <Content Include="Resources\cake.png" />
+    <Content Include="Resources\calculator.png" />
+    <Content Include="Resources\CalculatorHS.png" />
+    <Content Include="Resources\calculator_add.png" />
+    <Content Include="Resources\calculator_delete.png" />
+    <Content Include="Resources\calculator_edit.png" />
+    <Content Include="Resources\calculator_error.png" />
+    <Content Include="Resources\calculator_link.png" />
+    <Content Include="Resources\calendar.png" />
+    <Content Include="Resources\calendar_add.png" />
+    <Content Include="Resources\calendar_delete.png" />
+    <Content Include="Resources\calendar_edit.png" />
+    <Content Include="Resources\calendar_link.png" />
+    <Content Include="Resources\Calendar_scheduleHS.png" />
+    <Content Include="Resources\calendar_view_day.png" />
+    <Content Include="Resources\calendar_view_month.png" />
+    <Content Include="Resources\calendar_view_week.png" />
+    <Content Include="Resources\camera.png" />
+    <Content Include="Resources\camera_add.png" />
+    <Content Include="Resources\camera_delete.png" />
+    <Content Include="Resources\camera_edit.png" />
+    <Content Include="Resources\camera_error.png" />
+    <Content Include="Resources\camera_go.png" />
+    <Content Include="Resources\camera_link.png" />
+    <Content Include="Resources\camera_small.png" />
+    <Content Include="Resources\cancel.png" />
+    <Content Include="Resources\CanvasScaleHS.png" />
+    <Content Include="Resources\car.png" />
+    <Content Include="Resources\cart.png" />
+    <Content Include="Resources\cart_add.png" />
+    <Content Include="Resources\cart_delete.png" />
+    <Content Include="Resources\cart_edit.png" />
+    <Content Include="Resources\cart_error.png" />
+    <Content Include="Resources\cart_go.png" />
+    <Content Include="Resources\cart_put.png" />
+    <Content Include="Resources\cart_remove.png" />
+    <Content Include="Resources\car_add.png" />
+    <Content Include="Resources\car_delete.png" />
+    <Content Include="Resources\CascadeWindowsHS.png" />
+    <Content Include="Resources\cd.png" />
+    <Content Include="Resources\cd_add.png" />
+    <Content Include="Resources\cd_burn.png" />
+    <Content Include="Resources\cd_delete.png" />
+    <Content Include="Resources\cd_edit.png" />
+    <Content Include="Resources\cd_eject.png" />
+    <Content Include="Resources\cd_go.png" />
+    <Content Include="Resources\CenterAcrossHS.png" />
+    <Content Include="Resources\chart_bar.png" />
+    <Content Include="Resources\chart_bar_add.png" />
+    <Content Include="Resources\chart_bar_delete.png" />
+    <Content Include="Resources\chart_bar_edit.png" />
+    <Content Include="Resources\chart_bar_error.png" />
+    <Content Include="Resources\chart_bar_link.png" />
+    <Content Include="Resources\chart_curve.png" />
+    <Content Include="Resources\chart_curve_add.png" />
+    <Content Include="Resources\chart_curve_delete.png" />
+    <Content Include="Resources\chart_curve_edit.png" />
+    <Content Include="Resources\chart_curve_error.png" />
+    <Content Include="Resources\chart_curve_go.png" />
+    <Content Include="Resources\chart_curve_link.png" />
+    <Content Include="Resources\chart_line.png" />
+    <Content Include="Resources\chart_line_add.png" />
+    <Content Include="Resources\chart_line_delete.png" />
+    <Content Include="Resources\chart_line_edit.png" />
+    <Content Include="Resources\chart_line_error.png" />
+    <Content Include="Resources\chart_line_link.png" />
+    <Content Include="Resources\chart_organisation.png" />
+    <Content Include="Resources\chart_organisation_add.png" />
+    <Content Include="Resources\chart_organisation_delete.png" />
+    <Content Include="Resources\chart_pie.png" />
+    <Content Include="Resources\chart_pie_add.png" />
+    <Content Include="Resources\chart_pie_delete.png" />
+    <Content Include="Resources\chart_pie_edit.png" />
+    <Content Include="Resources\chart_pie_error.png" />
+    <Content Include="Resources\chart_pie_link.png" />
+    <Content Include="Resources\CheckBoxHS.png" />
+    <Content Include="Resources\CheckGrammarHS.png" />
+    <Content Include="Resources\CheckSpellingHS.png" />
+    <Content Include="Resources\clearFilter.png" />
+    <Content Include="Resources\clock.png" />
+    <Content Include="Resources\clock_add.png" />
+    <Content Include="Resources\clock_delete.png" />
+    <Content Include="Resources\clock_edit.png" />
+    <Content Include="Resources\clock_error.png" />
+    <Content Include="Resources\clock_go.png" />
+    <Content Include="Resources\clock_link.png" />
+    <Content Include="Resources\clock_pause.png" />
+    <Content Include="Resources\clock_play.png" />
+    <Content Include="Resources\clock_red.png" />
+    <Content Include="Resources\clock_stop.png" />
+    <Content Include="Resources\cog.png" />
+    <Content Include="Resources\cog_add.png" />
+    <Content Include="Resources\cog_delete.png" />
+    <Content Include="Resources\cog_edit.png" />
+    <Content Include="Resources\cog_error.png" />
+    <Content Include="Resources\cog_go.png" />
+    <Content Include="Resources\coins.png" />
+    <Content Include="Resources\coins_add.png" />
+    <Content Include="Resources\coins_delete.png" />
+    <Content Include="Resources\ColorHS.png" />
+    <Content Include="Resources\Color_fontHS.png" />
+    <Content Include="Resources\color_swatch.png" />
+    <Content Include="Resources\color_wheel.png" />
+    <Content Include="Resources\comment.png" />
+    <Content Include="Resources\CommentHS.png" />
+    <Content Include="Resources\comments.png" />
+    <Content Include="Resources\comments_add.png" />
+    <Content Include="Resources\comments_delete.png" />
+    <Content Include="Resources\comment_add.png" />
+    <Content Include="Resources\comment_delete.png" />
+    <Content Include="Resources\comment_edit.png" />
+    <Content Include="Resources\compareversionsHS.png" />
+    <Content Include="Resources\compress.png" />
+    <Content Include="Resources\computer.png" />
+    <Content Include="Resources\computer_add.png" />
+    <Content Include="Resources\computer_delete.png" />
+    <Content Include="Resources\computer_edit.png" />
+    <Content Include="Resources\computer_error.png" />
+    <Content Include="Resources\computer_go.png" />
+    <Content Include="Resources\computer_key.png" />
+    <Content Include="Resources\computer_link.png" />
+    <Content Include="Resources\ConflictHS.png" />
+    <Content Include="Resources\connect.png" />
+    <Content Include="Resources\contrast.png" />
+    <Content Include="Resources\contrast_decrease.png" />
+    <Content Include="Resources\contrast_high.png" />
+    <Content Include="Resources\contrast_increase.png" />
+    <Content Include="Resources\contrast_low.png" />
+    <Content Include="Resources\controller.png" />
+    <Content Include="Resources\controller_add.png" />
+    <Content Include="Resources\controller_delete.png" />
+    <Content Include="Resources\controller_error.png" />
+    <Content Include="Resources\control_eject.png" />
+    <Content Include="Resources\control_eject_blue.png" />
+    <Content Include="Resources\control_end.png" />
+    <Content Include="Resources\control_end_blue.png" />
+    <Content Include="Resources\control_equalizer.png" />
+    <Content Include="Resources\control_equalizer_blue.png" />
+    <Content Include="Resources\control_fastforward.png" />
+    <Content Include="Resources\control_fastforward_blue.png" />
+    <Content Include="Resources\control_pause.png" />
+    <Content Include="Resources\control_pause_blue.png" />
+    <Content Include="Resources\control_play.png" />
+    <Content Include="Resources\control_play_blue.png" />
+    <Content Include="Resources\control_repeat.png" />
+    <Content Include="Resources\control_repeat_blue.png" />
+    <Content Include="Resources\control_rewind.png" />
+    <Content Include="Resources\control_rewind_blue.png" />
+    <Content Include="Resources\control_start.png" />
+    <Content Include="Resources\control_start_blue.png" />
+    <Content Include="Resources\control_stop.png" />
+    <Content Include="Resources\control_stop_blue.png" />
+    <Content Include="Resources\CopyFolderHS.png" />
+    <Content Include="Resources\CopyHS.png" />
+    <Content Include="Resources\creditcards.png" />
+    <Content Include="Resources\cross.png" />
+    <Content Include="Resources\css.png" />
+    <Content Include="Resources\css_add.png" />
+    <Content Include="Resources\css_delete.png" />
+    <Content Include="Resources\css_go.png" />
+    <Content Include="Resources\css_valid.png" />
+    <Content Include="Resources\Cubo-Rubik.png" />
+    <Content Include="Resources\cup.png" />
+    <Content Include="Resources\cup_add.png" />
+    <Content Include="Resources\cup_delete.png" />
+    <Content Include="Resources\cup_edit.png" />
+    <Content Include="Resources\cup_error.png" />
+    <Content Include="Resources\cup_go.png" />
+    <Content Include="Resources\cup_key.png" />
+    <Content Include="Resources\cup_link.png" />
+    <Content Include="Resources\cursor.png" />
+    <Content Include="Resources\cut.png" />
+    <Content Include="Resources\CutHS.png" />
+    <Content Include="Resources\cut_red.png" />
+    <Content Include="Resources\database.png" />
+    <Content Include="Resources\database_add.png" />
+    <Content Include="Resources\database_connect.png" />
+    <Content Include="Resources\database_delete.png" />
+    <Content Include="Resources\database_edit.png" />
+    <Content Include="Resources\database_error.png" />
+    <Content Include="Resources\database_gear.png" />
+    <Content Include="Resources\database_go.png" />
+    <Content Include="Resources\database_key.png" />
+    <Content Include="Resources\database_lightning.png" />
+    <Content Include="Resources\database_link.png" />
+    <Content Include="Resources\database_refresh.png" />
+    <Content Include="Resources\database_save.png" />
+    <Content Include="Resources\database_table.png" />
+    <Content Include="Resources\DataContainer_MoveFirstHS.png" />
+    <Content Include="Resources\DataContainer_MoveLastHS.png" />
+    <Content Include="Resources\DataContainer_MoveNextHS.png" />
+    <Content Include="Resources\DataContainer_MovePreviousHS.png" />
+    <Content Include="Resources\DataContainer_NewRecordHS.png" />
+    <Content Include="Resources\date.png" />
+    <Content Include="Resources\date_add.png" />
+    <Content Include="Resources\date_delete.png" />
+    <Content Include="Resources\date_edit.png" />
+    <Content Include="Resources\date_error.png" />
+    <Content Include="Resources\date_go.png" />
+    <Content Include="Resources\date_link.png" />
+    <Content Include="Resources\date_magnify.png" />
+    <Content Include="Resources\date_next.png" />
+    <Content Include="Resources\date_previous.png" />
+    <Content Include="Resources\delete.png" />
+    <Content Include="Resources\DeleteFolderHS.png" />
+    <Content Include="Resources\DeleteHS.png" />
+    <Content Include="Resources\DialHS.png" />
+    <Content Include="Resources\disconnect.png" />
+    <Content Include="Resources\disk.png" />
+    <Content Include="Resources\disk_multiple.png" />
+    <Content Include="Resources\DisplayInColorHS.png" />
+    <Content Include="Resources\DocumentHS.png" />
+    <Content Include="Resources\door.png" />
+    <Content Include="Resources\door_in.png" />
+    <Content Include="Resources\door_open.png" />
+    <Content Include="Resources\door_out.png" />
+    <Content Include="Resources\DoubleLeftArrowHS.png" />
+    <Content Include="Resources\DoubleRightArrowHS.png" />
+    <Content Include="Resources\drink.png" />
+    <Content Include="Resources\drink_empty.png" />
+    <Content Include="Resources\drive.png" />
+    <Content Include="Resources\drive_add.png" />
+    <Content Include="Resources\drive_burn.png" />
+    <Content Include="Resources\drive_cd.png" />
+    <Content Include="Resources\drive_cd_empty.png" />
+    <Content Include="Resources\drive_delete.png" />
+    <Content Include="Resources\drive_disk.png" />
+    <Content Include="Resources\drive_edit.png" />
+    <Content Include="Resources\drive_error.png" />
+    <Content Include="Resources\drive_go.png" />
+    <Content Include="Resources\drive_key.png" />
+    <Content Include="Resources\drive_link.png" />
+    <Content Include="Resources\drive_magnify.png" />
+    <Content Include="Resources\drive_network.png" />
+    <Content Include="Resources\drive_rename.png" />
+    <Content Include="Resources\drive_user.png" />
+    <Content Include="Resources\drive_web.png" />
+    <Content Include="Resources\dvd.png" />
+    <Content Include="Resources\dvd_add.png" />
+    <Content Include="Resources\dvd_delete.png" />
+    <Content Include="Resources\dvd_edit.png" />
+    <Content Include="Resources\dvd_error.png" />
+    <Content Include="Resources\dvd_go.png" />
+    <Content Include="Resources\dvd_key.png" />
+    <Content Include="Resources\dvd_link.png" />
+    <Content Include="Resources\EditBrightContrastHS.png" />
+    <Content Include="Resources\EditCodeHS.png" />
+    <Content Include="Resources\EditInformationHS.png" />
+    <Content Include="Resources\EditTableHS.png" />
+    <Content Include="Resources\Edit_RedoHS.png" />
+    <Content Include="Resources\Edit_UndoHS.png" />
+    <Content Include="Resources\email.png" />
+    <Content Include="Resources\email_add.png" />
+    <Content Include="Resources\email_attach.png" />
+    <Content Include="Resources\email_delete.png" />
+    <Content Include="Resources\email_edit.png" />
+    <Content Include="Resources\email_error.png" />
+    <Content Include="Resources\email_go.png" />
+    <Content Include="Resources\email_link.png" />
+    <Content Include="Resources\email_open.png" />
+    <Content Include="Resources\email_open_image.png" />
+    <Content Include="Resources\emoticon_evilgrin.png" />
+    <Content Include="Resources\emoticon_grin.png" />
+    <Content Include="Resources\emoticon_happy.png" />
+    <Content Include="Resources\emoticon_smile.png" />
+    <Content Include="Resources\emoticon_surprised.png" />
+    <Content Include="Resources\emoticon_tongue.png" />
+    <Content Include="Resources\emoticon_unhappy.png" />
+    <Content Include="Resources\emoticon_waii.png" />
+    <Content Include="Resources\emoticon_wink.png" />
+    <Content Include="Resources\EnvelopeHS.png" />
+    <Content Include="Resources\eps_closedHS.png" />
+    <Content Include="Resources\eps_openHS.png" />
+    <Content Include="Resources\eps_open_largeHS.png" />
+    <Content Include="Resources\error.png" />
+    <Content Include="Resources\error_add.png" />
+    <Content Include="Resources\error_delete.png" />
+    <Content Include="Resources\error_go.png" />
+    <Content Include="Resources\exclamation.png" />
+    <Content Include="Resources\ExpandSpaceHS.png" />
+    <Content Include="Resources\ExpirationHS.png" />
+    <Content Include="Resources\eye.png" />
+    <Content Include="Resources\FaxHS.png" />
+    <Content Include="Resources\feed.png" />
+    <Content Include="Resources\feed_add.png" />
+    <Content Include="Resources\feed_delete.png" />
+    <Content Include="Resources\feed_disk.png" />
+    <Content Include="Resources\feed_edit.png" />
+    <Content Include="Resources\feed_error.png" />
+    <Content Include="Resources\feed_go.png" />
+    <Content Include="Resources\feed_key.png" />
+    <Content Include="Resources\feed_link.png" />
+    <Content Include="Resources\feed_magnify.png" />
+    <Content Include="Resources\female.png" />
+    <Content Include="Resources\FillDownHS.png" />
+    <Content Include="Resources\FillLeftHS.png" />
+    <Content Include="Resources\FillRightHS.png" />
+    <Content Include="Resources\FillUpHS.png" />
+    <Content Include="Resources\film.png" />
+    <Content Include="Resources\film_add.png" />
+    <Content Include="Resources\film_delete.png" />
+    <Content Include="Resources\film_edit.png" />
+    <Content Include="Resources\film_error.png" />
+    <Content Include="Resources\film_go.png" />
+    <Content Include="Resources\film_key.png" />
+    <Content Include="Resources\film_link.png" />
+    <Content Include="Resources\film_save.png" />
+    <Content Include="Resources\filter.png" />
+    <Content Include="Resources\Filter2HS.png" />
+    <Content Include="Resources\find.png" />
+    <Content Include="Resources\FindHS.png" />
+    <Content Include="Resources\FindNextHS.png" />
+    <Content Include="Resources\flag_blue.png" />
+    <Content Include="Resources\Flag_blueHS.png" />
+    <Content Include="Resources\flag_green.png" />
+    <Content Include="Resources\Flag_greenHS.png" />
+    <Content Include="Resources\flag_orange.png" />
+    <Content Include="Resources\flag_pink.png" />
+    <Content Include="Resources\flag_purple.png" />
+    <Content Include="Resources\flag_red.png" />
+    <Content Include="Resources\Flag_redHS.png" />
+    <Content Include="Resources\flag_yellow.png" />
+    <Content Include="Resources\FlipHorizontalHS.png" />
+    <Content Include="Resources\FlipVerticalHS.png" />
+    <Content Include="Resources\folder.png" />
+    <Content Include="Resources\folder_add.png" />
+    <Content Include="Resources\folder_bell.png" />
+    <Content Include="Resources\folder_brick.png" />
+    <Content Include="Resources\folder_bug.png" />
+    <Content Include="Resources\folder_camera.png" />
+    <Content Include="Resources\folder_database.png" />
+    <Content Include="Resources\folder_delete.png" />
+    <Content Include="Resources\folder_edit.png" />
+    <Content Include="Resources\folder_error.png" />
+    <Content Include="Resources\folder_explore.png" />
+    <Content Include="Resources\folder_feed.png" />
+    <Content Include="Resources\folder_find.png" />
+    <Content Include="Resources\folder_go.png" />
+    <Content Include="Resources\folder_heart.png" />
+    <Content Include="Resources\folder_image.png" />
+    <Content Include="Resources\folder_key.png" />
+    <Content Include="Resources\folder_lightbulb.png" />
+    <Content Include="Resources\folder_link.png" />
+    <Content Include="Resources\folder_magnify.png" />
+    <Content Include="Resources\folder_page.png" />
+    <Content Include="Resources\folder_page_white.png" />
+    <Content Include="Resources\folder_palette.png" />
+    <Content Include="Resources\folder_picture.png" />
+    <Content Include="Resources\folder_star.png" />
+    <Content Include="Resources\folder_table.png" />
+    <Content Include="Resources\folder_user.png" />
+    <Content Include="Resources\folder_wrench.png" />
+    <Content Include="Resources\font.png" />
+    <Content Include="Resources\FontDialogHS.png" />
+    <Content Include="Resources\FontHS.png" />
+    <Content Include="Resources\font_add.png" />
+    <Content Include="Resources\font_delete.png" />
+    <Content Include="Resources\font_go.png" />
+    <Content Include="Resources\FormRunHS.png" />
+    <Content Include="Resources\FormulaEvaluatorHS.png" />
+    <Content Include="Resources\FullScreenHS.png" />
+    <Content Include="Resources\FunctionHS.png" />
+    <Content Include="Resources\GoLtrHS.png" />
+    <Content Include="Resources\GoRtlHS.png" />
+    <Content Include="Resources\GoToNextHS.png" />
+    <Content Include="Resources\GoToParentFolderHS.png" />
+    <Content Include="Resources\GoToPrevious.png" />
+    <Content Include="Resources\GoToPreviousMessage.png" />
+    <Content Include="Resources\GotoShortcutsHS.png" />
+    <Content Include="Resources\graphhs.png" />
+    <Content Include="Resources\group.png" />
+    <Content Include="Resources\group_add.png" />
+    <Content Include="Resources\group_delete.png" />
+    <Content Include="Resources\group_edit.png" />
+    <Content Include="Resources\group_error.png" />
+    <Content Include="Resources\group_gear.png" />
+    <Content Include="Resources\group_go.png" />
+    <Content Include="Resources\group_key.png" />
+    <Content Include="Resources\group_link.png" />
+    <Content Include="Resources\heart.png" />
+    <Content Include="Resources\heart_add.png" />
+    <Content Include="Resources\heart_delete.png" />
+    <Content Include="Resources\Help.png" />
+    <Content Include="Resources\help1.png" />
+    <Content Include="Resources\HighlightHS.png" />
+    <Content Include="Resources\HomeHS.png" />
+    <Content Include="Resources\hourglass.png" />
+    <Content Include="Resources\hourglass_add.png" />
+    <Content Include="Resources\hourglass_delete.png" />
+    <Content Include="Resources\hourglass_go.png" />
+    <Content Include="Resources\hourglass_link.png" />
+    <Content Include="Resources\house.png" />
+    <Content Include="Resources\house_go.png" />
+    <Content Include="Resources\house_link.png" />
+    <Content Include="Resources\html.png" />
+    <Content Include="Resources\HtmlBalanceBracesHS.png" />
+    <Content Include="Resources\HTMLPageHS.png" />
+    <Content Include="Resources\HTMLPasswordHS.png" />
+    <Content Include="Resources\HTMLSubmitHS.png" />
+    <Content Include="Resources\html_add.png" />
+    <Content Include="Resources\html_delete.png" />
+    <Content Include="Resources\html_go.png" />
+    <Content Include="Resources\html_valid.png" />
+    <Content Include="Resources\image.png" />
+    <Content Include="Resources\images.png" />
+    <Content Include="Resources\image_add.png" />
+    <Content Include="Resources\image_delete.png" />
+    <Content Include="Resources\image_edit.png" />
+    <Content Include="Resources\image_link.png" />
+    <Content Include="Resources\ImportXMLHS.png" />
+    <Content Include="Resources\IndentHS.png" />
+    <Content Include="Resources\information.png" />
+    <Content Include="Resources\InsertHyperlinkHS.png" />
+    <Content Include="Resources\InsertPictureHS.png" />
+    <Content Include="Resources\InsertTabControlHS.png" />
+    <Content Include="Resources\ipod.png" />
+    <Content Include="Resources\ipod_cast.png" />
+    <Content Include="Resources\ipod_cast_add.png" />
+    <Content Include="Resources\ipod_cast_delete.png" />
+    <Content Include="Resources\ipod_sound.png" />
+    <Content Include="Resources\ItalicHS.png" />
+    <Content Include="Resources\joystick.png" />
+    <Content Include="Resources\joystick_add.png" />
+    <Content Include="Resources\joystick_delete.png" />
+    <Content Include="Resources\joystick_error.png" />
+    <Content Include="Resources\key.png" />
+    <Content Include="Resources\keyboard.png" />
+    <Content Include="Resources\keyboard_add.png" />
+    <Content Include="Resources\keyboard_delete.png" />
+    <Content Include="Resources\keyboard_magnify.png" />
+    <Content Include="Resources\key_add.png" />
+    <Content Include="Resources\key_delete.png" />
+    <Content Include="Resources\key_go.png" />
+    <Content Include="Resources\layers.png" />
+    <Content Include="Resources\layout.png" />
+    <Content Include="Resources\layout_add.png" />
+    <Content Include="Resources\layout_content.png" />
+    <Content Include="Resources\layout_delete.png" />
+    <Content Include="Resources\layout_edit.png" />
+    <Content Include="Resources\layout_error.png" />
+    <Content Include="Resources\layout_header.png" />
+    <Content Include="Resources\layout_link.png" />
+    <Content Include="Resources\layout_sidebar.png" />
+    <Content Include="Resources\LegendHS.png" />
+    <Content Include="Resources\lightbulb.png" />
+    <Content Include="Resources\lightbulb_add.png" />
+    <Content Include="Resources\lightbulb_delete.png" />
+    <Content Include="Resources\lightbulb_off.png" />
+    <Content Include="Resources\lightning.png" />
+    <Content Include="Resources\lightning_add.png" />
+    <Content Include="Resources\lightning_delete.png" />
+    <Content Include="Resources\lightning_go.png" />
+    <Content Include="Resources\LineColorHS.png" />
+    <Content Include="Resources\link.png" />
+    <Content Include="Resources\link_add.png" />
+    <Content Include="Resources\link_break.png" />
+    <Content Include="Resources\link_delete.png" />
+    <Content Include="Resources\link_edit.png" />
+    <Content Include="Resources\link_error.png" />
+    <Content Include="Resources\link_go.png" />
+    <Content Include="Resources\List_BulletsHS.png" />
+    <Content Include="Resources\List_NumberedHS.png" />
+    <Content Include="Resources\List_NumberedRTLHS.png" />
+    <Content Include="Resources\List_NumberedTBHS.png" />
+    <Content Include="Resources\List_NumberedVertTHS.png" />
+    <Content Include="Resources\lock.png" />
+    <Content Include="Resources\lock_add.png" />
+    <Content Include="Resources\lock_break.png" />
+    <Content Include="Resources\lock_delete.png" />
+    <Content Include="Resources\lock_edit.png" />
+    <Content Include="Resources\lock_go.png" />
+    <Content Include="Resources\lock_open.png" />
+    <Content Include="Resources\logo.jpg" />
+    <Content Include="Resources\LOGO.png" />
+    <Content Include="Resources\logo1.jpg" />
+    <Content Include="Resources\lorry.png" />
+    <Content Include="Resources\lorry_add.png" />
+    <Content Include="Resources\lorry_delete.png" />
+    <Content Include="Resources\lorry_error.png" />
+    <Content Include="Resources\lorry_flatbed.png" />
+    <Content Include="Resources\lorry_go.png" />
+    <Content Include="Resources\lorry_link.png" />
+    <Content Include="Resources\magifier_zoom_out.png" />
+    <Content Include="Resources\magnifier.png" />
+    <Content Include="Resources\magnifier_zoom_in.png" />
+    <Content Include="Resources\male.png" />
+    <Content Include="Resources\map.png" />
+    <Content Include="Resources\map_add.png" />
+    <Content Include="Resources\map_delete.png" />
+    <Content Include="Resources\map_edit.png" />
+    <Content Include="Resources\map_go.png" />
+    <Content Include="Resources\map_magnify.png" />
+    <Content Include="Resources\medal_bronze_1.png" />
+    <Content Include="Resources\medal_bronze_2.png" />
+    <Content Include="Resources\medal_bronze_3.png" />
+    <Content Include="Resources\medal_bronze_add.png" />
+    <Content Include="Resources\medal_bronze_delete.png" />
+    <Content Include="Resources\medal_gold_1.png" />
+    <Content Include="Resources\medal_gold_2.png" />
+    <Content Include="Resources\medal_gold_3.png" />
+    <Content Include="Resources\medal_gold_add.png" />
+    <Content Include="Resources\medal_gold_delete.png" />
+    <Content Include="Resources\medal_silver_1.png" />
+    <Content Include="Resources\medal_silver_2.png" />
+    <Content Include="Resources\medal_silver_3.png" />
+    <Content Include="Resources\medal_silver_add.png" />
+    <Content Include="Resources\medal_silver_delete.png" />
+    <Content Include="Resources\money.png" />
+    <Content Include="Resources\money_add.png" />
+    <Content Include="Resources\money_delete.png" />
+    <Content Include="Resources\money_dollar.png" />
+    <Content Include="Resources\money_euro.png" />
+    <Content Include="Resources\money_pound.png" />
+    <Content Include="Resources\money_yen.png" />
+    <Content Include="Resources\monitor.png" />
+    <Content Include="Resources\monitor_add.png" />
+    <Content Include="Resources\monitor_delete.png" />
+    <Content Include="Resources\monitor_edit.png" />
+    <Content Include="Resources\monitor_error.png" />
+    <Content Include="Resources\monitor_go.png" />
+    <Content Include="Resources\monitor_lightning.png" />
+    <Content Include="Resources\monitor_link.png" />
+    <Content Include="Resources\MonthlyViewHS.png" />
+    <Content Include="Resources\mouse.png" />
+    <Content Include="Resources\mouse_add.png" />
+    <Content Include="Resources\mouse_delete.png" />
+    <Content Include="Resources\mouse_error.png" />
+    <Content Include="Resources\MoveFolderHS.png" />
+    <Content Include="Resources\MoveToFolderHS.png" />
+    <Content Include="Resources\MultiplePagesHS.png" />
+    <Content Include="Resources\music.png" />
+    <Content Include="Resources\NavBack.png" />
+    <Content Include="Resources\NavForward.png" />
+    <Content Include="Resources\new.png" />
+    <Content Include="Resources\NewCardHS.png" />
+    <Content Include="Resources\NewDocumentHS.png" />
+    <Content Include="Resources\NewFolderHS.png" />
+    <Content Include="Resources\NewMessageHS.png" />
+    <Content Include="Resources\NewReportHS.png" />
+    <Content Include="Resources\newspaper.png" />
+    <Content Include="Resources\newspaper_add.png" />
+    <Content Include="Resources\newspaper_delete.png" />
+    <Content Include="Resources\newspaper_go.png" />
+    <Content Include="Resources\newspaper_link.png" />
+    <Content Include="Resources\NextPageHS.png" />
+    <Content Include="Resources\note.png" />
+    <Content Include="Resources\NoteHS.png" />
+    <Content Include="Resources\note_add.png" />
+    <Content Include="Resources\note_delete.png" />
+    <Content Include="Resources\note_edit.png" />
+    <Content Include="Resources\note_error.png" />
+    <Content Include="Resources\note_go.png" />
+    <Content Include="Resources\openfolderHS.png" />
+    <Content Include="Resources\openHS.png" />
+    <Content Include="Resources\OpenSelectedItemHS.png" />
+    <Content Include="Resources\OptionsHS.png" />
+    <Content Include="Resources\OrganizerHS.png" />
+    <Content Include="Resources\OrgChartHS.png" />
+    <Content Include="Resources\OutdentHS.png" />
+    <Content Include="Resources\overlays.png" />
+    <Content Include="Resources\package.png" />
+    <Content Include="Resources\package_add.png" />
+    <Content Include="Resources\package_delete.png" />
+    <Content Include="Resources\package_go.png" />
+    <Content Include="Resources\package_green.png" />
+    <Content Include="Resources\package_link.png" />
+    <Content Include="Resources\page.png" />
+    <Content Include="Resources\pageNumberHS.png" />
+    <Content Include="Resources\PageUpHS.png" />
+    <Content Include="Resources\PageWidthHS.png" />
+    <Content Include="Resources\page_add.png" />
+    <Content Include="Resources\page_attach.png" />
+    <Content Include="Resources\page_code.png" />
+    <Content Include="Resources\page_copy.png" />
+    <Content Include="Resources\page_delete.png" />
+    <Content Include="Resources\page_edit.png" />
+    <Content Include="Resources\page_error.png" />
+    <Content Include="Resources\page_excel.png" />
+    <Content Include="Resources\page_find.png" />
+    <Content Include="Resources\page_gear.png" />
+    <Content Include="Resources\page_go.png" />
+    <Content Include="Resources\page_green.png" />
+    <Content Include="Resources\page_key.png" />
+    <Content Include="Resources\page_lightning.png" />
+    <Content Include="Resources\page_link.png" />
+    <Content Include="Resources\page_paintbrush.png" />
+    <Content Include="Resources\page_paste.png" />
+    <Content Include="Resources\page_red.png" />
+    <Content Include="Resources\page_refresh.png" />
+    <Content Include="Resources\page_save.png" />
+    <Content Include="Resources\page_white.png" />
+    <Content Include="Resources\page_white_acrobat.png" />
+    <Content Include="Resources\page_white_actionscript.png" />
+    <Content Include="Resources\page_white_add.png" />
+    <Content Include="Resources\page_white_c.png" />
+    <Content Include="Resources\page_white_camera.png" />
+    <Content Include="Resources\page_white_cd.png" />
+    <Content Include="Resources\page_white_code.png" />
+    <Content Include="Resources\page_white_code_red.png" />
+    <Content Include="Resources\page_white_coldfusion.png" />
+    <Content Include="Resources\page_white_compressed.png" />
+    <Content Include="Resources\page_white_copy.png" />
+    <Content Include="Resources\page_white_cplusplus.png" />
+    <Content Include="Resources\page_white_csharp.png" />
+    <Content Include="Resources\page_white_cup.png" />
+    <Content Include="Resources\page_white_database.png" />
+    <Content Include="Resources\page_white_delete.png" />
+    <Content Include="Resources\page_white_dvd.png" />
+    <Content Include="Resources\page_white_edit.png" />
+    <Content Include="Resources\page_white_error.png" />
+    <Content Include="Resources\page_white_excel.png" />
+    <Content Include="Resources\page_white_find.png" />
+    <Content Include="Resources\page_white_flash.png" />
+    <Content Include="Resources\page_white_freehand.png" />
+    <Content Include="Resources\page_white_gear.png" />
+    <Content Include="Resources\page_white_get.png" />
+    <Content Include="Resources\page_white_go.png" />
+    <Content Include="Resources\page_white_h.png" />
+    <Content Include="Resources\page_white_horizontal.png" />
+    <Content Include="Resources\page_white_key.png" />
+    <Content Include="Resources\page_white_lightning.png" />
+    <Content Include="Resources\page_white_link.png" />
+    <Content Include="Resources\page_white_magnify.png" />
+    <Content Include="Resources\page_white_medal.png" />
+    <Content Include="Resources\page_white_office.png" />
+    <Content Include="Resources\page_white_paint.png" />
+    <Content Include="Resources\page_white_paintbrush.png" />
+    <Content Include="Resources\page_white_paste.png" />
+    <Content Include="Resources\page_white_php.png" />
+    <Content Include="Resources\page_white_picture.png" />
+    <Content Include="Resources\page_white_powerpoint.png" />
+    <Content Include="Resources\page_white_put.png" />
+    <Content Include="Resources\page_white_ruby.png" />
+    <Content Include="Resources\page_white_stack.png" />
+    <Content Include="Resources\page_white_star.png" />
+    <Content Include="Resources\page_white_swoosh.png" />
+    <Content Include="Resources\page_white_text.png" />
+    <Content Include="Resources\page_white_text_width.png" />
+    <Content Include="Resources\page_white_tux.png" />
+    <Content Include="Resources\page_white_vector.png" />
+    <Content Include="Resources\page_white_visualstudio.png" />
+    <Content Include="Resources\page_white_width.png" />
+    <Content Include="Resources\page_white_word.png" />
+    <Content Include="Resources\page_white_world.png" />
+    <Content Include="Resources\page_white_wrench.png" />
+    <Content Include="Resources\page_white_zip.png" />
+    <Content Include="Resources\page_word.png" />
+    <Content Include="Resources\page_world.png" />
+    <Content Include="Resources\paintbrush.png" />
+    <Content Include="Resources\paintcan.png" />
+    <Content Include="Resources\palette.png" />
+    <Content Include="Resources\PasteHS.png" />
+    <Content Include="Resources\paste_plain.png" />
+    <Content Include="Resources\paste_word.png" />
+    <Content Include="Resources\PauseHS.png" />
+    <Content Include="Resources\PauseRecorderHS.png" />
+    <Content Include="Resources\pencil.png" />
+    <Content Include="Resources\pencil_add.png" />
+    <Content Include="Resources\pencil_delete.png" />
+    <Content Include="Resources\pencil_go.png" />
+    <Content Include="Resources\phone.png" />
+    <Content Include="Resources\phone_add.png" />
+    <Content Include="Resources\phone_delete.png" />
+    <Content Include="Resources\phone_sound.png" />
+    <Content Include="Resources\photo.png" />
+    <Content Include="Resources\photos.png" />
+    <Content Include="Resources\photo_add.png" />
+    <Content Include="Resources\photo_delete.png" />
+    <Content Include="Resources\photo_link.png" />
+    <Content Include="Resources\picture.png" />
+    <Content Include="Resources\pictures.png" />
+    <Content Include="Resources\picture_add.png" />
+    <Content Include="Resources\picture_delete.png" />
+    <Content Include="Resources\picture_edit.png" />
+    <Content Include="Resources\picture_empty.png" />
+    <Content Include="Resources\picture_error.png" />
+    <Content Include="Resources\picture_go.png" />
+    <Content Include="Resources\picture_key.png" />
+    <Content Include="Resources\picture_link.png" />
+    <Content Include="Resources\picture_save.png" />
+    <Content Include="Resources\PieChart3DHS.png" />
+    <Content Include="Resources\PieChartHS.png" />
+    <Content Include="Resources\pilcrow.png" />
+    <Content Include="Resources\pill.png" />
+    <Content Include="Resources\pill_add.png" />
+    <Content Include="Resources\pill_delete.png" />
+    <Content Include="Resources\pill_go.png" />
+    <Content Include="Resources\PlayHS.png" />
+    <Content Include="Resources\plugin.png" />
+    <Content Include="Resources\plugin_add.png" />
+    <Content Include="Resources\plugin_delete.png" />
+    <Content Include="Resources\plugin_disabled.png" />
+    <Content Include="Resources\plugin_edit.png" />
+    <Content Include="Resources\plugin_error.png" />
+    <Content Include="Resources\plugin_go.png" />
+    <Content Include="Resources\plugin_link.png" />
+    <Content Include="Resources\PointerHS.png" />
+    <Content Include="Resources\PortraitHS.png" />
+    <Content Include="Resources\PortraitLandscapeHS.png" />
+    <Content Include="Resources\PreviousPageHS.png" />
+    <Content Include="Resources\PrimaryKeyHS.png" />
+    <Content Include="Resources\printer.png" />
+    <Content Include="Resources\printer_add.png" />
+    <Content Include="Resources\printer_delete.png" />
+    <Content Include="Resources\printer_empty.png" />
+    <Content Include="Resources\printer_error.png" />
+    <Content Include="Resources\PrintHS.png" />
+    <Content Include="Resources\PrintPreviewHS.png" />
+    <Content Include="Resources\PrintSetupHS.png" />
+    <Content Include="Resources\progress_bar.gif" />
+    <Content Include="Resources\PropertiesHS.png" />
+    <Content Include="Resources\ProtectFormHS.png" />
+    <Content Include="Resources\ProtectSubdocumentHS.png" />
+    <Content Include="Resources\PublishPlanHS.png" />
+    <Content Include="Resources\PublishToWebHS.png" />
+    <Content Include="Resources\PushpinHS.png" />
+    <Content Include="Resources\RadialChartHS.png" />
+    <Content Include="Resources\rainbow.png" />
+    <Content Include="Resources\RecolorPictureHS.png" />
+    <Content Include="Resources\RecordHS.png" />
+    <Content Include="Resources\RefreshDocViewHS.png" />
+    <Content Include="Resources\RelationshipsHS.png" />
+    <Content Include="Resources\RenameFolderHS.png" />
+    <Content Include="Resources\RepeatHS.png" />
+    <Content Include="Resources\report.png" />
+    <Content Include="Resources\report_add.png" />
+    <Content Include="Resources\report_delete.png" />
+    <Content Include="Resources\report_disk.png" />
+    <Content Include="Resources\report_edit.png" />
+    <Content Include="Resources\report_go.png" />
+    <Content Include="Resources\report_key.png" />
+    <Content Include="Resources\report_link.png" />
+    <Content Include="Resources\report_magnify.png" />
+    <Content Include="Resources\report_picture.png" />
+    <Content Include="Resources\report_user.png" />
+    <Content Include="Resources\report_word.png" />
+    <Content Include="Resources\ResizeHS.png" />
+    <Content Include="Resources\RestartHS.png" />
+    <Content Include="Resources\resultset_first.png" />
+    <Content Include="Resources\resultset_last.png" />
+    <Content Include="Resources\resultset_next.png" />
+    <Content Include="Resources\resultset_previous.png" />
+    <Content Include="Resources\RightArrow2HS.png" />
+    <Content Include="Resources\RightArrowHS.png" />
+    <Content Include="Resources\RightsRestrictedHS.png" />
+    <Content Include="Resources\RightToLeftDoucmentHS.png" />
+    <Content Include="Resources\rosette.png" />
+    <Content Include="Resources\RoutingSlipHS.png" />
+    <Content Include="Resources\rss.png" />
+    <Content Include="Resources\rss_add.png" />
+    <Content Include="Resources\rss_delete.png" />
+    <Content Include="Resources\rss_go.png" />
+    <Content Include="Resources\rss_valid.png" />
+    <Content Include="Resources\ruby.png" />
+    <Content Include="Resources\ruby_add.png" />
+    <Content Include="Resources\ruby_delete.png" />
+    <Content Include="Resources\ruby_gear.png" />
+    <Content Include="Resources\ruby_get.png" />
+    <Content Include="Resources\ruby_go.png" />
+    <Content Include="Resources\ruby_key.png" />
+    <Content Include="Resources\ruby_link.png" />
+    <Content Include="Resources\ruby_put.png" />
+    <Content Include="Resources\RulerHS.png" />
+    <Content Include="Resources\SaveAllHS.png" />
+    <Content Include="Resources\SaveAsWebPageHS.png" />
+    <Content Include="Resources\SaveFormDesignHS.png" />
+    <Content Include="Resources\saveHS.png" />
+    <Content Include="Resources\script.png" />
+    <Content Include="Resources\script_add.png" />
+    <Content Include="Resources\script_code.png" />
+    <Content Include="Resources\script_code_red.png" />
+    <Content Include="Resources\script_delete.png" />
+    <Content Include="Resources\script_edit.png" />
+    <Content Include="Resources\script_error.png" />
+    <Content Include="Resources\script_gear.png" />
+    <Content Include="Resources\script_go.png" />
+    <Content Include="Resources\script_key.png" />
+    <Content Include="Resources\script_lightning.png" />
+    <Content Include="Resources\script_link.png" />
+    <Content Include="Resources\script_palette.png" />
+    <Content Include="Resources\script_save.png" />
+    <Content Include="Resources\SearchFolderHS.png" />
+    <Content Include="Resources\SearchWebHS.png" />
+    <Content Include="Resources\SendBackwardHS.png" />
+    <Content Include="Resources\SendToBackHS.png" />
+    <Content Include="Resources\server.png" />
+    <Content Include="Resources\server_add.png" />
+    <Content Include="Resources\server_chart.png" />
+    <Content Include="Resources\server_compressed.png" />
+    <Content Include="Resources\server_connect.png" />
+    <Content Include="Resources\server_database.png" />
+    <Content Include="Resources\server_delete.png" />
+    <Content Include="Resources\server_edit.png" />
+    <Content Include="Resources\server_error.png" />
+    <Content Include="Resources\server_go.png" />
+    <Content Include="Resources\server_key.png" />
+    <Content Include="Resources\server_lightning.png" />
+    <Content Include="Resources\server_link.png" />
+    <Content Include="Resources\server_uncompressed.png" />
+    <Content Include="Resources\shading.png" />
+    <Content Include="Resources\shape_align_bottom.png" />
+    <Content Include="Resources\shape_align_center.png" />
+    <Content Include="Resources\shape_align_left.png" />
+    <Content Include="Resources\shape_align_middle.png" />
+    <Content Include="Resources\shape_align_right.png" />
+    <Content Include="Resources\shape_align_top.png" />
+    <Content Include="Resources\shape_flip_horizontal.png" />
+    <Content Include="Resources\shape_flip_vertical.png" />
+    <Content Include="Resources\shape_group.png" />
+    <Content Include="Resources\shape_handles.png" />
+    <Content Include="Resources\shape_move_back.png" />
+    <Content Include="Resources\shape_move_backwards.png" />
+    <Content Include="Resources\shape_move_forwards.png" />
+    <Content Include="Resources\shape_move_front.png" />
+    <Content Include="Resources\shape_rotate_anticlockwise.png" />
+    <Content Include="Resources\shape_rotate_clockwise.png" />
+    <Content Include="Resources\shape_square.png" />
+    <Content Include="Resources\shape_square_add.png" />
+    <Content Include="Resources\shape_square_delete.png" />
+    <Content Include="Resources\shape_square_edit.png" />
+    <Content Include="Resources\shape_square_error.png" />
+    <Content Include="Resources\shape_square_go.png" />
+    <Content Include="Resources\shape_square_key.png" />
+    <Content Include="Resources\shape_square_link.png" />
+    <Content Include="Resources\shape_ungroup.png" />
+    <Content Include="Resources\shield.png" />
+    <Content Include="Resources\shield_add.png" />
+    <Content Include="Resources\shield_delete.png" />
+    <Content Include="Resources\shield_go.png" />
+    <Content Include="Resources\ShowAllCommentsHS.png" />
+    <Content Include="Resources\ShowGridlines2HS.png" />
+    <Content Include="Resources\ShowGridlinesHS.png" />
+    <Content Include="Resources\ShowRulelinesHS.png" />
+    <Content Include="Resources\ShowRulerHS.png" />
+    <Content Include="Resources\sitemap.png" />
+    <Content Include="Resources\sitemap_color.png" />
+    <Content Include="Resources\SortHS.png" />
+    <Content Include="Resources\SortUpHS.png" />
+    <Content Include="Resources\sound.png" />
+    <Content Include="Resources\sound_add.png" />
+    <Content Include="Resources\sound_delete.png" />
+    <Content Include="Resources\sound_low.png" />
+    <Content Include="Resources\sound_mute.png" />
+    <Content Include="Resources\sound_none.png" />
+    <Content Include="Resources\SpeechMicHS.png" />
+    <Content Include="Resources\spellcheck.png" />
+    <Content Include="Resources\SplitSubdocumentHS.png" />
+    <Content Include="Resources\sport_8ball.png" />
+    <Content Include="Resources\sport_basketball.png" />
+    <Content Include="Resources\sport_football.png" />
+    <Content Include="Resources\sport_golf.png" />
+    <Content Include="Resources\sport_raquet.png" />
+    <Content Include="Resources\sport_shuttlecock.png" />
+    <Content Include="Resources\sport_soccer.png" />
+    <Content Include="Resources\sport_tennis.png" />
+    <Content Include="Resources\star.png" />
+    <Content Include="Resources\status_away.png" />
+    <Content Include="Resources\status_busy.png" />
+    <Content Include="Resources\status_offline.png" />
+    <Content Include="Resources\status_online.png" />
+    <Content Include="Resources\stop.png" />
+    <Content Include="Resources\StopHS.png" />
+    <Content Include="Resources\style.png" />
+    <Content Include="Resources\style_add.png" />
+    <Content Include="Resources\style_delete.png" />
+    <Content Include="Resources\style_edit.png" />
+    <Content Include="Resources\style_go.png" />
+    <Content Include="Resources\sum.png" />
+    <Content Include="Resources\SychronizeListHS.png" />
+    <Content Include="Resources\SymbolHS.png" />
+    <Content Include="Resources\tab.png" />
+    <Content Include="Resources\table.png" />
+    <Content Include="Resources\TableHS.png" />
+    <Content Include="Resources\table_add.png" />
+    <Content Include="Resources\table_delete.png" />
+    <Content Include="Resources\table_edit.png" />
+    <Content Include="Resources\table_error.png" />
+    <Content Include="Resources\table_gear.png" />
+    <Content Include="Resources\table_go.png" />
+    <Content Include="Resources\table_key.png" />
+    <Content Include="Resources\table_lightning.png" />
+    <Content Include="Resources\table_link.png" />
+    <Content Include="Resources\table_multiple.png" />
+    <Content Include="Resources\table_refresh.png" />
+    <Content Include="Resources\table_relationship.png" />
+    <Content Include="Resources\table_row_delete.png" />
+    <Content Include="Resources\table_row_insert.png" />
+    <Content Include="Resources\table_save.png" />
+    <Content Include="Resources\table_sort.png" />
+    <Content Include="Resources\tab_add.png" />
+    <Content Include="Resources\tab_delete.png" />
+    <Content Include="Resources\tab_edit.png" />
+    <Content Include="Resources\tab_go.png" />
+    <Content Include="Resources\tag.png" />
+    <Content Include="Resources\tag_blue.png" />
+    <Content Include="Resources\tag_blue_add.png" />
+    <Content Include="Resources\tag_blue_delete.png" />
+    <Content Include="Resources\tag_blue_edit.png" />
+    <Content Include="Resources\tag_green.png" />
+    <Content Include="Resources\tag_orange.png" />
+    <Content Include="Resources\tag_pink.png" />
+    <Content Include="Resources\tag_purple.png" />
+    <Content Include="Resources\tag_red.png" />
+    <Content Include="Resources\tag_yellow.png" />
+    <Content Include="Resources\TaskHS.png" />
+    <Content Include="Resources\telephone.png" />
+    <Content Include="Resources\telephone_add.png" />
+    <Content Include="Resources\telephone_delete.png" />
+    <Content Include="Resources\telephone_edit.png" />
+    <Content Include="Resources\telephone_error.png" />
+    <Content Include="Resources\telephone_go.png" />
+    <Content Include="Resources\telephone_key.png" />
+    <Content Include="Resources\telephone_link.png" />
+    <Content Include="Resources\television.png" />
+    <Content Include="Resources\television_add.png" />
+    <Content Include="Resources\television_delete.png" />
+    <Content Include="Resources\TextboxHS.png" />
+    <Content Include="Resources\textfield.png" />
+    <Content Include="Resources\textfield_add.png" />
+    <Content Include="Resources\textfield_delete.png" />
+    <Content Include="Resources\textfield_key.png" />
+    <Content Include="Resources\textfield_rename.png" />
+    <Content Include="Resources\text_align_center.png" />
+    <Content Include="Resources\text_align_justify.png" />
+    <Content Include="Resources\text_align_left.png" />
+    <Content Include="Resources\text_align_right.png" />
+    <Content Include="Resources\text_allcaps.png" />
+    <Content Include="Resources\text_bold.png" />
+    <Content Include="Resources\text_columns.png" />
+    <Content Include="Resources\text_dropcaps.png" />
+    <Content Include="Resources\text_heading_1.png" />
+    <Content Include="Resources\text_heading_2.png" />
+    <Content Include="Resources\text_heading_3.png" />
+    <Content Include="Resources\text_heading_4.png" />
+    <Content Include="Resources\text_heading_5.png" />
+    <Content Include="Resources\text_heading_6.png" />
+    <Content Include="Resources\text_horizontalrule.png" />
+    <Content Include="Resources\text_indent.png" />
+    <Content Include="Resources\text_indent_remove.png" />
+    <Content Include="Resources\text_italic.png" />
+    <Content Include="Resources\text_kerning.png" />
+    <Content Include="Resources\text_letterspacing.png" />
+    <Content Include="Resources\text_letter_omega.png" />
+    <Content Include="Resources\text_linespacing.png" />
+    <Content Include="Resources\text_list_bullets.png" />
+    <Content Include="Resources\text_list_numbers.png" />
+    <Content Include="Resources\text_lowercase.png" />
+    <Content Include="Resources\text_padding_bottom.png" />
+    <Content Include="Resources\text_padding_left.png" />
+    <Content Include="Resources\text_padding_right.png" />
+    <Content Include="Resources\text_padding_top.png" />
+    <Content Include="Resources\text_replace.png" />
+    <Content Include="Resources\text_signature.png" />
+    <Content Include="Resources\text_smallcaps.png" />
+    <Content Include="Resources\text_strikethrough.png" />
+    <Content Include="Resources\text_subscript.png" />
+    <Content Include="Resources\text_superscript.png" />
+    <Content Include="Resources\text_underline.png" />
+    <Content Include="Resources\text_uppercase.png" />
+    <Content Include="Resources\ThumbnailLoadingHS.png" />
+    <Content Include="Resources\ThumbnailView.png" />
+    <Content Include="Resources\thumb_down.png" />
+    <Content Include="Resources\thumb_up.png" />
+    <Content Include="Resources\tick.png" />
+    <Content Include="Resources\TileWindowsHorizontallyHS.png" />
+    <Content Include="Resources\time.png" />
+    <Content Include="Resources\timeline_marker.png" />
+    <Content Include="Resources\time_add.png" />
+    <Content Include="Resources\time_delete.png" />
+    <Content Include="Resources\time_go.png" />
+    <Content Include="Resources\transmit.png" />
+    <Content Include="Resources\transmit_add.png" />
+    <Content Include="Resources\transmit_blue.png" />
+    <Content Include="Resources\transmit_delete.png" />
+    <Content Include="Resources\transmit_edit.png" />
+    <Content Include="Resources\transmit_error.png" />
+    <Content Include="Resources\transmit_go.png" />
+    <Content Include="Resources\tux.png" />
+    <Content Include="Resources\user.png" />
+    <Content Include="Resources\user_add.png" />
+    <Content Include="Resources\user_comment.png" />
+    <Content Include="Resources\user_delete.png" />
+    <Content Include="Resources\user_edit.png" />
+    <Content Include="Resources\user_female.png" />
+    <Content Include="Resources\user_go.png" />
+    <Content Include="Resources\user_gray.png" />
+    <Content Include="Resources\user_green.png" />
+    <Content Include="Resources\user_orange.png" />
+    <Content Include="Resources\user_red.png" />
+    <Content Include="Resources\user_suit.png" />
+    <Content Include="Resources\vcard.png" />
+    <Content Include="Resources\vcard_add.png" />
+    <Content Include="Resources\vcard_delete.png" />
+    <Content Include="Resources\vcard_edit.png" />
+    <Content Include="Resources\vector.png" />
+    <Content Include="Resources\vector_add.png" />
+    <Content Include="Resources\vector_delete.png" />
+    <Content Include="Resources\ViewThumbnailsHS.png" />
+    <None Include="Web References\wscdc\service.disco" />
+    <None Include="Resources\ZoomHS.png" />
+    <None Include="Resources\zoom_out.png" />
+    <None Include="Resources\zoom_in.png" />
+    <None Include="Resources\zoom.png" />
+    <None Include="Resources\XMLFileHS.png" />
+    <None Include="Resources\xhtml_valid.png" />
+    <None Include="Resources\xhtml_go.png" />
+    <None Include="Resources\xhtml_delete.png" />
+    <None Include="Resources\xhtml_add.png" />
+    <None Include="Resources\xhtml.png" />
+    <None Include="Resources\wrench_orange.png" />
+    <None Include="Resources\wrench.png" />
+    <None Include="Resources\world_link.png" />
+    <None Include="Resources\world_go.png" />
+    <None Include="Resources\world_edit.png" />
+    <None Include="Resources\world_delete.png" />
+    <None Include="Resources\world_add.png" />
+    <None Include="Resources\world.png" />
+    <None Include="Resources\WindowsHS.png" />
+    <None Include="Resources\WebInsertHyperlinkHS.png" />
+    <None Include="Resources\webcam_error.png" />
+    <None Include="Resources\webcam_delete.png" />
+    <None Include="Resources\webcam_add.png" />
+    <None Include="Resources\webcam.png" />
+    <None Include="Resources\Web.png" />
+    <None Include="Resources\weather_sun.png" />
+    <None Include="Resources\weather_snow.png" />
+    <None Include="Resources\weather_rain.png" />
+    <None Include="Resources\weather_lightning.png" />
+    <None Include="Resources\weather_cloudy.png" />
+    <None Include="Resources\weather_clouds.png" />
+    <None Include="Resources\WarningHS.png" />
+    <None Include="Resources\wand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AFIPWsaa\AFIPWsaa.vbproj">
+      <Project>{1E5D7192-86A5-487F-8200-911FC8C5C9D4}</Project>
+      <Name>AFIPWsaa</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://wswhomo.afip.gov.ar/WSCDC/service.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wscdc\</RelPath>
+      <UpdateFromURL>https://wswhomo.afip.gov.ar/WSCDC/service.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Principal_wscdc_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://wswhomo.afip.gov.ar/wsfev1/service.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsfev1\</RelPath>
+      <UpdateFromURL>https://wswhomo.afip.gov.ar/wsfev1/service.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Principal_wsfev1_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,190 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Entidades
+</name>
+</assembly>
+<members>
+<member name="T:Entidades.My.Resources.Resources">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:Entidades.My.Resources.Resources.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:Entidades.My.Resources.Resources.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:Entidades.Articulo.Preciodeventa">
+ <summary>
+ Básico para Lista 1
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:Entidades.Articulo.Preciodeventa2">
+ <summary>
+ Básico para Lista 2
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:Entidades.Articulo.Preciodeventa3">
+ <summary>
+ Básico para Lista 3
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:Entidades.CbteArticulo.Comision">
+ <summary>
+ Comisión del vendedor
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:Entidades.CbteArticulo.Comision2">
+ <summary>
+ Comisión del supervisor
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:Entidades.CbteArticulo.Comision3">
+ <summary>
+ Comisión del acompañante
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:Entidades.CbteArticulo.ImporteFinal">
+ <summary>
+ Importe menos los descuentos
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:Entidades.CbteArticulo.ImporteDescuento">
+ <summary>
+ Importe de los descuentos
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="F:Entidades.CbteArticulo._importeBruto">
+ <summary>
+ Incluye alicuotas e impuesto interno, sin descuento
+ </summary>
+</member>
+<member name="P:Entidades.CbteArticulo.Subtotal">
+ <summary>
+ Propiedad que devuelve el subtotal neto gravado
+ </summary>
+ <value>Double</value>
+ <returns>Subtotal neto gravado</returns>
+ <remarks></remarks>
+</member>
+<member name="P:Entidades.CbteArticulo2.ImporteFinal">
+ <summary>
+ Importe menos los descuentos
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="F:Entidades.CbteArticulo2._importeBruto">
+ <summary>
+ Incluye alicuotas e impuesto interno, sin descuento
+ </summary>
+</member>
+<member name="P:Entidades.CbteArticulo2.Subtotal">
+ <summary>
+ Propiedad que devuelve el subtotal neto gravado
+ </summary>
+ <value>Double</value>
+ <returns>Subtotal neto gravado</returns>
+ <remarks></remarks>
+</member>
+<member name="M:Entidades.CbteCabecera.GetDigitoVerificador(System.String)">
+ <summary>
+ Function para el calculo del dígito verificador
+ </summary>
+ <param name="codigo"></param>
+ <returns>Dígito verificador calculado</returns>
+ <remarks></remarks>
+</member>
+<member name="M:Entidades.CbteCabecera.SaldoEstadoCuenta">
+ <summary>
+ Retorna el saldo de la cuenta corriente
+ </summary>
+ <returns>Saldo final de la cuenta corriente</returns>
+ <remarks></remarks>
+</member>
+<member name="P:Entidades.CbteCabecera.SaldoAsociado">
+ <summary>
+ Retorna el saldo del comprobante segun aplicaciones en ctacte
+ </summary>
+ <returns>Saldo final de la cuenta corriente</returns>
+ <remarks></remarks>
+</member>
+<member name="M:Entidades.CbteCabecera2.GetDigitoVerificador(System.String)">
+ <summary>
+ Function para el calculo del dígito verificador
+ </summary>
+ <param name="codigo"></param>
+ <returns>Dígito verificador calculado</returns>
+ <remarks></remarks>
+</member>
+<member name="M:Entidades.CbteCabecera2.SaldoEstadoCuenta">
+ <summary>
+ Retorna el saldo de la cuenta corriente
+ </summary>
+ <returns>Saldo final de la cuenta corriente</returns>
+ <remarks></remarks>
+</member>
+<member name="P:Entidades.CbteCabecera2.SaldoAsociado">
+ <summary>
+ Retorna el saldo del comprobante segun aplicaciones en ctacte
+ </summary>
+ <returns>Saldo final de la cuenta corriente</returns>
+ <remarks></remarks>
+</member>
+<member name="M:Entidades.CpraCabecera.GetDigitoVerificador(System.String)">
+ <summary>
+ Function para el calculo del dígito verificador
+ </summary>
+ <param name="codigo"></param>
+ <returns>Dígito verificador calculado</returns>
+ <remarks></remarks>
+</member>
+<member name="M:Entidades.CpraCabecera.SaldoEstadoCuenta">
+ <summary>
+ Retorna el saldo de la cuenta corriente
+ </summary>
+ <returns>Saldo final de la cuenta corriente</returns>
+ <remarks></remarks>
+</member>
+<member name="P:Entidades.CpraCabecera.SaldoAsociado">
+ <summary>
+ Retorna el saldo del comprobante segun aplicaciones en ctacte
+ </summary>
+ <returns>Saldo final de la cuenta corriente</returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

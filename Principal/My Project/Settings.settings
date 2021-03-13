@@ -1,0 +1,153 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="BackgroundColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="BackgroundImage" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CodigoSucursal" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="RutaReportes" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\reportes</Value>
+    </Setting>
+    <Setting Name="ProvinciaDefault" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Santa Fe</Value>
+    </Setting>
+    <Setting Name="DocumentoDefault" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">96</Value>
+    </Setting>
+    <Setting Name="ResponsabilidadDefault" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="GestionComercial_wsfev1_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://wswhomo.afip.gov.ar/wsfev1/service.asmx</Value>
+    </Setting>
+    <Setting Name="UrlWsaa" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://wsaahomo.afip.gov.ar/ws/services/LoginCms</Value>
+    </Setting>
+    <Setting Name="UrlWsfe" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://wswhomo.afip.gov.ar/wsfev1/service.asmx</Value>
+    </Setting>
+    <Setting Name="WsaaIdServicio" Type="System.String" Scope="User">
+      <Value Profile="(Default)">wsfe</Value>
+    </Setting>
+    <Setting Name="WsaaProxy" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WsaaProxyPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WsaaProxyUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WsaaCertificado" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\electronica\cert.p12</Value>
+    </Setting>
+    <Setting Name="WsaaCertificadoPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">13181372</Value>
+    </Setting>
+    <Setting Name="WsaaRutaTicket" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\electronica</Value>
+    </Setting>
+    <Setting Name="WsfeRutaSalidas" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\electronica</Value>
+    </Setting>
+    <Setting Name="CtaBancariaPredeterminada" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CAJA</Value>
+    </Setting>
+    <Setting Name="CptoBancarioEgresoPredeterminado" Type="System.String" Scope="User">
+      <Value Profile="(Default)">002</Value>
+    </Setting>
+    <Setting Name="CptoBancarioIngresoPredeterminado" Type="System.String" Scope="User">
+      <Value Profile="(Default)">001</Value>
+    </Setting>
+    <Setting Name="PuertoCommFiscal" Type="EpsonFPHostControlX.TxCommPort" Scope="User">
+      <Value Profile="(Default)">Com1</Value>
+    </Setting>
+    <Setting Name="CodigoConsFinal" Type="System.UInt64" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="PuntoVtaMayorista" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="PuntoVtaMinorista" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="GestionComercial_wscdc_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://wswhomo.afip.gov.ar/WSCDC/service.asmx</Value>
+    </Setting>
+    <Setting Name="UrlWscdc" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://wswhomo.afip.gov.ar/WSCDC/service.asmx</Value>
+    </Setting>
+    <Setting Name="WscdcIdServicio" Type="System.String" Scope="User">
+      <Value Profile="(Default)">wscdc</Value>
+    </Setting>
+    <Setting Name="LocalidadDefault" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">16197</Value>
+    </Setting>
+    <Setting Name="MaximoItemsMayorista" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="MaximoItemsFiscal" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="MaximoItemsCompra" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="PuntoVtaManual" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="PuntoVtaRto" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="CbteDefaultA_Fiscal" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="CbteDefaultB_Fiscal" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="IdProvinciaDefault" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">13</Value>
+    </Setting>
+    <Setting Name="PuntoVtaAjustesProv" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="MailFrom" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MailSubject" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MailMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SmtpHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SmtpPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SmtpUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SmtpPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SmtpUseSSL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Principal_wscdc_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://wswhomo.afip.gov.ar/WSCDC/service.asmx</Value>
+    </Setting>
+    <Setting Name="Principal_wsfev1_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://wswhomo.afip.gov.ar/wsfev1/service.asmx</Value>
+    </Setting>
+    <Setting Name="PuntoVtaPresupuesto" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description>
+  </Description>
+  <Author>
+  </Author>
+  <PageHeight>11in</PageHeight>
+  <PageWidth>8.5in</PageWidth>
+  <Width>7.5in</Width>
+  <TopMargin>.25in</TopMargin>
+  <LeftMargin>.25in</LeftMargin>
+  <RightMargin>.25in</RightMargin>
+  <BottomMargin>.25in</BottomMargin>
+  <DataSets>
+    <DataSet Name="Data">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT r.`codigo` rubro,r.`nombre` rubronombre,
+a.`codigo` articulo,a.`nombre` articulonombre,
+ROUND(IFNULL(SUM(IF(f.`Cantidad`&gt;0,f.`Cantidad`,0)),0),2) ingresos,
+ROUND(IFNULL(SUM(IF(f.`Cantidad`&lt;0,f.`Cantidad`,0)),0),2) egresos,
+ROUND(IFNULL(SUM(f.`Cantidad`),0),2) existencia,a.puntominimo,a.preciodeventa pcior,a.preciodeventa2 pciok,a.preciodeventa3 pciom,a.preciodecosto costo
+FROM articulos a LEFT JOIN rubro r ON a.`codrubro` = r.`codigo`
+LEFT JOIN fichastock f ON a.`codigo` = f.`Articulo`
+WHERE
+CASE @trubro
+    WHEN '0' THEN r.`codigo` LIKE '%%'
+	WHEN '1' THEN r.`codigo`=@codRubro
+END AND
+CASE @tarticulo
+    WHEN '0' THEN a.`codigo` LIKE '%%'
+	WHEN '1' THEN a.`codigo`=@codArticulo
+END
+AND IFNULL(f.`Fecha`,'20000101') &lt;= @fhasta
+AND r.nombre like @rubro
+AND a.nombre like @articulo
+GROUP BY r.`codigo`,a.`codigo`
+ORDER BY r.`nombre`,a.`nombre`</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@rubro">
+            <Value>=Parameters!rubro</Value>
+          </QueryParameter>
+          <QueryParameter Name="@articulo">
+            <Value>=Parameters!articulo</Value>
+          </QueryParameter>
+          <QueryParameter Name="@trubro">
+            <Value>=Parameters!trubro</Value>
+          </QueryParameter>
+          <QueryParameter Name="@tarticulo">
+            <Value>=Parameters!tarticulo</Value>
+          </QueryParameter>
+          <QueryParameter Name="@fhasta">
+            <Value>=Format(Parameters!fhasta,'yyyyMMdd')</Value>
+          </QueryParameter>
+          <QueryParameter Name="@acodRubro">
+            <Value>=Parameters!codRubro</Value>
+          </QueryParameter>
+          <QueryParameter Name="@codArticulo">
+            <Value>=Parameters!codArticulo</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="rubro">
+          <DataField>rubro</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="rubronombre">
+          <DataField>rubronombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="articulo">
+          <DataField>articulo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="articulonombre">
+          <DataField>articulonombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ingresos">
+          <DataField>ingresos</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="egresos">
+          <DataField>egresos</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="existencia">
+          <DataField>existencia</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="puntominimo">
+          <DataField>puntominimo</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="pcior">
+          <DataField>pcior</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="pciok">
+          <DataField>pciok</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="pciom">
+          <DataField>pciom</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="costo">
+          <DataField>costo</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <PageHeader>
+    <Height>60.8pt</Height>
+    <ReportItems>
+      <Textbox Name="Textbox1">
+        <Top>38.1pt</Top>
+        <Left>10.9pt</Left>
+        <Width>433.62pt</Width>
+        <Height>18.07pt</Height>
+        <Value>='Listado de Existencias de Artículos al ' &amp; Format(Parameters!fhasta.Value,'dd/MM/yyyy')</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Arial</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox5">
+        <Height>13.50pt</Height>
+        <Width>149.16pt</Width>
+        <Value>='Emisión ' &amp; Format(Globals!ExecutionTime,'dd/MM/yyyy HH:mm:ss')</Value>
+        <Left>388.40pt</Left>
+        <Top>9.3pt</Top>
+        <CanGrow>true</CanGrow>
+        <Style>
+          <TextAlign>Right</TextAlign>
+          <FontSize>8pt</FontSize>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox20" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>22.2pt</Top>
+        <Left>388.4pt</Left>
+        <Height>13.50pt</Height>
+        <Width>149.16pt</Width>
+        <Value>='Pág. ' &amp; Globals!PageNumber + ' de ' + Globals!TotalPages</Value>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageHeader>
+  <Body>
+    <Height>60.0pt</Height>
+    <ReportItems>
+      <Table Name="Table1">
+        <DataSetName>Data</DataSetName>
+        <NoRows>Query returned no rows!</NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>53.5pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>253.3pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>70.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>82.8pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>68.4pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox2">
+                      <Value>Código</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <FontSize>9pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox4">
+                      <Value>Artículo</Value>
+                      <Style>
+                        <TextAlign>Left</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <FontSize>9pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox12">
+                      <Value>Existencia</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <FontSize>9pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox3">
+                      <Value>Punto Mín.</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <FontSize>9pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox7">
+                      <Value>Diferencia</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <FontSize>9pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox13">
+                      <Value>=Fields!articulo.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <TextAlign>Right</TextAlign>
+                        <FontSize>9pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox15">
+                      <Value>=Fields!articulonombre.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <TextAlign>Left</TextAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox23">
+                      <Value>=Fields!existencia.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>
+                        </Format>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox6">
+                      <Value>=Fields!puntominimo.Value</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>
+                        </Format>
+                        <FontSize>9pt</FontSize>
+                        <TextAlign>Right</TextAlign>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox8">
+                      <Value>=Fields!existencia.Value-Fields!puntominimo.Value</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>
+                        </Format>
+                        <FontSize>9pt</FontSize>
+                        <TextAlign>Right</TextAlign>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <Color>=IIF((Fields!existencia.Value-Fields!puntominimo.Value) &gt;0,green,red)</Color>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Left>18.6pt</Left>
+        <Top>0.0pt</Top>
+        <TableGroups>
+          <TableGroup>
+            <Grouping Name="Rubro">
+              <Label>=Fields!rubronombre.Value</Label>
+              <PageBreakAtStart>false</PageBreakAtStart>
+              <PageBreakAtEnd>false</PageBreakAtEnd>
+              <GroupExpressions>
+                <GroupExpression>=Fields!rubro.Value</GroupExpression>
+              </GroupExpressions>
+            </Grouping>
+            <Header>
+              <RepeatOnNewPage>false</RepeatOnNewPage>
+              <TableRows>
+                <TableRow>
+                  <Height>.2in</Height>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox30">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <BackgroundColor>#DFEFFF</BackgroundColor>
+                            <FontWeight>Bold</FontWeight>
+                            <FontSize>9pt</FontSize>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <Value>='Rubro: (' &amp; Fields!rubro.Value &amp; ') ' &amp; Fields!rubronombre.Value</Value>
+                          <CanShrink>true</CanShrink>
+                        </Textbox>
+                      </ReportItems>
+                      <ColSpan>5</ColSpan>
+                    </TableCell>
+                  </TableCells>
+                </TableRow>
+              </TableRows>
+            </Header>
+            <Footer>
+              <RepeatOnNewPage>false</RepeatOnNewPage>
+              <TableRows>
+                <TableRow>
+                  <Height>.2in</Height>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox11">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontWeight>Bold</FontWeight>
+                            <FontSize>9pt</FontSize>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <Value>
+                          </Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox14">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontWeight>Bold</FontWeight>
+                            <FontSize>9pt</FontSize>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <Value>
+                          </Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox16">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontWeight>Bold</FontWeight>
+                            <FontSize>9pt</FontSize>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <TextAlign>Right</TextAlign>
+                            <Format>#,##0.00</Format>
+                          </Style>
+                          <Value>=sum(Fields!existencia.Value)</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox17">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontWeight>Bold</FontWeight>
+                            <FontSize>9pt</FontSize>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <Value>
+                          </Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox18">
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>None</Top>
+                              <Bottom>None</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontWeight>Bold</FontWeight>
+                            <FontSize>9pt</FontSize>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                          <Value>
+                          </Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                </TableRow>
+              </TableRows>
+            </Footer>
+          </TableGroup>
+        </TableGroups>
+      </Table>
+    </ReportItems>
+    <Columns>1</Columns>
+  </Body>
+  <PageFooter>
+    <Height>14pt</Height>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <ReportItems>
+      <Textbox Name="Textbox21" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>1pt</Top>
+        <Left>388pt</Left>
+        <Height>13.50pt</Height>
+        <Width>149.16pt</Width>
+        <Value>='Pág. ' &amp; Globals!PageNumber + ' de ' + Globals!TotalPages</Value>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+    </ReportItems>
+  </PageFooter>
+  <DataElementStyle>AttributeNormal</DataElementStyle>
+  <DataElementName>Report</DataElementName>
+  <ReportParameters>
+    <ReportParameter Name="rubro">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>%%</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>Rubro:</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="articulo">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>%%</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>Artículo:</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="trubro">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="tarticulo">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="fhasta">
+      <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>31/12/9999</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="tipo">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>T</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="codRubro">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="codArticulo">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="encabezado1">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Golosinas Azcuenagas</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="encabezado2">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="encabezado3">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="encabezado4">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="dsn">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>driver={Mysql ODBC 5.1 Driver};server=localhost;uid=root;pwd=5826;database=gestion;port=3306;connection=</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <DataSources>
+    <DataSource Name="DS1">
+      <ConnectionProperties>
+        <DataProvider>ODBC</DataProvider>
+        <ConnectString>={?dsn}</ConnectString>
+        <IntegratedSecurity>false</IntegratedSecurity>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+</Report>

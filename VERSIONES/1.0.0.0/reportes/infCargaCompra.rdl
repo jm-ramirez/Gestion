@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description>
+  </Description>
+  <Author>
+  </Author>
+  <PageHeight>11in</PageHeight>
+  <PageWidth>8.5in</PageWidth>
+  <Width>7.5in</Width>
+  <TopMargin>.25in</TopMargin>
+  <LeftMargin>.25in</LeftMargin>
+  <RightMargin>.25in</RightMargin>
+  <BottomMargin>.25in</BottomMargin>
+  <DataSets>
+    <DataSet Name="Data">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT a.`codigo`,a.nombre,u.simbolo,md.`kgsxunidad`,md.`cantidad`,md.`precio`,
+(md.`cantidad`*md.`precio`) as Total
+FROM ordencompracab mc
+LEFT JOIN ordencompradet md ON mc.id=md.`idordencompra`
+LEFT JOIN articulos a ON md.`articulo`=a.codigo
+LEFT JOIN unidad u ON a.`codunidad`=u.codigo
+WHERE mc.id=@cbteId</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@cbteId">
+            <Value>=Parameters!cbteId</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="codigo">
+          <DataField>codigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="nombre">
+          <DataField>nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="simbolo">
+          <DataField>simbolo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="kgsxunidad">
+          <DataField>kgsxunidad</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="cantidad">
+          <DataField>cantidad</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="precio">
+          <DataField>precio</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Total">
+          <DataField>Total</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <PageHeader>
+    <Height>127.2pt</Height>
+    <ReportItems>
+      <Textbox Name="Textbox6" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>12.50pt</Top>
+        <Left>8.80pt</Left>
+        <Width>326.18pt</Width>
+        <Height>14.34pt</Height>
+        <Value>=Parameters!enca1.Value</Value>
+        <Style>
+          <FontSize>11pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox7" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>26.9pt</Top>
+        <Left>9.3pt</Left>
+        <Width>326.18pt</Width>
+        <Height>12.09pt</Height>
+        <Value>=Parameters!enca2.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox8" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>39.0pt</Top>
+        <Left>8.9pt</Left>
+        <Width>326.18pt</Width>
+        <Height>12.09pt</Height>
+        <Value>=Parameters!enca3.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox9" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>51.30pt</Top>
+        <Left>9.00pt</Left>
+        <Width>326.18pt</Width>
+        <Height>12.09pt</Height>
+        <Value>=Parameters!enca4.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Line Name="Line1" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>0.01pt</Height>
+        <Width>570.60pt</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Left>0.00pt</Left>
+        <Top>72.00pt</Top>
+      </Line>
+      <Textbox Name="Textbox1" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>44.52pt</Width>
+        <Value>Señor/es:</Value>
+        <Left>10.1pt</Left>
+        <Top>76.6pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox4" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>474.26pt</Width>
+        <Value>=Parameters!clienteNombre.Value</Value>
+        <Left>56.0pt</Left>
+        <Top>76.5pt</Top>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox5" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>242.98pt</Width>
+        <Value>=Parameters!clienteDomicilio.Value</Value>
+        <Left>54.0pt</Left>
+        <Top>90.4pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Normal</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+        <CanGrow>false</CanGrow>
+      </Textbox>
+      <Textbox Name="Textbox10" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>45.27pt</Width>
+        <Value>Domicilio:</Value>
+        <Left>9.1pt</Left>
+        <Top>90.7pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>46.02pt</Width>
+        <Value>Localidad:</Value>
+        <Left>9.3pt</Left>
+        <Top>104.8pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox12" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>242.23pt</Width>
+        <Value>=Parameters!clienteCodpostal.Value &amp; ' - ' &amp; Parameters!clienteLocalidad.Value</Value>
+        <Left>55.0pt</Left>
+        <Top>104.5pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Normal</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+        <CanGrow>false</CanGrow>
+      </Textbox>
+      <Textbox Name="Textbox13" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>43.02pt</Width>
+        <Value>Teléfono:</Value>
+        <Left>318.3pt</Left>
+        <Top>90.5pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox14" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>37.02pt</Width>
+        <Value>C.U.I.T.:</Value>
+        <Left>324.9pt</Left>
+        <Top>104.6pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox15" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>189.31pt</Width>
+        <Value>=Parameters!clienteTelefono.Value</Value>
+        <Left>362.3pt</Left>
+        <Top>90.7pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox16" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>189.31pt</Width>
+        <Value>=Parameters!clienteCuit.Value</Value>
+        <Left>362.5pt</Left>
+        <Top>104.8pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Line Name="Line2" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>0.01pt</Height>
+        <Width>570.60pt</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Left>0.00pt</Left>
+        <Top>121.50pt</Top>
+      </Line>
+      <Textbox Name="Textbox17" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>13.7pt</Top>
+        <Left>373.6pt</Left>
+        <Width>247.43pt</Width>
+        <Height>14.34pt</Height>
+        <Value>=Parameters!titulo.Value</Value>
+        <Style>
+          <FontSize>12pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox3" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>31.10pt</Top>
+        <Left>373.50pt</Left>
+        <Width>26.51pt</Width>
+        <Height>14.35pt</Height>
+        <Value>Nro: </Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox31" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>49.30pt</Top>
+        <Left>412.10pt</Left>
+        <Width>123.98pt</Width>
+        <Height>13.58pt</Height>
+        <Value>=Parameters!fecha.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox36" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>31.40pt</Top>
+        <Left>400.70pt</Left>
+        <Width>183.17pt</Width>
+        <Height>13.59pt</Height>
+        <Value>=Parameters!NroCbte.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox37" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>48.6pt</Top>
+        <Left>374.1pt</Left>
+        <Width>37.01pt</Width>
+        <Height>14.35pt</Height>
+        <Value>Fecha: </Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageHeader>
+  <Body>
+    <Height>35.3pt</Height>
+    <ReportItems>
+      <Table Name="Table2">
+        <DataSetName>Data</DataSetName>
+        <NoRows>No hay datos para mostrar!</NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>83.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>215.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>27.6pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>34.3pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>48.4pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>42.6pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>51.6pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>12.8pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox32">
+                      <Value>Código</Value>
+                      <Style>
+                        <TextAlign>Left</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox27">
+                      <Value>Detalle</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Left</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox29">
+                      <Value>U.</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox23">
+                      <Value>KxU</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox34">
+                      <Value>Cantidad</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox35">
+                      <Value>Precio</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox40">
+                      <Value>Total</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Left>21.6pt</Left>
+        <Top>0.0pt</Top>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12.9pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox18">
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                      <Value>=Fields!codigo.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox28">
+                      <Value>=Fields!nombre.Value</Value>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox30">
+                      <Value>=Fields!simbolo.Value</Value>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox24">
+                      <Value>=Fields!kgsxunidad.Value</Value>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>0.00</Format>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox20">
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>0.00</Format>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                      <Value>=Fields!cantidad.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox21">
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>0.00</Format>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                      <Value>=Fields!precio.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox22">
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>0.00</Format>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                      <Value>=Fields!Total.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+      </Table>
+    </ReportItems>
+    <Columns>1</Columns>
+  </Body>
+  <PageFooter>
+    <Height>39.4pt</Height>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <ReportItems>
+      <Textbox Name="Textbox2" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>0.00pt</Top>
+        <Left>0.00pt</Left>
+        <Width>81.26pt</Width>
+        <Height>14.35pt</Height>
+        <Value>Observaciones: </Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox38" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>0.00pt</Top>
+        <Left>82.10pt</Left>
+        <Width>483.69pt</Width>
+        <Height>33.87pt</Height>
+        <Value>=Parameters!observaciones.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+    </ReportItems>
+  </PageFooter>
+  <DataElementStyle>AttributeNormal</DataElementStyle>
+  <DataElementName>Report</DataElementName>
+  <DataSources >
+    <DataSource Name="DS1">
+      <ConnectionProperties>
+        <DataProvider>ODBC</DataProvider>
+        <ConnectString>={?dsn}</ConnectString>
+        <IntegratedSecurity>false</IntegratedSecurity>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <ReportParameters >
+    <ReportParameter Name="enca1">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="enca2">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="enca3">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="enca4">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="titulo">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Orden de Compra (Clientes)</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="dsn">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>driver={Mysql ODBC 5.1 Driver};server=localhost;uid=root;pwd=5826;database=gestion;port=3306;connection=</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="fecha">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>2016/07/12</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NroCbte">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>00000012-0001</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clienteNombre">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Pepe</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clienteDomicilio">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Moreno 2255</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clienteCodpostal">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>2000</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clienteLocalidad">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Rosario</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clienteTelefono">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>49705542</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clienteCuit">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>20-32124578-9</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="cbteId">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>46</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="observaciones">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+  </ReportParameters>
+</Report>
