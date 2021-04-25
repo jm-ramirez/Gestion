@@ -820,7 +820,7 @@ Public Class CtlDetalleCbteAnterior
             a.Codigo = e.AlicuotaCodigo
             a.Descripcion = DirectCast(Me.ComboBoxArticuloAlicuota.SelectedItem, Entidades.Tipocondicioniva).Descripcion
             a.BaseImponible = e.Subtotal
-            a.Importe = Math.Round(a.BaseImponible * (e.Alicuota / 100), 3, MidpointRounding.ToEven)
+            a.Importe = Math.Round(a.BaseImponible * (e.Alicuota / 100), 2, MidpointRounding.ToEven)
 
 
             If AgrupaArticulosDetalle Or e.Cantidad < 0 Then
@@ -1017,7 +1017,7 @@ Final:
             a.Codigo = e.AlicuotaCodigo
             a.Descripcion = DirectCast(Me.ComboBoxArticuloAlicuota.SelectedItem, Entidades.Tipocondicioniva).Descripcion
             a.BaseImponible = e.Subtotal
-            a.Importe = Math.Round(a.BaseImponible * (e.Alicuota / 100), 3, MidpointRounding.ToEven)
+            a.Importe = Math.Round(a.BaseImponible * (e.Alicuota / 100), 2, MidpointRounding.ToEven)
 
             If AgrupaArticulosDetalle Or e.Cantidad < 0 Then
 
@@ -1691,7 +1691,7 @@ Final:
             'TextBoxImporte.Visible = False
             TextBoxSubtotalArticuloFinal.Left = TextBoxSubtotalArticulo.Left
             TextBoxSubtotalArticuloFinal.Visible = True
-            TextBoxSubtotalArticulo.Visible = False
+            TextBoxSubtotalArticulo.Visible = True 'False
         End If
         'If Me.TipoDeCbte = TipoCbte.CBTECPRA Then
         '    blnVer = False
@@ -2863,16 +2863,18 @@ Final:
                 'Me.TextBoxUnidad.Text = e.SimboloUnidad
                 'Me.TextBoxKxU.Text = Format(CDbl(e.Pesoneto), "0.00")
                 If TipoCargaCbte = TipoEmisionCbte.PRESUPUESTO Then
+                    Me.TextBoxImporte.Text = Format(CDbl(e.ImporteConIVALista1), "0.00")
                     'Me.TextBoxImporteFinal.Text = Format(CDbl(e.ImporteConIVALista1), "0.00")
+                Else
+                    Me.TextBoxImporte.Text = Format(CDbl(e.Preciodeventa), "0.00")
                 End If
-                Me.TextBoxImporte.Text = Format(CDbl(e.Preciodeventa), "0.00")
 
 
 
-                    'Me.TextBoxUnidad.Text = e.SimboloUnidad
-                    'Me.TextBoxKxU.Text = Format(CDbl(e.Pesoneto), "0.00")
+                'Me.TextBoxUnidad.Text = e.SimboloUnidad
+                'Me.TextBoxKxU.Text = Format(CDbl(e.Pesoneto), "0.00")
 
-                    If mblnPrecargaRemito = False And Cliente IsNot Nothing Then
+                If mblnPrecargaRemito = False And Cliente IsNot Nothing Then
                     'Lleno la Ayuda de las OC
                     _ListaNroOrden = _repositorio.GetByNroOrden(Cliente.Codigo, DirectCast(Me.ComboBoxArticulos.SelectedItem, Entidades.Articulo).Codigo)
                     'InicializarComboOrdenCompra(True)
@@ -2903,12 +2905,21 @@ Final:
                         Me.TextBoxImporte.ReadOnly = False
                         Me.TextBoxImporteFinal.ReadOnly = False
                         Me.ComboBoxArticuloAlicuota.Enabled = True
-                        Select Case ListaDePrecio
-                            Case ListaPrecios.LISTA1 : precio = e.BasicoLista1
-                            Case ListaPrecios.LISTA2 : precio = e.BasicoLista2
-                            Case ListaPrecios.LISTA3 : precio = e.BasicoLista3
-                            Case Else : precio = e.BasicoLista1
-                        End Select
+                        If TipoCargaCbte = TipoEmisionCbte.PRESUPUESTO Then
+                            Select Case ListaDePrecio
+                                Case ListaPrecios.LISTA1 : precio = e.ImporteConIVALista1
+                                Case ListaPrecios.LISTA2 : precio = e.ImporteConIVALista2
+                                Case ListaPrecios.LISTA3 : precio = e.ImporteConIVALista3
+                                Case Else : precio = e.ImporteConIVALista1
+                            End Select
+                        Else
+                            Select Case ListaDePrecio
+                                Case ListaPrecios.LISTA1 : precio = e.BasicoLista1
+                                Case ListaPrecios.LISTA2 : precio = e.BasicoLista2
+                                Case ListaPrecios.LISTA3 : precio = e.BasicoLista3
+                                Case Else : precio = e.BasicoLista1
+                            End Select
+                        End If
 
                     Else
                         Me.TextBoxImporte.ReadOnly = (Me.TipoDeCbte = TipoCbte.CBTEVTA)
@@ -2926,8 +2937,11 @@ Final:
             If mblnPrecargaRemito = False Or Val(Me.TextBoxImporte.Text) = 0 Then
                 Me.TextBoxImporte.Text = Format(precio, "0.00")
                 Me.TextBoxImporteImpInt.Text = e.Impuestointerno
-
-                Me.ComboBoxArticuloAlicuota.SelectedValue = e.Alicuotaiva
+                If TipoCargaCbte = TipoEmisionCbte.PRESUPUESTO Then
+                    Me.ComboBoxArticuloAlicuota.SelectedValue = Convert.ToUInt32(3)
+                Else
+                    Me.ComboBoxArticuloAlicuota.SelectedValue = e.Alicuotaiva
+                End If
                 'traer el dto. solo en comprobantes de venta
                 If Me.TipoDeCbte <> TipoCbte.CBTECPRA Then
 
@@ -2971,7 +2985,7 @@ Final:
     End Sub
 
 
-    Private Sub TotalizarLinea(Optional TipoPrecio As Integer = 0)
+    Private Sub TotalizarLinea(ByVal sender As System.Object, ByVal e As System.EventArgs, Optional TipoPrecio As Integer = 0)
         Dim c As Double
         Dim i As Double
         Dim ii As Double
@@ -2984,23 +2998,35 @@ Final:
             Iva = Val(DirectCast(ComboBoxArticuloAlicuota.SelectedItem, Entidades.Tipocondicioniva).Alicuota / 100) + 1
         End If
         If Me.TipoDeCbte = TipoCbte.CBTEVTA Then
+            ''''''ANTERIOR
+            '''''c = Val(Me.TextBoxCantidad.Text)
 
+            ''''''If sender.Tag <> "importefinal" Then
+            ''''''    i = Val(Me.TextBoxImporte.Text)
+            ''''''    ifi = i * Iva
+            ''''''Else 'If TipoPrecio = 1 Then
+            '''''ifi = Val(Me.TextBoxImporteFinal.Text)
+            '''''i = ifi / Iva
+            ''''''End If
+            '''''Me.TextBoxImporte.Text = Format(i, "0.00")
+            '''''dto = Math.Round(Val(Me.TextBoxImporte.Text) * (Val(Me.TextBoxDto.Text) / 100), 2)
+            '''''ii = Val(Me.TextBoxImporteImpInt.Text)
+
+            '''''i -= dto
+            '''''s = c * (i + ii)
+            ''''''ANTERIOR
+
+            'If Me.TextBoxUnidad.Text = "KG" Then
+            '    c = Val(Me.TextBoxKgs.Text)
+            'Else
             c = Val(Me.TextBoxCantidad.Text)
+            'End If
 
-            If TipoPrecio = 0 Then
-                i = Val(Me.TextBoxImporte.Text)
-                ifi = i * Iva
-            ElseIf TipoPrecio = 1 Then
-                ifi = Val(Me.TextBoxImporteFinal.Text)
-                i = ifi / Iva
-            End If
-
-            dto = Math.Round(Val(Me.TextBoxImporte.Text) * (Val(Me.TextBoxDto.Text) / 100), 2)
+            i = Val(Me.TextBoxImporte.Text)
             ii = Val(Me.TextBoxImporteImpInt.Text)
-
+            dto = Math.Round(Val(Me.TextBoxImporte.Text) * (Val(Me.TextBoxDto.Text) / 100), 2)
             i -= dto
             s = c * (i + ii)
-
         Else
             c = Val(Me.TextBoxCantidad.Text)
             i = Val(Me.TextBoxImporte.Text)
@@ -3010,9 +3036,9 @@ Final:
             s = c * (i + ii)
 
         End If
-        Me.TextBoxImporteFinal.Text = Format(ifi, "0.00")
+        'Me.TextBoxImporteFinal.Text = Format(ifi, "0.00")
         Me.TextBoxSubtotalArticulo.Text = Format(s, "0.00")
-        Me.TextBoxSubtotalArticuloFinal.Text = Format(s * Iva, "0.00")
+        'Me.TextBoxSubtotalArticuloFinal.Text = Format(s * Iva, "0.00")
 
 
     End Sub
@@ -3203,8 +3229,8 @@ Final:
 
         'totalizar linea
         'AddHandler Me.TextBoxKgs.TextChanged, AddressOf TotalizarLinea
-        AddHandler Me.TextBoxImporte.TextChanged, TotalizarLinea()
-        AddHandler Me.TextBoxImporteFinal.TextChanged, AddressOf TotalizarLinea(1)
+        AddHandler Me.TextBoxImporte.TextChanged, AddressOf TotalizarLinea
+        AddHandler Me.TextBoxImporteFinal.TextChanged, AddressOf TotalizarLinea
         AddHandler Me.TextBoxImporteImpInt.TextChanged, AddressOf TotalizarLinea
         AddHandler Me.TextBoxCantidad.TextChanged, AddressOf TotalizarLinea
         AddHandler Me.TextBoxDto.TextChanged, AddressOf TotalizarLinea
@@ -4689,6 +4715,6 @@ Final:
     End Sub
 
     Private Sub TextBoxImporte_TextChanged(sender As Object, e As EventArgs) Handles TextBoxImporte.TextChanged
-        TotalizarLinea()
+        'TotalizarLinea()
     End Sub
 End Class

@@ -1,0 +1,1298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description>
+  </Description>
+  <Author>
+  </Author>
+  <PageHeight>11.7in</PageHeight>
+  <PageWidth>8.3in</PageWidth>
+  <Width>7.5in</Width>
+  <TopMargin>.25in</TopMargin>
+  <LeftMargin>.25in</LeftMargin>
+  <RightMargin>.25in</RightMargin>
+  <BottomMargin>.25in</BottomMargin>
+  <PageHeader>
+    <Height>123.3pt</Height>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <ReportItems>
+      <Textbox Name="Textbox40" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>25.58pt</Height>
+        <Width>220.52pt</Width>
+        <Value>=Parameters!NombreFantasia.Value</Value>
+        <Left>16.7pt</Left>
+        <Top>14.2pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>18pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <VerticalAlign>Middle</VerticalAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <TextAlign>Left</TextAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox41" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>13.57pt</Height>
+        <Width>176.32pt</Width>
+        <Value>=Parameters!DomicilioEmisor.Value</Value>
+        <Left>107.30pt</Left>
+        <Top>86.70pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>8pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <FontStyle>Normal</FontStyle>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox42" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>13.57pt</Height>
+        <Width>162.07pt</Width>
+        <Value>=Parameters!CondicionIvaEmisor.Value</Value>
+        <Left>121.10pt</Left>
+        <Top>102.80pt</Top>
+        <Style>
+          <FontStyle>Normal</FontStyle>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+          <FontWeight>Bold</FontWeight>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox43" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.99pt</Height>
+        <Width>95.05pt</Width>
+        <Value>=Parameters!CbteFecha.Value</Value>
+        <Left>426.2pt</Left>
+        <Top>56.8pt</Top>
+        <Style>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>10pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox44" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.99pt</Height>
+        <Width>80.39pt</Width>
+        <Value>Fecha :</Value>
+        <Left>345.6pt</Left>
+        <Top>57.1pt</Top>
+        <Style>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Right</TextAlign>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox47" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>21.79pt</Height>
+        <Width>261.25pt</Width>
+        <Value>=Parameters!Denominacion.Value</Value>
+        <Left>290.28pt</Left>
+        <Top>14.20pt</Top>
+        <Style>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>16pt</FontSize>
+          <TextAlign>Center</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+        <CanGrow>false</CanGrow>
+      </Textbox>
+      <Textbox Name="Textbox48" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.99pt</Height>
+        <Width>80.50pt</Width>
+        <Value>Nro. :</Value>
+        <Left>345.70pt</Left>
+        <Top>39.80pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Right</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox49" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.99pt</Height>
+        <Width>95.21pt</Width>
+        <Value>=Parameters!CbteNumero.Value</Value>
+        <Left>426.10pt</Left>
+        <Top>39.60pt</Top>
+        <Style>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <Format>00000000</Format>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>9pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox58" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.28pt</Height>
+        <Width>204.07pt</Width>
+        <Value>=Parameters!RazonSocialEmisor.Value</Value>
+        <Left>79.50pt</Left>
+        <Top>70.10pt</Top>
+        <Style>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox59" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>13.53pt</Height>
+        <Width>104.30pt</Width>
+        <Value>Condición frente al IVA:</Value>
+        <Left>16.70pt</Left>
+        <Top>102.80pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+          <FontWeight>Bold</FontWeight>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox60" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.28pt</Height>
+        <Width>63.05pt</Width>
+        <Value>Razón Social:</Value>
+        <Left>16.7pt</Left>
+        <Top>70.1pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox61" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>13.53pt</Height>
+        <Width>90.80pt</Width>
+        <Value>Domicilio Comercial:</Value>
+        <Left>16.7pt</Left>
+        <Top>87.2pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox62" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>220.77pt</Width>
+        <Value>=Parameters!Email.Value</Value>
+        <Left>17.4pt</Left>
+        <Top>43.9pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>10pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Line Name="Line5" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>0.01pt</Height>
+        <Width>559.35pt</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Left>3.1pt</Left>
+        <Top>119.6pt</Top>
+      </Line>
+      <Line Name="Line7" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>106.81pt</Height>
+        <Width>0.05pt</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Left>284.80pt</Left>
+        <Top>12.77pt</Top>
+      </Line>
+      <Textbox Name="Textbox31" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.24pt</Height>
+        <Width>180.04pt</Width>
+        <Value>=Parameters!reimpresion.Value</Value>
+        <Left>341.0pt</Left>
+        <Top>89.7pt</Top>
+        <Style>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Right</TextAlign>
+        </Style>
+      </Textbox>
+    </ReportItems>
+  </PageHeader>
+  <Body>
+    <Height>28.1pt</Height>
+    <Columns>1</Columns>
+    <ReportItems>
+      <Table Name="Table1" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <DataSetName>Data</DataSetName>
+        <NoRows>No hay datos a mostrar !!!</NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>106.4pt</Width>
+            <Visibility>
+            </Visibility>
+          </TableColumn>
+          <TableColumn>
+            <Width>121.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>91.6pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>60.0pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>83.8pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>83.2pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>12.0pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox2">
+                      <Value>Cuenta</Value>
+                      <Style>
+                        <TextAlign>Left</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox12">
+                      <Value>Concepto</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Left</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox3">
+                      <Value>Nº Referencia</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox10">
+                      <Value>Fecha Efect.</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox4">
+                      <Value>Debe</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox5">
+                      <Value>Haber</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox6">
+                      <Value>=Fields!Cuenta.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                        <TextAlign>Left</TextAlign>
+                      </Style>
+                      <CanShrink>false</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox13">
+                      <Value>=Fields!Concepto.Value</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                        <TextAlign>Left</TextAlign>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox7">
+                      <Value>=Fields!Referencia.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                      <CanShrink>false</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox11">
+                      <Value>=Fields!Efectivizacion.Value</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <Format>dd/MM/yyyy</Format>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox8">
+                      <Value>=Iif(Fields!Marca.Value='D',Format(Fields!Importe.Value,'#,##0.00'),'')</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox9">
+                      <Value>=Iif(Fields!Marca.Value='C',Format(Fields!Importe.Value,'#,##0.00'),'')</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <Sorting>
+            <SortBy>
+              <SortExpression>@corden</SortExpression>
+              <Direction>Ascending</Direction>
+            </SortBy>
+          </Sorting>
+        </Details>
+        <Left>15.9pt</Left>
+        <Top>1.1pt</Top>
+      </Table>
+    </ReportItems>
+  </Body>
+  <PageFooter>
+    <Height>71.7pt</Height>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <ReportItems>
+      <Textbox Name="Textbox1" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>50.7pt</Top>
+        <Left>16.0pt</Left>
+        <Height>12pt</Height>
+        <Width>3in</Width>
+        <Value>=Globals!PageNumber + ' de ' + Globals!TotalPages</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox32" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.25pt</Height>
+        <Width>163.46pt</Width>
+        <Value>Comprobante de Validez Interna</Value>
+        <Left>357.0pt</Left>
+        <Top>9.1pt</Top>
+        <Style>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontWeight>Bold</FontWeight>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox14" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>13.50pt</Height>
+        <Width>267.36pt</Width>
+        <Value>=Parameters!NombreCopia.Value</Value>
+        <Left>16.1pt</Left>
+        <Top>9.9pt</Top>
+        <Style>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontWeight>Bold</FontWeight>
+        </Style>
+      </Textbox>
+      <Line Name="Line1" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>-0.01pt</Height>
+        <Width>541.33pt</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Left>16.5pt</Left>
+        <Top>3.9pt</Top>
+      </Line>
+    </ReportItems>
+  </PageFooter>
+  <DataElementName>Report</DataElementName>
+  <DataElementStyle>AttributeNormal</DataElementStyle>
+  <DataSets>
+    <DataSet Name="Data">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>select m.Beneficiario,m.Emision,m.Efectivizacion,m.Referencia,m.Importe,m.Observacion,m.id,c.`nombre` as Cuenta,co.`nombre` as Concepto,co.`tipo` as Marca
+from Financiero m
+left join `cuentabancaria` c ON m.`Cuenta`=c.`codigo`
+left join `conceptobancario` co ON m.`Concepto`=co.`Codigo`
+where m.`Origen`=@Origen
+and m.`CbteMovCtas`=@CbteNumero
+order by co.Tipo</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@CbteNumero">
+            <Value>=Parameters!CbteNumero</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Origen">
+            <Value>=Parameters!Origen</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="Beneficiario">
+          <DataField>Beneficiario</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="Emision">
+          <DataField>Emision</DataField>
+          <TypeName>System.DateTime</TypeName>
+        </Field>
+        <Field Name="Efectivizacion">
+          <DataField>Efectivizacion</DataField>
+          <TypeName>System.DateTime</TypeName>
+        </Field>
+        <Field Name="Referencia">
+          <DataField>Referencia</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="Importe">
+          <DataField>Importe</DataField>
+          <TypeName>System.Decimal</TypeName>
+        </Field>
+        <Field Name="Observacion">
+          <DataField>Observacion</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <TypeName>System.Int64</TypeName>
+        </Field>
+        <Field Name="Cuenta">
+          <DataField>Cuenta</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="Concepto">
+          <DataField>Concepto</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="Marca">
+          <DataField>Marca</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <DataSources>
+    <DataSource Name="DS1">
+      <ConnectionProperties>
+        <DataProvider>ODBC</DataProvider>
+        <ConnectString>=Parameters!dsn.Value</ConnectString>
+        <IntegratedSecurity>false</IntegratedSecurity>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <ReportParameters >
+    <ReportParameter Name="NombreFantasia">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Razón Social</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DomicilioEmisor">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Domicilio comercial</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CondicionIvaEmisor">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>IVA Responsable Inscripto</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Email">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>info@miempresa.com.ar</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Telefono">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>(0341) 444-5566</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="cbteid">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>109</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Web">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>www.miempresa.com.ar</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CuitEmisor">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IngresosBrutos">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="InicioActividades">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CbtePtoVta">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CbteNumero">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CbteFecha">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Denominacion">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>COMPROBANTE</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Letra">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>X</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CbteTipo">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FechaServicioDesde">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FechaServicioHasta">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FechaVtoPago">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="RazonSocial">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CondicionIva">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DocumentoTipo">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DocumentoNro">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NroRemito">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CondicionVta">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteNeto">
+      <DataType>Float</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteIVA27">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteIVA21">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteIVA105">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImproteIVA5">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteIVA25">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteIVA0">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteTributos">
+      <DataType>Float</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteTotal">
+      <DataType>Float</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="BarCode">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>C:\Documents and Settings\User\Mis documentos\Visual Studio 2010\Projects\GestionTaller\GestionTaller\bin\Debug\bc.png</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CAE">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FechaVtoCAE">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="RazonSocialEmisor">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteExento">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteNoGravado">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DomicilioCliente">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteCtasPropias">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteCartera">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Copia">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ORIGINAL</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Observaciones">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Deposito">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="dsn">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>driver={Mysql ODBC 5.1 Driver};server=localhost;uid=root;pwd=5826;database=gestion;port=3306;connection=</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="titulo">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>%%</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="titulo2">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>%%</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="reimpresion">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>%%</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CbteFechaEf">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Origen">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>%%</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NombreCopia">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+  </ReportParameters>
+</Report>

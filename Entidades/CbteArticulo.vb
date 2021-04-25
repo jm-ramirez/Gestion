@@ -102,7 +102,7 @@ Public Class CbteArticulo
     ReadOnly Property Subtotal As Double
         Get
             If Me.AlicuotaCodigo <> CODIGO_ALIC_EXENTO And Me.AlicuotaCodigo <> CODIGO_ALIC_NOGRAVADO Then
-                Return Math.Round(ImporteFinal * IIf(Unidad = "01", Kgs, Cantidad), 2)
+                Return Math.Round(ImporteFinal * IIf(Unidad = "01", Kgs, Cantidad), 3)
             Else
                 Return 0.0
             End If
@@ -118,13 +118,13 @@ Public Class CbteArticulo
 
     ReadOnly Property SubtotalImpuestoInterno As Double
         Get
-            Return Math.Round(ImpuestoInterno * IIf(Unidad = "01", Kgs, Cantidad), 2)
+            Return Math.Round(ImpuestoInterno * IIf(Unidad = "01", Kgs, Cantidad), 3)
         End Get
     End Property
 
     ReadOnly Property BaseImponibleImpInterno As Double
         Get
-            Return Math.Round((ImporteFinal + ImpuestoInterno) * IIf(Unidad = "01", Kgs, Cantidad), 2)
+            Return Math.Round((ImporteFinal + ImpuestoInterno) * IIf(Unidad = "01", Kgs, Cantidad), 3)
         End Get
     End Property
 
@@ -138,7 +138,7 @@ Public Class CbteArticulo
     ReadOnly Property SubtotalSinIVA As Double
         Get
 
-            _subtotalSinIVA = Math.Round(ImporteFinal * IIf(Unidad = "01", Kgs, Cantidad), 2)
+            _subtotalSinIVA = Math.Round(ImporteFinal * IIf(Unidad = "01", Kgs, Cantidad), 3)
             _subtotalSinIVA += SubtotalImpuestoInterno
             Return _subtotalSinIVA
 
@@ -147,14 +147,14 @@ Public Class CbteArticulo
 
     ReadOnly Property SubtotalConIVA As Double
         Get
-            Return Math.Round(ImporteConIVA * IIf(Unidad = "01", Kgs, Cantidad), 2)
+            Return Math.Round(ImporteConIVA * IIf(Unidad = "01", Kgs, Cantidad), 3)
         End Get
     End Property
 
     Private _subtotalFinal As Double
     ReadOnly Property SubtotalFinal As Double
         Get
-            _subtotalFinal = Math.Round(ImporteConIVA * IIf(Unidad = "01", Kgs, Cantidad), 2)
+            _subtotalFinal = Math.Round(ImporteConIVA * IIf(Unidad = "01", Kgs, Cantidad), 3)
             _subtotalFinal += SubtotalImpuestoInterno
             Return _subtotalFinal
         End Get
@@ -168,14 +168,14 @@ Public Class CbteArticulo
 
     ReadOnly Property SubtotalIVA As Double
         Get
-            Return Math.Round(ImporteIVA * IIf(Unidad = "01", Kgs, Cantidad), 2, MidpointRounding.ToEven)
+            Return Math.Round(ImporteIVA * IIf(Unidad = "01", Kgs, Cantidad), 3, MidpointRounding.ToEven)
         End Get
     End Property
 
     ReadOnly Property SubtotalExento As Double
         Get
             If AlicuotaCodigo = CODIGO_ALIC_EXENTO Then
-                Return Math.Round(ImporteFinal * IIf(Unidad = "01", Kgs, Cantidad), 2)
+                Return Math.Round(ImporteFinal * IIf(Unidad = "01", Kgs, Cantidad), 3)
             Else
                 Return 0.0
             End If
@@ -185,7 +185,7 @@ Public Class CbteArticulo
     ReadOnly Property SubtotalNoGravado As Double
         Get
             If AlicuotaCodigo = CODIGO_ALIC_NOGRAVADO Then
-                Return Math.Round(ImporteFinal * IIf(Unidad = "01", Kgs, Cantidad), 2)
+                Return Math.Round(ImporteFinal * IIf(Unidad = "01", Kgs, Cantidad), 3)
             Else
                 Return 0.0
             End If
@@ -195,7 +195,7 @@ Public Class CbteArticulo
     ReadOnly Property Exento As Double
         Get
             If AlicuotaCodigo = CODIGO_ALIC_EXENTO Then
-                Return Math.Round(ImporteFinal, 2)
+                Return Math.Round(ImporteFinal, 3)
             Else
                 Return 0.0
             End If
@@ -205,7 +205,7 @@ Public Class CbteArticulo
     ReadOnly Property NoGravado As Double
         Get
             If AlicuotaCodigo = CODIGO_ALIC_NOGRAVADO Then
-                Return Math.Round(ImporteFinal, 2)
+                Return Math.Round(ImporteFinal, 3)
             Else
                 Return 0.0
             End If

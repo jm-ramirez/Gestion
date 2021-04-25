@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormCbteVentaKiosco
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormCbteVentaKiosco
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormCbteVentaKiosco))
         Me.TableLayoutPanelBase = New System.Windows.Forms.TableLayoutPanel()
@@ -31,6 +31,7 @@ Partial Class FormCbteVentaKiosco
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripLabelStatus = New System.Windows.Forms.ToolStripLabel()
         Me.PanelControles = New System.Windows.Forms.Panel()
+        Me.CtlCbteDetalle = New Principal.CtlDetalleCbte2()
         Me.nudDolar = New System.Windows.Forms.NumericUpDown()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.LabelTotal = New System.Windows.Forms.Label()
@@ -71,6 +72,7 @@ Partial Class FormCbteVentaKiosco
         Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBoxDatosCliente = New System.Windows.Forms.GroupBox()
         Me.ComboBoxDomicilios = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxCliente = New Principal.CtlCustomCombo()
         Me.TextBoxDomicilio = New System.Windows.Forms.TextBox()
         Me.TextBoxNombre = New System.Windows.Forms.TextBox()
         Me.TextBoxDescuentoGral = New System.Windows.Forms.TextBox()
@@ -85,8 +87,6 @@ Partial Class FormCbteVentaKiosco
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.CtlCbteDetalle = New Principal.CtlDetalleCbteAnterior()
-        Me.ComboBoxCliente = New Principal.CtlCustomCombo()
         Me.TableLayoutPanelBase.SuspendLayout()
         Me.ToolStripMenu.SuspendLayout()
         Me.PanelControles.SuspendLayout()
@@ -111,7 +111,7 @@ Partial Class FormCbteVentaKiosco
         Me.TableLayoutPanelBase.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutPanelBase.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanelBase.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanelBase.Size = New System.Drawing.Size(884, 552)
+        Me.TableLayoutPanelBase.Size = New System.Drawing.Size(884, 651)
         Me.TableLayoutPanelBase.TabIndex = 0
         '
         'ToolStripMenu
@@ -189,8 +189,31 @@ Partial Class FormCbteVentaKiosco
         Me.PanelControles.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelControles.Location = New System.Drawing.Point(3, 33)
         Me.PanelControles.Name = "PanelControles"
-        Me.PanelControles.Size = New System.Drawing.Size(878, 516)
+        Me.PanelControles.Size = New System.Drawing.Size(878, 615)
         Me.PanelControles.TabIndex = 0
+        '
+        'CtlCbteDetalle
+        '
+        Me.CtlCbteDetalle.AgrupaArticulosDetalle = False
+        Me.CtlCbteDetalle.AnularDepositoNro = 0
+        Me.CtlCbteDetalle.Cliente = Nothing
+        Me.CtlCbteDetalle.CompraANoInscripto = False
+        Me.CtlCbteDetalle.CptoBcoEgrPredetermiando = Nothing
+        Me.CtlCbteDetalle.CptoBcoIngPredetermiando = Nothing
+        Me.CtlCbteDetalle.CtaBcoPredeterminada = Nothing
+        Me.CtlCbteDetalle.DescuentoGral = 0R
+        Me.CtlCbteDetalle.FechaComprobante = New Date(2021, 4, 11, 0, 0, 0, 0)
+        Me.CtlCbteDetalle.ListaDePrecio = Principal.CtlDetalleCbte2.ListaPrecios.LISTA1
+        Me.CtlCbteDetalle.Location = New System.Drawing.Point(9, 232)
+        Me.CtlCbteDetalle.MaximoItems = CType(25US, UShort)
+        Me.CtlCbteDetalle.Name = "CtlCbteDetalle"
+        Me.CtlCbteDetalle.Proveedor = Nothing
+        Me.CtlCbteDetalle.Size = New System.Drawing.Size(852, 251)
+        Me.CtlCbteDetalle.TabIndex = 50
+        Me.CtlCbteDetalle.TipoCargaCbte = Principal.General.TipoEmisionCbte.ELECTRONICO
+        Me.CtlCbteDetalle.TipoDeCbte = Principal.CtlDetalleCbte2.TipoCbte.CBTEVTA
+        Me.CtlCbteDetalle.Vendedor = Nothing
+        Me.CtlCbteDetalle.VerCuentaCta = False
         '
         'nudDolar
         '
@@ -220,7 +243,7 @@ Partial Class FormCbteVentaKiosco
         Me.LabelTotal.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LabelTotal.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelTotal.ForeColor = System.Drawing.Color.DarkGreen
-        Me.LabelTotal.Location = New System.Drawing.Point(0, 491)
+        Me.LabelTotal.Location = New System.Drawing.Point(0, 590)
         Me.LabelTotal.Name = "LabelTotal"
         Me.LabelTotal.Size = New System.Drawing.Size(878, 25)
         Me.LabelTotal.TabIndex = 27
@@ -612,6 +635,30 @@ Partial Class FormCbteVentaKiosco
         Me.ComboBoxDomicilios.Size = New System.Drawing.Size(336, 21)
         Me.ComboBoxDomicilios.TabIndex = 6
         '
+        'ComboBoxCliente
+        '
+        Me.ComboBoxCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
+        Me.ComboBoxCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
+        Me.ComboBoxCliente.BusquedaPorCodigobarra = False
+        Me.ComboBoxCliente.ColumnasExtras = Nothing
+        Me.ComboBoxCliente.CustomFormatArt = False
+        Me.ComboBoxCliente.DataSource = Nothing
+        Me.ComboBoxCliente.DisplayMember = Nothing
+        Me.ComboBoxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
+        Me.ComboBoxCliente.FormularioDeAlta = Nothing
+        Me.ComboBoxCliente.FormularioDeBusqueda = Nothing
+        Me.ComboBoxCliente.Location = New System.Drawing.Point(74, 14)
+        Me.ComboBoxCliente.MaximumSize = New System.Drawing.Size(500, 25)
+        Me.ComboBoxCliente.MinimumSize = New System.Drawing.Size(200, 25)
+        Me.ComboBoxCliente.Name = "ComboBoxCliente"
+        Me.ComboBoxCliente.SelectedIndex = -1
+        Me.ComboBoxCliente.SelectedItem = Nothing
+        Me.ComboBoxCliente.SelectedText = ""
+        Me.ComboBoxCliente.SelectedValue = Nothing
+        Me.ComboBoxCliente.Size = New System.Drawing.Size(365, 25)
+        Me.ComboBoxCliente.TabIndex = 0
+        Me.ComboBoxCliente.ValueMember = Nothing
+        '
         'TextBoxDomicilio
         '
         Me.TextBoxDomicilio.Location = New System.Drawing.Point(74, 99)
@@ -743,59 +790,12 @@ Partial Class FormCbteVentaKiosco
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Documento"
         '
-        'CtlCbteDetalle
-        '
-        Me.CtlCbteDetalle.AgrupaArticulosDetalle = False
-        Me.CtlCbteDetalle.AnularDepositoNro = 0
-        Me.CtlCbteDetalle.Cliente = Nothing
-        Me.CtlCbteDetalle.CompraANoInscripto = False
-        Me.CtlCbteDetalle.CptoBcoEgrPredetermiando = Nothing
-        Me.CtlCbteDetalle.CptoBcoIngPredetermiando = Nothing
-        Me.CtlCbteDetalle.CtaBcoPredeterminada = Nothing
-        Me.CtlCbteDetalle.DescuentoGral = 0R
-        Me.CtlCbteDetalle.FechaComprobante = New Date(2021, 2, 10, 0, 0, 0, 0)
-        Me.CtlCbteDetalle.ListaDePrecio = Principal.CtlDetalleCbteAnterior.ListaPrecios.LISTA1
-        Me.CtlCbteDetalle.Location = New System.Drawing.Point(9, 233)
-        Me.CtlCbteDetalle.MaximoItems = CType(25US, UShort)
-        Me.CtlCbteDetalle.Name = "CtlCbteDetalle"
-        Me.CtlCbteDetalle.Proveedor = Nothing
-        Me.CtlCbteDetalle.Size = New System.Drawing.Size(852, 251)
-        Me.CtlCbteDetalle.TabIndex = 50
-        Me.CtlCbteDetalle.TipoCargaCbte = Principal.General.TipoEmisionCbte.ELECTRONICO
-        Me.CtlCbteDetalle.TipoDeCbte = Principal.CtlDetalleCbteAnterior.TipoCbte.CBTEVTA
-        Me.CtlCbteDetalle.Vendedor = Nothing
-        Me.CtlCbteDetalle.VerCuentaCta = False
-        '
-        'ComboBoxCliente
-        '
-        Me.ComboBoxCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
-        Me.ComboBoxCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
-        Me.ComboBoxCliente.BusquedaPorCodigobarra = False
-        Me.ComboBoxCliente.ColumnasExtras = Nothing
-        Me.ComboBoxCliente.CustomFormatArt = False
-        Me.ComboBoxCliente.DataSource = Nothing
-        Me.ComboBoxCliente.DisplayMember = Nothing
-        Me.ComboBoxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
-        Me.ComboBoxCliente.FormularioDeAlta = Nothing
-        Me.ComboBoxCliente.FormularioDeBusqueda = Nothing
-        Me.ComboBoxCliente.Location = New System.Drawing.Point(74, 14)
-        Me.ComboBoxCliente.MaximumSize = New System.Drawing.Size(500, 25)
-        Me.ComboBoxCliente.MinimumSize = New System.Drawing.Size(200, 25)
-        Me.ComboBoxCliente.Name = "ComboBoxCliente"
-        Me.ComboBoxCliente.SelectedIndex = -1
-        Me.ComboBoxCliente.SelectedItem = Nothing
-        Me.ComboBoxCliente.SelectedText = ""
-        Me.ComboBoxCliente.SelectedValue = Nothing
-        Me.ComboBoxCliente.Size = New System.Drawing.Size(365, 25)
-        Me.ComboBoxCliente.TabIndex = 0
-        Me.ComboBoxCliente.ValueMember = Nothing
-        '
         'FormCbteVentaKiosco
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(884, 552)
+        Me.ClientSize = New System.Drawing.Size(884, 651)
         Me.Controls.Add(Me.TableLayoutPanelBase)
         Me.DoubleBuffered = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -888,5 +888,5 @@ Partial Class FormCbteVentaKiosco
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents TextBoxDomicilio As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents CtlCbteDetalle As CtlDetalleCbteAnterior
+    Friend WithEvents CtlCbteDetalle As CtlDetalleCbte2
 End Class

@@ -33,6 +33,10 @@ Partial Class lstArticulos
         Me.LabelTituloFiltro = New System.Windows.Forms.Label()
         Me.cboPH = New Principal.CtlCustomCombo()
         Me.cboPD = New Principal.CtlCustomCombo()
+        Me.CheckBoxCategorias = New System.Windows.Forms.CheckBox()
+        Me.CtlComboCategorias = New Principal.CtlCustomCombo()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.ToolStripMenu.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -67,7 +71,7 @@ Partial Class lstArticulos
         Me.GroupBox1.Controls.Add(Me.optDetalle)
         Me.GroupBox1.Controls.Add(Me.optId)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(17, 38)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 31)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(71, 67)
         Me.GroupBox1.TabIndex = 67
@@ -78,10 +82,10 @@ Partial Class lstArticulos
         '
         Me.optDetalle.AutoSize = True
         Me.optDetalle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optDetalle.Location = New System.Drawing.Point(7, 43)
+        Me.optDetalle.Location = New System.Drawing.Point(7, 19)
         Me.optDetalle.Name = "optDetalle"
         Me.optDetalle.Size = New System.Drawing.Size(58, 17)
-        Me.optDetalle.TabIndex = 7
+        Me.optDetalle.TabIndex = 6
         Me.optDetalle.Text = "Detalle"
         Me.optDetalle.UseVisualStyleBackColor = True
         '
@@ -89,17 +93,17 @@ Partial Class lstArticulos
         '
         Me.optId.AutoSize = True
         Me.optId.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optId.Location = New System.Drawing.Point(7, 19)
+        Me.optId.Location = New System.Drawing.Point(6, 38)
         Me.optId.Name = "optId"
         Me.optId.Size = New System.Drawing.Size(58, 17)
-        Me.optId.TabIndex = 6
+        Me.optId.TabIndex = 7
         Me.optId.Text = "Código"
         Me.optId.UseVisualStyleBackColor = True
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(121, 78)
+        Me.Label5.Location = New System.Drawing.Point(116, 58)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(38, 13)
         Me.Label5.TabIndex = 66
@@ -109,7 +113,7 @@ Partial Class lstArticulos
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(124, 110)
+        Me.Label4.Location = New System.Drawing.Point(119, 90)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(35, 13)
         Me.Label4.TabIndex = 65
@@ -120,7 +124,7 @@ Partial Class lstArticulos
         '
         Me.LabelTituloFiltro.AutoSize = True
         Me.LabelTituloFiltro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelTituloFiltro.Location = New System.Drawing.Point(106, 51)
+        Me.LabelTituloFiltro.Location = New System.Drawing.Point(101, 31)
         Me.LabelTituloFiltro.Name = "LabelTituloFiltro"
         Me.LabelTituloFiltro.Size = New System.Drawing.Size(132, 13)
         Me.LabelTituloFiltro.TabIndex = 64
@@ -139,7 +143,7 @@ Partial Class lstArticulos
         Me.cboPH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
         Me.cboPH.FormularioDeAlta = Nothing
         Me.cboPH.FormularioDeBusqueda = Nothing
-        Me.cboPH.Location = New System.Drawing.Point(165, 104)
+        Me.cboPH.Location = New System.Drawing.Point(160, 84)
         Me.cboPH.MaximumSize = New System.Drawing.Size(500, 25)
         Me.cboPH.MinimumSize = New System.Drawing.Size(200, 25)
         Me.cboPH.Name = "cboPH"
@@ -163,7 +167,7 @@ Partial Class lstArticulos
         Me.cboPD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
         Me.cboPD.FormularioDeAlta = Nothing
         Me.cboPD.FormularioDeBusqueda = Nothing
-        Me.cboPD.Location = New System.Drawing.Point(165, 73)
+        Me.cboPD.Location = New System.Drawing.Point(160, 53)
         Me.cboPD.MaximumSize = New System.Drawing.Size(500, 25)
         Me.cboPD.MinimumSize = New System.Drawing.Size(200, 25)
         Me.cboPD.Name = "cboPD"
@@ -175,12 +179,72 @@ Partial Class lstArticulos
         Me.cboPD.TabIndex = 2
         Me.cboPD.ValueMember = Nothing
         '
+        'CheckBoxCategorias
+        '
+        Me.CheckBoxCategorias.AutoSize = True
+        Me.CheckBoxCategorias.Location = New System.Drawing.Point(60, 136)
+        Me.CheckBoxCategorias.Name = "CheckBoxCategorias"
+        Me.CheckBoxCategorias.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.CheckBoxCategorias.Size = New System.Drawing.Size(120, 17)
+        Me.CheckBoxCategorias.TabIndex = 4
+        Me.CheckBoxCategorias.Text = "Todas las Categoria"
+        Me.CheckBoxCategorias.UseVisualStyleBackColor = True
+        '
+        'CtlComboCategorias
+        '
+        Me.CtlComboCategorias.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
+        Me.CtlComboCategorias.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
+        Me.CtlComboCategorias.BusquedaPorCodigobarra = False
+        Me.CtlComboCategorias.ColumnasExtras = Nothing
+        Me.CtlComboCategorias.CustomFormatArt = False
+        Me.CtlComboCategorias.DataSource = Nothing
+        Me.CtlComboCategorias.DisplayMember = Nothing
+        Me.CtlComboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
+        Me.CtlComboCategorias.FormularioDeAlta = Nothing
+        Me.CtlComboCategorias.FormularioDeBusqueda = Nothing
+        Me.CtlComboCategorias.Location = New System.Drawing.Point(160, 159)
+        Me.CtlComboCategorias.MaximumSize = New System.Drawing.Size(500, 25)
+        Me.CtlComboCategorias.MinimumSize = New System.Drawing.Size(200, 25)
+        Me.CtlComboCategorias.Name = "CtlComboCategorias"
+        Me.CtlComboCategorias.SelectedIndex = -1
+        Me.CtlComboCategorias.SelectedItem = Nothing
+        Me.CtlComboCategorias.SelectedText = ""
+        Me.CtlComboCategorias.SelectedValue = Nothing
+        Me.CtlComboCategorias.Size = New System.Drawing.Size(324, 25)
+        Me.CtlComboCategorias.TabIndex = 5
+        Me.CtlComboCategorias.ValueMember = Nothing
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(103, 164)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(52, 13)
+        Me.Label1.TabIndex = 71
+        Me.Label1.Text = "Categoria"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(101, 120)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(154, 13)
+        Me.Label2.TabIndex = 68
+        Me.Label2.Text = "Ingrese filtro de Categoria"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'lstArticulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(574, 160)
+        Me.ClientSize = New System.Drawing.Size(574, 217)
+        Me.Controls.Add(Me.CheckBoxCategorias)
+        Me.Controls.Add(Me.CtlComboCategorias)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ToolStripMenu)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label5)
@@ -211,4 +275,8 @@ Partial Class lstArticulos
     Friend WithEvents cboPD As Principal.CtlCustomCombo
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents LabelTituloFiltro As System.Windows.Forms.Label
+    Friend WithEvents CheckBoxCategorias As CheckBox
+    Friend WithEvents CtlComboCategorias As CtlCustomCombo
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class

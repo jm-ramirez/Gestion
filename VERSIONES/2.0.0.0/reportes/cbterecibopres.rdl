@@ -1,0 +1,2507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description>
+  </Description>
+  <Author>
+  </Author>
+  <PageHeight>11.7in</PageHeight>
+  <PageWidth>8.3in</PageWidth>
+  <Width>7.5in</Width>
+  <TopMargin>.25in</TopMargin>
+  <LeftMargin>.25in</LeftMargin>
+  <RightMargin>.25in</RightMargin>
+  <BottomMargin>.25in</BottomMargin>
+  <PageHeader>
+    <Height>174.2pt</Height>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <ReportItems>
+      <Textbox Name="Textbox43" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.99pt</Height>
+        <Width>95.05pt</Width>
+        <Value>=Parameters!CbteFecha.Value</Value>
+        <Left>426.2pt</Left>
+        <Top>56.8pt</Top>
+        <Style>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>10pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox44" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.99pt</Height>
+        <Width>80.39pt</Width>
+        <Value>Fecha de Emisión:</Value>
+        <Left>345.6pt</Left>
+        <Top>57.1pt</Top>
+        <Style>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox45" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.99pt</Height>
+        <Width>72.14pt</Width>
+        <Value>Prefijo:</Value>
+        <Left>323.2pt</Left>
+        <Top>39.6pt</Top>
+        <Style>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Right</TextAlign>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox46" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.99pt</Height>
+        <Width>32.80pt</Width>
+        <Value>=Parameters!CbtePtoVta.Value</Value>
+        <Left>395.0pt</Left>
+        <Top>39.7pt</Top>
+        <Style>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>9pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <VerticalAlign>Middle</VerticalAlign>
+          <Format>0000</Format>
+        </Style>
+        <CanShrink>false</CanShrink>
+      </Textbox>
+      <Textbox Name="Textbox47" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>21.80pt</Height>
+        <Width>204.03pt</Width>
+        <Value>=Parameters!Denominacion.Value</Value>
+        <Left>335.3pt</Left>
+        <Top>12.6pt</Top>
+        <Style>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>18pt</FontSize>
+          <TextAlign>Center</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+        <CanGrow>false</CanGrow>
+      </Textbox>
+      <Textbox Name="Textbox48" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.99pt</Height>
+        <Width>52.64pt</Width>
+        <Value>Comp. Nro.:</Value>
+        <Left>427.8pt</Left>
+        <Top>39.7pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox49" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.99pt</Height>
+        <Width>58.30pt</Width>
+        <Value>=Parameters!CbteNumero.Value</Value>
+        <Left>480.7pt</Left>
+        <Top>39.6pt</Top>
+        <Style>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <Format>00000000</Format>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>9pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox69" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>151.02pt</Width>
+        <Value>Apellido y Nombre / Razón Social:</Value>
+        <Left>0pt</Left>
+        <Top>124.2pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox70" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>394.01pt</Width>
+        <Value>=Parameters!RazonSocial.Value</Value>
+        <Left>150.6pt</Left>
+        <Top>124.1pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Normal</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox71" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>106.02pt</Width>
+        <Value>Condición frente al IVA:</Value>
+        <Left>0pt</Left>
+        <Top>138.6pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox72" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>212.98pt</Width>
+        <Value>=Parameters!CondicionIva.Value</Value>
+        <Left>106.1pt</Left>
+        <Top>138.0pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Normal</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+        <CanGrow>false</CanGrow>
+      </Textbox>
+      <Textbox Name="Textbox73" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>45.27pt</Width>
+        <Value>Domicilio:</Value>
+        <Left>0pt</Left>
+        <Top>152.5pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox75" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>73.02pt</Width>
+        <Value>=Parameters!DocumentoTipo.Value</Value>
+        <Left>318.4pt</Left>
+        <Top>138.1pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox76" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>165.86pt</Width>
+        <Value>=Parameters!NroRemito.Value</Value>
+        <Left>374.9pt</Left>
+        <Top>152.3pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox77" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>55.77pt</Width>
+        <Value>Nro. Remito:</Value>
+        <Left>319.5pt</Left>
+        <Top>152.4pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox78" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>13.50pt</Height>
+        <Width>184.06pt</Width>
+        <Value>=Parameters!DocumentoNro.Value</Value>
+        <Left>356.8pt</Left>
+        <Top>137.5pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Line Name="Line5" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>0.01pt</Height>
+        <Width>559.35pt</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Left>3.1pt</Left>
+        <Top>119.6pt</Top>
+      </Line>
+      <Line Name="Line7" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>106.81pt</Height>
+        <Width>0.05pt</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Left>284.80pt</Left>
+        <Top>12.77pt</Top>
+      </Line>
+      <Line Name="Line8" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>0.01pt</Height>
+        <Width>559.35pt</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Left>3.1pt</Left>
+        <Top>169.1pt</Top>
+      </Line>
+      <Textbox Name="Textbox35">
+        <Height>12.00pt</Height>
+        <Width>274.02pt</Width>
+        <Value>=Parameters!DomicilioCliente.Value</Value>
+        <Left>45.3pt</Left>
+        <Top>152.7pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+    </ReportItems>
+  </PageHeader>
+  <Body>
+    <Height>122.1pt</Height>
+    <Columns>1</Columns>
+    <ReportItems>
+      <Table Name="TblDetalle">
+        <DataSetName>DataCbtes</DataSetName>
+        <NoRows>Comprobante por anticipo</NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>None</Default>
+            <Left>None</Left>
+            <Right>None</Right>
+            <Top>None</Top>
+            <Bottom>None</Bottom>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>78.1pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>48.3pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>55.1pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>83.7pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>11.2pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="txtCodigoTitle">
+                      <Value>Factura</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="txtDescripcionTitle">
+                      <Value>Fecha</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="txtCantidadTitle">
+                      <Value>Vto.</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="txtPrecioTitle">
+                      <Value>Cancelado</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="txtCodigo">
+                      <Value>=Format(Fields!CbtePtoVta.Value,'0000') &amp; '-' &amp; Format(Fields!CbteNumero.Value,'00000000')</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>00000</Format>
+                        <FontWeight>Normal</FontWeight>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="txtDescripcion">
+                      <Value>=Fields!Fecha.Value</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <Format>dd/MM/yyyy</Format>
+                        <TextAlign>Center</TextAlign>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="txtCantidad">
+                      <Value>=Fields!Vto.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <Format>dd/MM/yyyy</Format>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="txtImporte">
+                      <Value>=Fields!Importe.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <Format>#,##0.00#</Format>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Left>0.0pt</Left>
+        <Top>2.4pt</Top>
+        <Filters>
+          <Filter>
+            <FilterExpression>=IIF(Fields!rowid.Value Mod 2 = 0,False,True)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>True</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+      </Table>
+      <Table Name="Table1" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <DataSetName>DataCbtes</DataSetName>
+        <NoRows>
+        </NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>None</Default>
+            <Left>None</Left>
+            <Right>None</Right>
+            <Top>None</Top>
+            <Bottom>None</Bottom>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>78.1pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>48.3pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>55.1pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>93.2pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>11.2pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox1">
+                      <Value>Factura</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox2">
+                      <Value>Fecha</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox4">
+                      <Value>Vto.</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox5">
+                      <Value>Cancelado</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Visibility>
+              </Visibility>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox6">
+                      <Value>=Format(Fields!CbtePtoVta.Value,'0000') &amp; '-' &amp; Format(Fields!CbteNumero.Value,'00000000')</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>00000</Format>
+                        <FontWeight>Normal</FontWeight>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                      <Visibility>
+                      </Visibility>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox7">
+                      <Value>=Fields!Fecha.Value</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <Format>dd/MM/yyyy</Format>
+                        <TextAlign>Center</TextAlign>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox8">
+                      <Value>=Fields!Vto.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <Format>dd/MM/yyyy</Format>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox9">
+                      <Value>=Fields!Importe.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <Format>#,##0.00#</Format>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Left>268.8pt</Left>
+        <Top>2.4pt</Top>
+        <Filters>
+          <Filter>
+            <FilterExpression>=IIF(Fields!rowid.Value Mod 2 = 0,True,False)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>True</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+      </Table>
+      <Table Name="Table2" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <DataSetName>DataFinanciero</DataSetName>
+        <NoRows>
+        </NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>None</Default>
+            <Left>None</Left>
+            <Right>None</Right>
+            <Top>None</Top>
+            <Bottom>None</Bottom>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>78.1pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>48.3pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>81.6pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>55.4pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>11.2pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox23">
+                      <Value>Detalle de valores recibidos</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>#E0E0E0</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                  <ColSpan>4</ColSpan>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+            <TableRow>
+              <Height>11.2pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox13">
+                      <Value>Cuenta</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox14">
+                      <Value>Fecha E.</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox15">
+                      <Value>Referencia</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox16">
+                      <Value>Importe</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox17">
+                      <Value>=Fields!Cuenta.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>00000</Format>
+                        <FontWeight>Normal</FontWeight>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox18">
+                      <Value>=Fields!Efectivizacion.Value</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <Format>dd/MM/yyyy</Format>
+                        <TextAlign>Center</TextAlign>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox21">
+                      <Value>=Fields!Referencia.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <Format>dd/MM/yyyy</Format>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox22">
+                      <Value>=Fields!Importe.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <Format>#,##0.00#</Format>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Left>0.0pt</Left>
+        <Top>31.2pt</Top>
+        <Filters>
+          <Filter>
+            <FilterExpression>=IIF(Fields!rowid.Value Mod 2 = 0,False,True)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>True</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+      </Table>
+      <Table Name="Table3" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <DataSetName>DataFinanciero</DataSetName>
+        <NoRows>
+        </NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>None</Default>
+            <Left>None</Left>
+            <Right>None</Right>
+            <Top>None</Top>
+            <Bottom>None</Bottom>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>78.1pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>48.3pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>81.6pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>66.1pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>11.2pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox28">
+                      <Value>Cuenta</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox31">
+                      <Value>Fecha E.</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox32">
+                      <Value>Referencia</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox33">
+                      <Value>Importe</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox34">
+                      <Value>=Fields!Cuenta.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>00000</Format>
+                        <FontWeight>Normal</FontWeight>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox36">
+                      <Value>=Fields!Efectivizacion.Value</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <Format>dd/MM/yyyy</Format>
+                        <TextAlign>Center</TextAlign>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox37">
+                      <Value>=Fields!Referencia.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <Format>dd/MM/yyyy</Format>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox38">
+                      <Value>=Fields!Importe.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <Format>#,##0.00#</Format>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Left>269.2pt</Left>
+        <Top>42.5pt</Top>
+        <Filters>
+          <Filter>
+            <FilterExpression>=IIF(Fields!rowid.Value Mod 2 = 0,True, False)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>True</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+      </Table>
+      <Table Name="Table4" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <DataSetName>DataTributos</DataSetName>
+        <NoRows>
+        </NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>None</Default>
+            <Left>None</Left>
+            <Right>None</Right>
+            <Top>None</Top>
+            <Bottom>None</Bottom>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>208.0pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>55.4pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>11.2pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox24">
+                      <Value>Detalle de otros tributos</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>#E0E0E0</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                  <ColSpan>2</ColSpan>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+            <TableRow>
+              <Height>11.2pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox25">
+                      <Value>Descripción</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox39">
+                      <Value>Importe</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox50">
+                      <Value>=Fields!Descripcion.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>00000</Format>
+                        <FontWeight>Normal</FontWeight>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox53">
+                      <Value>=Fields!Importe.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <Format>#,##0.00#</Format>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Left>0.0pt</Left>
+        <Top>72.8pt</Top>
+        <Filters>
+          <Filter>
+            <FilterExpression>=IIF(Fields!rowid.Value Mod 2 = 0,False,True)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>True</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+      </Table>
+      <Table Name="Table5" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <DataSetName>DataTributos</DataSetName>
+        <NoRows>
+        </NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>None</Default>
+            <Left>None</Left>
+            <Right>None</Right>
+            <Top>None</Top>
+            <Bottom>None</Bottom>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>218.9pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>55.4pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>11.2pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox55">
+                      <Value>Descripción</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox56">
+                      <Value>Importe</Value>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12 pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox57">
+                      <Value>=Fields!Descripcion.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <BorderColor />
+                        <BorderWidth />
+                        <Format>00000</Format>
+                        <FontWeight>Normal</FontWeight>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox63">
+                      <Value>=Fields!Importe.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <Format>#,##0.00#</Format>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>Normal</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Left>268.4pt</Left>
+        <Top>84.2pt</Top>
+        <Filters>
+          <Filter>
+            <FilterExpression>=IIF(Fields!rowid.Value Mod 2 = 0,True,False)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>True</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+      </Table>
+    </ReportItems>
+  </Body>
+  <PageFooter>
+    <Height>96.8pt</Height>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <ReportItems>
+      <Textbox Name="Textbox3">
+        <Height>12.00pt</Height>
+        <Width>72.27pt</Width>
+        <Value>=Parameters!ImporteCtasPropias.Value</Value>
+        <Left>466.5pt</Left>
+        <Top>4.7pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Right</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+          <Format>#,##0.00</Format>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox10">
+        <Height>12.00pt</Height>
+        <Width>72.27pt</Width>
+        <Value>=Parameters!ImporteTributos.Value</Value>
+        <Left>466.5pt</Left>
+        <Top>39.1pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Right</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+          <Format>#,##0.00</Format>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11">
+        <Height>15.00pt</Height>
+        <Width>72.27pt</Width>
+        <Value>=Parameters!ImporteTotal.Value</Value>
+        <Left>466.5pt</Left>
+        <Top>55.9pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>10pt</FontSize>
+          <TextAlign>Right</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+          <Format>#,##0.00</Format>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox12">
+        <Height>12.00pt</Height>
+        <Width>128.52pt</Width>
+        <Value>Importe Cuentas Propias: $</Value>
+        <Left>335.6pt</Left>
+        <Top>5.3pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Right</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+        <CanGrow>false</CanGrow>
+      </Textbox>
+      <Textbox Name="Textbox19">
+        <Height>12.00pt</Height>
+        <Width>128.52pt</Width>
+        <Value>Importe Otros Tributos: $</Value>
+        <Left>335.6pt</Left>
+        <Top>39.4pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Right</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox20">
+        <Height>15.00pt</Height>
+        <Width>128.52pt</Width>
+        <Value>Importe Total: $</Value>
+        <Left>335.6pt</Left>
+        <Top>55.7pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>10pt</FontSize>
+          <TextAlign>Right</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Rectangle Name="Rectangle1">
+        <Height>73.96pt</Height>
+        <Width>539.85pt</Width>
+        <Left>2.28pt</Left>
+        <Top>1.64pt</Top>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+            <Left>Solid</Left>
+            <Right>Solid</Right>
+            <Top>Solid</Top>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <ReportItems>
+          <Textbox Name="Textbox29" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+            <Height>13.50pt</Height>
+            <Width>137.53pt</Width>
+            <Value>Importe de Valores Recibidos: $</Value>
+            <Left>324.2pt</Left>
+            <Top>20.8pt</Top>
+            <Style>
+              <FontFamily>Tahoma</FontFamily>
+              <FontWeight>Bold</FontWeight>
+              <FontSize>8pt</FontSize>
+              <TextAlign>Right</TextAlign>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+            <CanGrow>false</CanGrow>
+          </Textbox>
+          <Textbox Name="Textbox30" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+            <Height>12.00pt</Height>
+            <Width>72.27pt</Width>
+            <Value>=Parameters!ImporteCartera.Value</Value>
+            <Left>464.2pt</Left>
+            <Top>20.5pt</Top>
+            <Style>
+              <FontFamily>Tahoma</FontFamily>
+              <FontWeight>Bold</FontWeight>
+              <FontSize>8pt</FontSize>
+              <TextAlign>Right</TextAlign>
+              <VerticalAlign>Middle</VerticalAlign>
+              <Format>#,##0.00</Format>
+              <BorderStyle />
+              <BorderColor />
+              <BorderWidth />
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox27">
+            <Height>56.44pt</Height>
+            <Width>304.12pt</Width>
+            <Value>=Parameters!Observaciones.Value</Value>
+            <Left>16.00pt</Left>
+            <Top>8.10pt</Top>
+            <Style>
+              <FontSize>9pt</FontSize>
+            </Style>
+          </Textbox>
+        </ReportItems>
+      </Rectangle>
+      <Textbox Name="Textbox26">
+        <Height>12.75pt</Height>
+        <Width>233.32pt</Width>
+        <Value>=Parameters!Copia.Value</Value>
+        <Left>308.7pt</Left>
+        <Top>79.6pt</Top>
+        <CanGrow>true</CanGrow>
+        <Style>
+          <TextAlign>Right</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>9pt</FontSize>
+        </Style>
+      </Textbox>
+    </ReportItems>
+  </PageFooter>
+  <DataElementName>Report</DataElementName>
+  <DataElementStyle>AttributeNormal</DataElementStyle>
+  <DataSets>
+    <DataSet Name="DataCbtes">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT @rownum := @rownum + 1 AS rowid,
+c2.`CbtePtoVta`,c2.`CbteNumero`,CAST(c2.`CbteFecha` AS DATE) Fecha,
+CAST(c2.`FechaVtoPago` AS DATE) Vto,c2.`ImporteTotal`,c1.`Importe`
+FROM cbteasociado c1,cbtecabecera c2,(SELECT @rownum := 0) r
+WHERE c1.`CbteReferencia` = c2.`Id`
+AND c1.`CbteId` = @cbteid</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="cbteid">
+            <Value>=Parameters!cbteid</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="rowid">
+          <DataField>rowid</DataField>
+          <TypeName>System.Int64</TypeName>
+        </Field>
+        <Field Name="CbtePtoVta">
+          <DataField>CbtePtoVta</DataField>
+          <TypeName>System.Int32</TypeName>
+        </Field>
+        <Field Name="CbteNumero">
+          <DataField>CbteNumero</DataField>
+          <TypeName>System.Int64</TypeName>
+        </Field>
+        <Field Name="Fecha">
+          <DataField>Fecha</DataField>
+          <TypeName>System.DateTime</TypeName>
+        </Field>
+        <Field Name="Vto">
+          <DataField>Vto</DataField>
+          <TypeName>System.DateTime</TypeName>
+        </Field>
+        <Field Name="ImporteTotal">
+          <DataField>ImporteTotal</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+        <Field Name="Importe">
+          <DataField>Importe</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataFinanciero">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT @rownum := @rownum + 1 AS rowid,
+f1.`Cuenta`,f1.`Referencia`,f1.`Efectivizacion`,f1.`Importe`,f1.`Banco`
+FROM financiero f1,(SELECT @rownum := 0) r
+WHERE f1.`CbteVta` = @cbteid</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="cbteid">
+            <Value>=Parameters!cbteid</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="rowid">
+          <DataField>rowid</DataField>
+          <TypeName>System.Int64</TypeName>
+        </Field>
+        <Field Name="Cuenta">
+          <DataField>Cuenta</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="Referencia">
+          <DataField>Referencia</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="Efectivizacion">
+          <DataField>Efectivizacion</DataField>
+          <TypeName>System.DateTime</TypeName>
+        </Field>
+        <Field Name="Importe">
+          <DataField>Importe</DataField>
+          <TypeName>System.Decimal</TypeName>
+        </Field>
+        <Field Name="Banco">
+          <DataField>Banco</DataField>
+          <TypeName>System.Int32</TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataTributos">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT @rownum := @rownum + 1 AS rowid,
+t1.`Descripcion`,t1.`Importe`
+FROM cbtetributo t1,(SELECT @rownum := 0) r
+WHERE t1.`CbteId` = @cbteid</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="cbteid">
+            <Value>=Parameters!cbteid</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="rowid">
+          <DataField>rowid</DataField>
+          <TypeName>System.Int64</TypeName>
+        </Field>
+        <Field Name="Descripcion">
+          <DataField>Descripcion</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="Importe">
+          <DataField>Importe</DataField>
+          <TypeName>System.Double</TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <DataSources>
+    <DataSource Name="DS1">
+      <ConnectionProperties>
+        <DataProvider>ODBC</DataProvider>
+        <ConnectString>
+          <Value>=Parameters!dsn.Value</Value>
+        </ConnectString>
+        <IntegratedSecurity>false</IntegratedSecurity>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <ReportParameters >
+    <ReportParameter Name="NombreFantasia">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Razón Social</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DomicilioEmisor">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Domicilio comercial</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CondicionIvaEmisor">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>IVA Responsable Inscripto</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Email">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>info@miempresa.com.ar</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Telefono">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>(0341) 444-5566</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="cbteid">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>109</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Web">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>www.miempresa.com.ar</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CuitEmisor">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IngresosBrutos">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="InicioActividades">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CbtePtoVta">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CbteNumero">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CbteFecha">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Denominacion">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>COMPROBANTE</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Letra">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>X</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CbteTipo">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FechaServicioDesde">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FechaServicioHasta">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FechaVtoPago">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="RazonSocial">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CondicionIva">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DocumentoTipo">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DocumentoNro">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NroRemito">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CondicionVta">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteNeto">
+      <DataType>Float</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteIVA27">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteIVA21">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteIVA105">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImproteIVA5">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteIVA25">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteIVA0">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteTributos">
+      <DataType>Float</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteTotal">
+      <DataType>Float</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="BarCode">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>C:\Documents and Settings\User\Mis documentos\Visual Studio 2010\Projects\GestionTaller\GestionTaller\bin\Debug\bc.png</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CAE">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FechaVtoCAE">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="RazonSocialEmisor">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteExento">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteNoGravado">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DomicilioCliente">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteCtasPropias">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ImporteCartera">
+      <DataType>Float</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Copia">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ORIGINAL</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Observaciones">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="dsn">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>driver={Mysql ODBC 5.1 Driver};server=localhost;uid=root;pwd=5826;database=gestion;port=3306;connection=</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LocalidadCliente">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+  </ReportParameters>
+</Report>

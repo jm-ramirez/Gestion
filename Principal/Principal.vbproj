@@ -156,6 +156,12 @@
     <Compile Include="CtlCustomCombo.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="CtlDetalleCbte2.Designer.vb">
+      <DependentUpon>CtlDetalleCbte2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CtlDetalleCbte2.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="CtlDetalleCbteAnterior.Designer.vb">
       <DependentUpon>CtlDetalleCbteAnterior.vb</DependentUpon>
     </Compile>
@@ -828,6 +834,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtlCustomCombo.resx">
       <DependentUpon>CtlCustomCombo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlDetalleCbte2.resx">
+      <DependentUpon>CtlDetalleCbte2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtlDetalleCbteAnterior.resx">
       <DependentUpon>CtlDetalleCbteAnterior.vb</DependentUpon>

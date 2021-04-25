@@ -2,6 +2,7 @@
     'repositorios de tablas
     Private _repoCli As New CapaLogica.ClienteCLog
     Private _repoPiezas As New CapaLogica.ArticuloCLog
+    Private _repositorioCategorias As New CapaLogica.CategoriaCLog
 
     'inicializo formulario, limpieza o carga de valores
     Private Sub InicializarFormulario()
@@ -21,7 +22,7 @@
 
         optId.Checked = True
         'optComercial.Checked = True
-
+        Me.CheckBoxCategorias.Checked = True
         Me.cboPD.Select()
 
     End Sub
@@ -47,6 +48,18 @@
             .Inicializar()
             If .Items.Count <> 0 Then .SelectedIndex = .Items.Count - 1
         End With
+
+        With Me.CtlComboCategorias
+            .ValueMember = "Codigo"
+            .DisplayMember = "Nombre"
+            .DataSource = _repositorioCategorias.GetAll()
+            .AutoCompleteMode = AutoCompleteMode.Suggest
+            .AutoCompleteSource = AutoCompleteSource.ListItems
+            .Inicializar()
+            .SelectedIndex = -1
+            If .Items.Count <> 0 Then .SelectedIndex = .Items.Count - 1
+        End With
+
     End Sub
 
     Private Sub lstArticulos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -111,8 +124,12 @@
                 Throw New Exception("La Pieza seleccionada no es válida")
             End If
 
-            Dim r As New GeneradorReportes.Reporte
+            If Me.CtlComboCategorias.SelectedItem Is Nothing And Not CheckBoxCategorias.Checked Then
+                Throw New Exception("La categoria seleccionada no es válida")
+            End If
 
+            Dim r As New GeneradorReportes.Reporte
+            Dim c As Entidades.Categoria = DirectCast(Me.CtlComboCategorias.SelectedItem, Entidades.Categoria)
             r.Nombre = Me.Text
 
             r.SourceFile = My.Settings.RutaReportes & "\lstArticulo.rdl"
@@ -124,6 +141,10 @@
             r.Parametros.Add(New GeneradorReportes.Parametro("ldesde", Me.cboPD.SelectedValue))
             r.Parametros.Add(New GeneradorReportes.Parametro("lhasta", Me.cboPH.SelectedValue))
             r.Parametros.Add(New GeneradorReportes.Parametro("corden", If(optId.Checked = True, 0, 1)))
+
+            If Not CheckBoxCategorias.Checked Then
+                r.Parametros.Add(New GeneradorReportes.Parametro("categoria", c.Codigo))
+            End If
 
             r.ShowReport()
 
@@ -148,5 +169,14 @@
             Case "BtnReporte" : Reporte()
             Case "BtnCancelar" : Cancelar()
         End Select
+    End Sub
+
+    Private Sub CheckBoxCategorias_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxCategorias.CheckedChanged
+        If Not CheckBoxCategorias.Checked Then
+            Me.CtlComboCategorias.Enabled = True
+            Me.CtlComboCategorias.FocoDetalle()
+        Else
+            Me.CtlComboCategorias.Enabled = False
+        End If
     End Sub
 End Class

@@ -1733,6 +1733,27 @@ Public Class FormCbteVentaKiosco
 
     End Sub
 
+    'Private Sub CtlCbteDetalle_Totalizado()
+    '    With CtlCbteDetalle
+    '        _subtotal = .Subtotal
+    '        _iva = .Iva
+    '        _otrostributos = .OtrosTributos
+    '        _exento = .Exento
+    '        _nogravado = .NoGravado
+    '        _total = .Total
+    '        _totalaplicado = .TotalAplicado
+    '        Call LockDatosCliente(Not .Articulos.Count = 0)
+    '    End With
+
+    '    Me.TextBoxSubtotal.Text = _subtotal.ToString("$ #,##0.00")
+    '    Me.TextBoxIVAFacturado.Text = _iva.ToString("$ #,##0.00")
+    '    Me.TextBoxOtrosTributos.Text = _otrostributos.ToString("$ #,##0.00")
+    '    Me.TextBoxExento.Text = _exento.ToString("$ #,##0.00")
+    '    Me.TextBoxNogravado.Text = _nogravado.ToString("$ #,##0.00")
+    '    Me.TextBoxTotal.Text = _total.ToString("$ #,##0.00")
+    '    Me.LabelTotal.Text = "Items ingresados " & CtlCbteDetalle.Articulos.Count & ", por cargar " & CtlCbteDetalle.MaximoItems - CtlCbteDetalle.Articulos.Count & ". Esta Venta >> " & _total.ToString("$ #,##0.00") & " <<"
+    'End Sub
+
     Private Sub CtlCbteDetalle_Totalizado() Handles CtlCbteDetalle.Totalizado
         With CtlCbteDetalle
             _subtotal = .Subtotal

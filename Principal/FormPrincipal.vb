@@ -470,8 +470,8 @@ Public Class FormPrincipal
                 f = New lstPrimario
                 f.mlngTipoListado = Listados.CATEGORIAS_ART
                 f.Show()
-                '    Case "emisionlistaprecios"
-                '        ShowForm(New FormEmisionLstPrecios)
+            'Case "emisionlistaprecios"
+            '    ShowForm(New FormEmisionLstPrecios)
             Case "lisLocalidades"
                 ShowForm(New lstLocalidades)
             Case "lisProvincias"
@@ -525,10 +525,11 @@ Public Class FormPrincipal
 
         Dim f As FormCbteVenta = Nothing
         Dim fc As FormCbteCobro = Nothing
+        Dim fp As FormCbteVentaKiosco = Nothing
         'Dim ff As FormFiscal = Nothing
         'Dim fr As FormCbteRemito = Nothing
 
-        Select sender.Tag
+        Select Case sender.Tag
             Case "cbteremito"
                 ShowForm(New FormCbteRemito)
             Case "consultaremito"
@@ -542,9 +543,13 @@ Public Class FormPrincipal
                 '        '    f.TipoCbte = TipoEmisionCbte.FISCAL
                 '        '    f.ShowDialog()
             Case "cbtepreimpreso"
-                f = New FormCbteVenta
-                f.TipoCbte = TipoEmisionCbte.PREIMPRESO
-                f.ShowDialog()
+                'f = New FormCbteVenta
+                'f.TipoCbte = TipoEmisionCbte.PREIMPRESO
+                'f.ShowDialog()
+                fp = New FormCbteVentaKiosco
+                fp.TipoCbte = TipoEmisionCbte.PREIMPRESO
+                'fp.Height = 590
+                fp.ShowDialog()
             Case "ajustedeudor"
                 fc = New FormCbteCobro
                 fc.TipoCbte = TipoEmisionCbte.AJUSTE_DEUDOR
@@ -554,9 +559,10 @@ Public Class FormPrincipal
                 fc.TipoCbte = TipoEmisionCbte.AJUSTE_ACREEDOR
                 fc.ShowDialog()
             Case "cbtepresupuesto"
-                f = New FormCbteVenta
-                f.TipoCbte = TipoEmisionCbte.PRESUPUESTO
-                f.ShowDialog()
+                fp = New FormCbteVentaKiosco
+                fp.TipoCbte = TipoEmisionCbte.PRESUPUESTO
+                fp.Height = 590
+                fp.ShowDialog()
             Case "recibopresupuesto"
                 fc = New FormCbteCobro
                 fc.TipoCbte = TipoEmisionCbte.RECIBO_PRESUPUESTO

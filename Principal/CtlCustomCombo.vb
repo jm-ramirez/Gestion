@@ -224,31 +224,31 @@
         End If
 
         'si es numero convierto al tipo de dato
-        'If IsNumeric(value) Then
+        If IsNumeric(value) Then
 
-        '    If Me.BusquedaPorCodigobarra And value.Length >= 7 Then
+            If Me.BusquedaPorCodigobarra And value.Length >= 7 Then
 
-        '        Call FindBarcode(value)
+                Call FindBarcode(value)
 
-        '    Else
+            Else
 
-        '        Me.ComboBoxDetalle.SelectedValue = value
+                Me.ComboBoxDetalle.SelectedValue = value
 
-        '        'If Me.ComboBoxDetalle.SelectedValue IsNot Nothing Then
-        '        'SendKeys.Send(vbTab)
-        '        'End If
+                'If Me.ComboBoxDetalle.SelectedValue IsNot Nothing Then
+                'SendKeys.Send(vbTab)
+                'End If
 
-        '    End If
+            End If
 
 
-        'Else
+        Else
 
-        '    FindCodeValue(value)
+            'FindCodeValue(value)
 
-        '    'If Me.ComboBoxDetalle.SelectedItem IsNot Nothing Then
-        '    'SendKeys.Send(vbTab)
-        '    'End If
-        'End If
+            'If Me.ComboBoxDetalle.SelectedItem IsNot Nothing Then
+            'SendKeys.Send(vbTab)
+            'End If
+        End If
 
     End Sub
 
@@ -256,33 +256,33 @@
         RaiseEvent DejarFoco()
     End Sub
 
-    'Private Sub FindBarcode(ByVal value As String)
+    Private Sub FindBarcode(ByVal value As String)
 
-    '    Dim query As IEnumerable(Of Entidades.Articulo) =
-    '    From i As Entidades.Articulo In ComboBoxDetalle.Items Where (i.Codigo.ToString().ToUpper().Equals(value.ToUpper()))
+        Dim query As IEnumerable(Of Entidades.Articulo) =
+        From i As Entidades.Articulo In ComboBoxDetalle.Items Where (i.Codigobarra.ToString().ToUpper().Equals(value.ToUpper()))
 
-    '    For Each obj As Entidades.Articulo In query
-    '        ComboBoxDetalle.SelectedItem = obj
-    '    Next
+        For Each obj As Entidades.Articulo In query
+            ComboBoxDetalle.SelectedItem = obj
+        Next
 
-    '    'si no encuentro el codigo de barras, busco por codigo
-    '    If Me.ComboBoxDetalle.SelectedValue IsNot Nothing Then
-    '        'SendKeys.Send(vbTab)
-    '        RaiseEvent CodigobarraEncontrado()
-    '    Else
+        'si no encuentro el codigo de barras, busco por codigo
+        If Me.ComboBoxDetalle.SelectedValue IsNot Nothing Then
+            'SendKeys.Send(vbTab)
+            RaiseEvent CodigobarraEncontrado()
+            'Else
 
-    '        Me.ComboBoxDetalle.SelectedValue = Convert.ToUInt32(value)
+            '    Me.ComboBoxDetalle.SelectedValue = Convert.ToUInt32(value)
 
-    '        If Me.ComboBoxDetalle.SelectedValue IsNot Nothing Then
-    '            'SendKeys.Send(vbTab)
-    '        End If
+            '    If Me.ComboBoxDetalle.SelectedValue IsNot Nothing Then
+            '        'SendKeys.Send(vbTab)
+            '    End If
 
-    '    End If
-
-
+        End If
 
 
-    'End Sub
+
+
+    End Sub
 
     'Private Sub FindCodeValue(ByVal value As String)
 

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CapaLogica
+</name>
+</assembly>
+<members>
+<member name="T:CapaLogica.My.Resources.Resources">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:CapaLogica.My.Resources.Resources.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:CapaLogica.My.Resources.Resources.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="M:CapaLogica.CbteCabecera2CLog.GetAllByCliente(System.UInt32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="cliente">Código del cliente</param>
+ <param name="ordenDescendete">Orden Ascendente/Descente</param>
+ <param name="cargaCtaCte">Carga el estado de cuenta por comprobante</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:CapaLogica.CbtecabeceraCLog.GetAllByCliente(System.UInt32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="cliente">Código del cliente</param>
+ <param name="vertodos">Muestra todos los tipos de comprobantes</param>
+ <param name="ordenDescendete">Orden Ascendente/Descente</param>
+ <param name="cargaCtaCte">Carga el estado de cuenta por comprobante</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>
