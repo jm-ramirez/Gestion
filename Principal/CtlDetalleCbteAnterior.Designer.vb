@@ -30,8 +30,6 @@ Partial Class CtlDetalleCbteAnterior
         Me.FOLVCtasPropias = New BrightIdeasSoftware.FastObjectListView()
         Me.PanelCabeceraCtasPropias = New System.Windows.Forms.Panel()
         Me.DateTimePickerEfectivizacion = New System.Windows.Forms.DateTimePicker()
-        Me.ComboBoxConceptoBancario = New Principal.CtlCustomCombo()
-        Me.ComboBoxCtaBancaria = New Principal.CtlCustomCombo()
         Me.BtnAgregarCtaPropia = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.TextBoxReferencia = New System.Windows.Forms.TextBox()
@@ -45,8 +43,6 @@ Partial Class CtlDetalleCbteAnterior
         Me.FOLVCartera = New BrightIdeasSoftware.FastObjectListView()
         Me.PanelCabeceraCartera = New System.Windows.Forms.Panel()
         Me.DateTimePickerFechaCheque = New System.Windows.Forms.DateTimePicker()
-        Me.ComboBoxLocalidad = New Principal.CtlCustomCombo()
-        Me.ComboBoxBancos = New Principal.CtlCustomCombo()
         Me.BtnAgregarCheque = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.TextBoxDador = New System.Windows.Forms.TextBox()
@@ -63,7 +59,9 @@ Partial Class CtlDetalleCbteAnterior
         Me.TableLayoutPanelArticulos = New System.Windows.Forms.TableLayoutPanel()
         Me.FOLVArticulos = New BrightIdeasSoftware.FastObjectListView()
         Me.PanelCabecera = New System.Windows.Forms.Panel()
-        Me.ComboBoxArticulos = New Principal.CtlCustomCombo()
+        Me.TextBoxSubtotalArticuloFinal = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBoxImporteFinal = New System.Windows.Forms.TextBox()
         Me.lblSubtotal = New System.Windows.Forms.Label()
         Me.BtnAgregarArticulo = New System.Windows.Forms.Button()
         Me.lblAlicuota = New System.Windows.Forms.Label()
@@ -72,6 +70,7 @@ Partial Class CtlDetalleCbteAnterior
         Me.Label27 = New System.Windows.Forms.Label()
         Me.lblImporte = New System.Windows.Forms.Label()
         Me.TextBoxImporteImpInt = New System.Windows.Forms.TextBox()
+        Me.TextBoxDto = New System.Windows.Forms.TextBox()
         Me.TextBoxImporte = New System.Windows.Forms.TextBox()
         Me.lblCant = New System.Windows.Forms.Label()
         Me.ComboBoxArticuloAlicuota = New System.Windows.Forms.ComboBox()
@@ -104,7 +103,6 @@ Partial Class CtlDetalleCbteAnterior
         Me.LabelCtaCte = New System.Windows.Forms.Label()
         Me.CheckBoxCtaCte = New System.Windows.Forms.CheckBox()
         Me.CheckBoxVerTodos = New System.Windows.Forms.CheckBox()
-        Me.ComboBoxAsoc = New Principal.CtlCustomCombo()
         Me.BtnAgregarAsoc = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TextBoxImporteAsoc = New System.Windows.Forms.TextBox()
@@ -113,10 +111,12 @@ Partial Class CtlDetalleCbteAnterior
         Me.TabPageObs = New System.Windows.Forms.TabPage()
         Me.TextBoxObservaciones = New System.Windows.Forms.TextBox()
         Me.ImgList = New System.Windows.Forms.ImageList(Me.components)
-        Me.TextBoxDto = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBoxImporteFinal = New System.Windows.Forms.TextBox()
-        Me.TextBoxSubtotalArticuloFinal = New System.Windows.Forms.TextBox()
+        Me.ComboBoxConceptoBancario = New Principal.CtlCustomCombo()
+        Me.ComboBoxCtaBancaria = New Principal.CtlCustomCombo()
+        Me.ComboBoxLocalidad = New Principal.CtlCustomCombo()
+        Me.ComboBoxBancos = New Principal.CtlCustomCombo()
+        Me.ComboBoxArticulos = New Principal.CtlCustomCombo()
+        Me.ComboBoxAsoc = New Principal.CtlCustomCombo()
         Me.TabControlDetalleCbte.SuspendLayout()
         Me.TabPageCtasPropias.SuspendLayout()
         Me.TableLayoutPanelCtasPropias.SuspendLayout()
@@ -230,54 +230,6 @@ Partial Class CtlDetalleCbteAnterior
         Me.DateTimePickerEfectivizacion.Name = "DateTimePickerEfectivizacion"
         Me.DateTimePickerEfectivizacion.Size = New System.Drawing.Size(108, 20)
         Me.DateTimePickerEfectivizacion.TabIndex = 2
-        '
-        'ComboBoxConceptoBancario
-        '
-        Me.ComboBoxConceptoBancario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
-        Me.ComboBoxConceptoBancario.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
-        Me.ComboBoxConceptoBancario.BusquedaPorCodigobarra = False
-        Me.ComboBoxConceptoBancario.ColumnasExtras = Nothing
-        Me.ComboBoxConceptoBancario.CustomFormatArt = False
-        Me.ComboBoxConceptoBancario.DataSource = Nothing
-        Me.ComboBoxConceptoBancario.DisplayMember = Nothing
-        Me.ComboBoxConceptoBancario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
-        Me.ComboBoxConceptoBancario.FormularioDeAlta = Nothing
-        Me.ComboBoxConceptoBancario.FormularioDeBusqueda = Nothing
-        Me.ComboBoxConceptoBancario.Location = New System.Drawing.Point(515, 3)
-        Me.ComboBoxConceptoBancario.MaximumSize = New System.Drawing.Size(500, 25)
-        Me.ComboBoxConceptoBancario.MinimumSize = New System.Drawing.Size(200, 25)
-        Me.ComboBoxConceptoBancario.Name = "ComboBoxConceptoBancario"
-        Me.ComboBoxConceptoBancario.SelectedIndex = -1
-        Me.ComboBoxConceptoBancario.SelectedItem = Nothing
-        Me.ComboBoxConceptoBancario.SelectedText = ""
-        Me.ComboBoxConceptoBancario.SelectedValue = Nothing
-        Me.ComboBoxConceptoBancario.Size = New System.Drawing.Size(235, 25)
-        Me.ComboBoxConceptoBancario.TabIndex = 1
-        Me.ComboBoxConceptoBancario.ValueMember = Nothing
-        '
-        'ComboBoxCtaBancaria
-        '
-        Me.ComboBoxCtaBancaria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
-        Me.ComboBoxCtaBancaria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
-        Me.ComboBoxCtaBancaria.BusquedaPorCodigobarra = False
-        Me.ComboBoxCtaBancaria.ColumnasExtras = Nothing
-        Me.ComboBoxCtaBancaria.CustomFormatArt = False
-        Me.ComboBoxCtaBancaria.DataSource = Nothing
-        Me.ComboBoxCtaBancaria.DisplayMember = Nothing
-        Me.ComboBoxCtaBancaria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
-        Me.ComboBoxCtaBancaria.FormularioDeAlta = Nothing
-        Me.ComboBoxCtaBancaria.FormularioDeBusqueda = Nothing
-        Me.ComboBoxCtaBancaria.Location = New System.Drawing.Point(122, 3)
-        Me.ComboBoxCtaBancaria.MaximumSize = New System.Drawing.Size(500, 25)
-        Me.ComboBoxCtaBancaria.MinimumSize = New System.Drawing.Size(200, 25)
-        Me.ComboBoxCtaBancaria.Name = "ComboBoxCtaBancaria"
-        Me.ComboBoxCtaBancaria.SelectedIndex = -1
-        Me.ComboBoxCtaBancaria.SelectedItem = Nothing
-        Me.ComboBoxCtaBancaria.SelectedText = ""
-        Me.ComboBoxCtaBancaria.SelectedValue = Nothing
-        Me.ComboBoxCtaBancaria.Size = New System.Drawing.Size(272, 25)
-        Me.ComboBoxCtaBancaria.TabIndex = 0
-        Me.ComboBoxCtaBancaria.ValueMember = Nothing
         '
         'BtnAgregarCtaPropia
         '
@@ -434,54 +386,6 @@ Partial Class CtlDetalleCbteAnterior
         Me.DateTimePickerFechaCheque.Name = "DateTimePickerFechaCheque"
         Me.DateTimePickerFechaCheque.Size = New System.Drawing.Size(91, 20)
         Me.DateTimePickerFechaCheque.TabIndex = 5
-        '
-        'ComboBoxLocalidad
-        '
-        Me.ComboBoxLocalidad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
-        Me.ComboBoxLocalidad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
-        Me.ComboBoxLocalidad.BusquedaPorCodigobarra = False
-        Me.ComboBoxLocalidad.ColumnasExtras = Nothing
-        Me.ComboBoxLocalidad.CustomFormatArt = False
-        Me.ComboBoxLocalidad.DataSource = Nothing
-        Me.ComboBoxLocalidad.DisplayMember = Nothing
-        Me.ComboBoxLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
-        Me.ComboBoxLocalidad.FormularioDeAlta = Nothing
-        Me.ComboBoxLocalidad.FormularioDeBusqueda = Nothing
-        Me.ComboBoxLocalidad.Location = New System.Drawing.Point(468, 9)
-        Me.ComboBoxLocalidad.MaximumSize = New System.Drawing.Size(500, 25)
-        Me.ComboBoxLocalidad.MinimumSize = New System.Drawing.Size(200, 25)
-        Me.ComboBoxLocalidad.Name = "ComboBoxLocalidad"
-        Me.ComboBoxLocalidad.SelectedIndex = -1
-        Me.ComboBoxLocalidad.SelectedItem = Nothing
-        Me.ComboBoxLocalidad.SelectedText = ""
-        Me.ComboBoxLocalidad.SelectedValue = Nothing
-        Me.ComboBoxLocalidad.Size = New System.Drawing.Size(279, 25)
-        Me.ComboBoxLocalidad.TabIndex = 1
-        Me.ComboBoxLocalidad.ValueMember = Nothing
-        '
-        'ComboBoxBancos
-        '
-        Me.ComboBoxBancos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
-        Me.ComboBoxBancos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
-        Me.ComboBoxBancos.BusquedaPorCodigobarra = False
-        Me.ComboBoxBancos.ColumnasExtras = Nothing
-        Me.ComboBoxBancos.CustomFormatArt = False
-        Me.ComboBoxBancos.DataSource = Nothing
-        Me.ComboBoxBancos.DisplayMember = Nothing
-        Me.ComboBoxBancos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
-        Me.ComboBoxBancos.FormularioDeAlta = Nothing
-        Me.ComboBoxBancos.FormularioDeBusqueda = Nothing
-        Me.ComboBoxBancos.Location = New System.Drawing.Point(74, 9)
-        Me.ComboBoxBancos.MaximumSize = New System.Drawing.Size(500, 25)
-        Me.ComboBoxBancos.MinimumSize = New System.Drawing.Size(200, 25)
-        Me.ComboBoxBancos.Name = "ComboBoxBancos"
-        Me.ComboBoxBancos.SelectedIndex = -1
-        Me.ComboBoxBancos.SelectedItem = Nothing
-        Me.ComboBoxBancos.SelectedText = ""
-        Me.ComboBoxBancos.SelectedValue = Nothing
-        Me.ComboBoxBancos.Size = New System.Drawing.Size(307, 25)
-        Me.ComboBoxBancos.TabIndex = 0
-        Me.ComboBoxBancos.ValueMember = Nothing
         '
         'BtnAgregarCheque
         '
@@ -651,6 +555,7 @@ Partial Class CtlDetalleCbteAnterior
         '
         'PanelCabecera
         '
+        Me.PanelCabecera.Controls.Add(Me.TextBoxSubtotalArticulo)
         Me.PanelCabecera.Controls.Add(Me.TextBoxSubtotalArticuloFinal)
         Me.PanelCabecera.Controls.Add(Me.Label1)
         Me.PanelCabecera.Controls.Add(Me.TextBoxImporteFinal)
@@ -668,35 +573,41 @@ Partial Class CtlDetalleCbteAnterior
         Me.PanelCabecera.Controls.Add(Me.lblCant)
         Me.PanelCabecera.Controls.Add(Me.ComboBoxArticuloAlicuota)
         Me.PanelCabecera.Controls.Add(Me.Label19)
-        Me.PanelCabecera.Controls.Add(Me.TextBoxSubtotalArticulo)
         Me.PanelCabecera.Location = New System.Drawing.Point(3, 3)
         Me.PanelCabecera.Name = "PanelCabecera"
         Me.PanelCabecera.Size = New System.Drawing.Size(832, 44)
         Me.PanelCabecera.TabIndex = 0
         '
-        'ComboBoxArticulos
+        'TextBoxSubtotalArticuloFinal
         '
-        Me.ComboBoxArticulos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
-        Me.ComboBoxArticulos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
-        Me.ComboBoxArticulos.BusquedaPorCodigobarra = False
-        Me.ComboBoxArticulos.ColumnasExtras = Nothing
-        Me.ComboBoxArticulos.CustomFormatArt = False
-        Me.ComboBoxArticulos.DataSource = Nothing
-        Me.ComboBoxArticulos.DisplayMember = Nothing
-        Me.ComboBoxArticulos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
-        Me.ComboBoxArticulos.FormularioDeAlta = Nothing
-        Me.ComboBoxArticulos.FormularioDeBusqueda = Nothing
-        Me.ComboBoxArticulos.Location = New System.Drawing.Point(3, 17)
-        Me.ComboBoxArticulos.MaximumSize = New System.Drawing.Size(500, 25)
-        Me.ComboBoxArticulos.MinimumSize = New System.Drawing.Size(200, 25)
-        Me.ComboBoxArticulos.Name = "ComboBoxArticulos"
-        Me.ComboBoxArticulos.SelectedIndex = -1
-        Me.ComboBoxArticulos.SelectedItem = Nothing
-        Me.ComboBoxArticulos.SelectedText = ""
-        Me.ComboBoxArticulos.SelectedValue = Nothing
-        Me.ComboBoxArticulos.Size = New System.Drawing.Size(346, 25)
-        Me.ComboBoxArticulos.TabIndex = 1
-        Me.ComboBoxArticulos.ValueMember = Nothing
+        Me.TextBoxSubtotalArticuloFinal.BackColor = System.Drawing.SystemColors.Window
+        Me.TextBoxSubtotalArticuloFinal.Location = New System.Drawing.Point(713, 24)
+        Me.TextBoxSubtotalArticuloFinal.Name = "TextBoxSubtotalArticuloFinal"
+        Me.TextBoxSubtotalArticuloFinal.ReadOnly = True
+        Me.TextBoxSubtotalArticuloFinal.Size = New System.Drawing.Size(90, 20)
+        Me.TextBoxSubtotalArticuloFinal.TabIndex = 11
+        Me.TextBoxSubtotalArticuloFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.Gainsboro
+        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(577, 3)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(69, 15)
+        Me.Label1.TabIndex = 12
+        Me.Label1.Text = "Importe Final"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TextBoxImporteFinal
+        '
+        Me.TextBoxImporteFinal.Location = New System.Drawing.Point(577, 21)
+        Me.TextBoxImporteFinal.Name = "TextBoxImporteFinal"
+        Me.TextBoxImporteFinal.Size = New System.Drawing.Size(69, 20)
+        Me.TextBoxImporteFinal.TabIndex = 8
+        Me.TextBoxImporteFinal.Tag = "importefinal"
+        Me.TextBoxImporteFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblSubtotal
         '
@@ -787,12 +698,21 @@ Partial Class CtlDetalleCbteAnterior
         Me.TextBoxImporteImpInt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.TextBoxImporteImpInt.Visible = False
         '
+        'TextBoxDto
+        '
+        Me.TextBoxDto.Location = New System.Drawing.Point(652, 21)
+        Me.TextBoxDto.Name = "TextBoxDto"
+        Me.TextBoxDto.Size = New System.Drawing.Size(55, 20)
+        Me.TextBoxDto.TabIndex = 9
+        Me.TextBoxDto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'TextBoxImporte
         '
         Me.TextBoxImporte.Location = New System.Drawing.Point(434, 21)
         Me.TextBoxImporte.Name = "TextBoxImporte"
         Me.TextBoxImporte.Size = New System.Drawing.Size(69, 20)
         Me.TextBoxImporte.TabIndex = 6
+        Me.TextBoxImporte.Tag = "importe"
         Me.TextBoxImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblCant
@@ -832,7 +752,7 @@ Partial Class CtlDetalleCbteAnterior
         'TextBoxSubtotalArticulo
         '
         Me.TextBoxSubtotalArticulo.BackColor = System.Drawing.SystemColors.Window
-        Me.TextBoxSubtotalArticulo.Location = New System.Drawing.Point(713, 21)
+        Me.TextBoxSubtotalArticulo.Location = New System.Drawing.Point(713, 3)
         Me.TextBoxSubtotalArticulo.Name = "TextBoxSubtotalArticulo"
         Me.TextBoxSubtotalArticulo.ReadOnly = True
         Me.TextBoxSubtotalArticulo.Size = New System.Drawing.Size(90, 20)
@@ -1159,30 +1079,6 @@ Partial Class CtlDetalleCbteAnterior
         Me.CheckBoxVerTodos.Text = "Incluir Cbtes. Saldados"
         Me.CheckBoxVerTodos.UseVisualStyleBackColor = True
         '
-        'ComboBoxAsoc
-        '
-        Me.ComboBoxAsoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
-        Me.ComboBoxAsoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
-        Me.ComboBoxAsoc.BusquedaPorCodigobarra = False
-        Me.ComboBoxAsoc.ColumnasExtras = Nothing
-        Me.ComboBoxAsoc.CustomFormatArt = False
-        Me.ComboBoxAsoc.DataSource = Nothing
-        Me.ComboBoxAsoc.DisplayMember = Nothing
-        Me.ComboBoxAsoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
-        Me.ComboBoxAsoc.FormularioDeAlta = Nothing
-        Me.ComboBoxAsoc.FormularioDeBusqueda = Nothing
-        Me.ComboBoxAsoc.Location = New System.Drawing.Point(3, 16)
-        Me.ComboBoxAsoc.MaximumSize = New System.Drawing.Size(500, 25)
-        Me.ComboBoxAsoc.MinimumSize = New System.Drawing.Size(200, 25)
-        Me.ComboBoxAsoc.Name = "ComboBoxAsoc"
-        Me.ComboBoxAsoc.SelectedIndex = -1
-        Me.ComboBoxAsoc.SelectedItem = Nothing
-        Me.ComboBoxAsoc.SelectedText = ""
-        Me.ComboBoxAsoc.SelectedValue = Nothing
-        Me.ComboBoxAsoc.Size = New System.Drawing.Size(330, 25)
-        Me.ComboBoxAsoc.TabIndex = 0
-        Me.ComboBoxAsoc.ValueMember = Nothing
-        '
         'BtnAgregarAsoc
         '
         Me.BtnAgregarAsoc.FlatAppearance.BorderSize = 0
@@ -1270,43 +1166,149 @@ Partial Class CtlDetalleCbteAnterior
         Me.ImgList.Images.SetKeyName(1, "unchecked")
         Me.ImgList.Images.SetKeyName(2, "edit")
         '
-        'TextBoxDto
+        'ComboBoxConceptoBancario
         '
-        Me.TextBoxDto.Location = New System.Drawing.Point(652, 21)
-        Me.TextBoxDto.Name = "TextBoxDto"
-        Me.TextBoxDto.Size = New System.Drawing.Size(55, 20)
-        Me.TextBoxDto.TabIndex = 9
-        Me.TextBoxDto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ComboBoxConceptoBancario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
+        Me.ComboBoxConceptoBancario.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
+        Me.ComboBoxConceptoBancario.BusquedaPorCodigobarra = False
+        Me.ComboBoxConceptoBancario.ColumnasExtras = Nothing
+        Me.ComboBoxConceptoBancario.CustomFormatArt = False
+        Me.ComboBoxConceptoBancario.DataSource = Nothing
+        Me.ComboBoxConceptoBancario.DisplayMember = Nothing
+        Me.ComboBoxConceptoBancario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
+        Me.ComboBoxConceptoBancario.FormularioDeAlta = Nothing
+        Me.ComboBoxConceptoBancario.FormularioDeBusqueda = Nothing
+        Me.ComboBoxConceptoBancario.Location = New System.Drawing.Point(515, 3)
+        Me.ComboBoxConceptoBancario.MaximumSize = New System.Drawing.Size(500, 25)
+        Me.ComboBoxConceptoBancario.MinimumSize = New System.Drawing.Size(200, 25)
+        Me.ComboBoxConceptoBancario.Name = "ComboBoxConceptoBancario"
+        Me.ComboBoxConceptoBancario.SelectedIndex = -1
+        Me.ComboBoxConceptoBancario.SelectedItem = Nothing
+        Me.ComboBoxConceptoBancario.SelectedText = ""
+        Me.ComboBoxConceptoBancario.SelectedValue = Nothing
+        Me.ComboBoxConceptoBancario.Size = New System.Drawing.Size(235, 25)
+        Me.ComboBoxConceptoBancario.TabIndex = 1
+        Me.ComboBoxConceptoBancario.ValueMember = Nothing
         '
-        'Label1
+        'ComboBoxCtaBancaria
         '
-        Me.Label1.BackColor = System.Drawing.Color.Gainsboro
-        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(577, 3)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(69, 15)
-        Me.Label1.TabIndex = 12
-        Me.Label1.Text = "Importe Final"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.ComboBoxCtaBancaria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
+        Me.ComboBoxCtaBancaria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
+        Me.ComboBoxCtaBancaria.BusquedaPorCodigobarra = False
+        Me.ComboBoxCtaBancaria.ColumnasExtras = Nothing
+        Me.ComboBoxCtaBancaria.CustomFormatArt = False
+        Me.ComboBoxCtaBancaria.DataSource = Nothing
+        Me.ComboBoxCtaBancaria.DisplayMember = Nothing
+        Me.ComboBoxCtaBancaria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
+        Me.ComboBoxCtaBancaria.FormularioDeAlta = Nothing
+        Me.ComboBoxCtaBancaria.FormularioDeBusqueda = Nothing
+        Me.ComboBoxCtaBancaria.Location = New System.Drawing.Point(122, 3)
+        Me.ComboBoxCtaBancaria.MaximumSize = New System.Drawing.Size(500, 25)
+        Me.ComboBoxCtaBancaria.MinimumSize = New System.Drawing.Size(200, 25)
+        Me.ComboBoxCtaBancaria.Name = "ComboBoxCtaBancaria"
+        Me.ComboBoxCtaBancaria.SelectedIndex = -1
+        Me.ComboBoxCtaBancaria.SelectedItem = Nothing
+        Me.ComboBoxCtaBancaria.SelectedText = ""
+        Me.ComboBoxCtaBancaria.SelectedValue = Nothing
+        Me.ComboBoxCtaBancaria.Size = New System.Drawing.Size(272, 25)
+        Me.ComboBoxCtaBancaria.TabIndex = 0
+        Me.ComboBoxCtaBancaria.ValueMember = Nothing
         '
-        'TextBoxImporteFinal
+        'ComboBoxLocalidad
         '
-        Me.TextBoxImporteFinal.Location = New System.Drawing.Point(577, 21)
-        Me.TextBoxImporteFinal.Name = "TextBoxImporteFinal"
-        Me.TextBoxImporteFinal.Size = New System.Drawing.Size(69, 20)
-        Me.TextBoxImporteFinal.TabIndex = 8
-        Me.TextBoxImporteFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ComboBoxLocalidad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
+        Me.ComboBoxLocalidad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
+        Me.ComboBoxLocalidad.BusquedaPorCodigobarra = False
+        Me.ComboBoxLocalidad.ColumnasExtras = Nothing
+        Me.ComboBoxLocalidad.CustomFormatArt = False
+        Me.ComboBoxLocalidad.DataSource = Nothing
+        Me.ComboBoxLocalidad.DisplayMember = Nothing
+        Me.ComboBoxLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
+        Me.ComboBoxLocalidad.FormularioDeAlta = Nothing
+        Me.ComboBoxLocalidad.FormularioDeBusqueda = Nothing
+        Me.ComboBoxLocalidad.Location = New System.Drawing.Point(468, 9)
+        Me.ComboBoxLocalidad.MaximumSize = New System.Drawing.Size(500, 25)
+        Me.ComboBoxLocalidad.MinimumSize = New System.Drawing.Size(200, 25)
+        Me.ComboBoxLocalidad.Name = "ComboBoxLocalidad"
+        Me.ComboBoxLocalidad.SelectedIndex = -1
+        Me.ComboBoxLocalidad.SelectedItem = Nothing
+        Me.ComboBoxLocalidad.SelectedText = ""
+        Me.ComboBoxLocalidad.SelectedValue = Nothing
+        Me.ComboBoxLocalidad.Size = New System.Drawing.Size(279, 25)
+        Me.ComboBoxLocalidad.TabIndex = 1
+        Me.ComboBoxLocalidad.ValueMember = Nothing
         '
-        'TextBoxSubtotalArticuloFinal
+        'ComboBoxBancos
         '
-        Me.TextBoxSubtotalArticuloFinal.BackColor = System.Drawing.SystemColors.Window
-        Me.TextBoxSubtotalArticuloFinal.Location = New System.Drawing.Point(713, 21)
-        Me.TextBoxSubtotalArticuloFinal.Name = "TextBoxSubtotalArticuloFinal"
-        Me.TextBoxSubtotalArticuloFinal.ReadOnly = True
-        Me.TextBoxSubtotalArticuloFinal.Size = New System.Drawing.Size(90, 20)
-        Me.TextBoxSubtotalArticuloFinal.TabIndex = 11
-        Me.TextBoxSubtotalArticuloFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ComboBoxBancos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
+        Me.ComboBoxBancos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
+        Me.ComboBoxBancos.BusquedaPorCodigobarra = False
+        Me.ComboBoxBancos.ColumnasExtras = Nothing
+        Me.ComboBoxBancos.CustomFormatArt = False
+        Me.ComboBoxBancos.DataSource = Nothing
+        Me.ComboBoxBancos.DisplayMember = Nothing
+        Me.ComboBoxBancos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
+        Me.ComboBoxBancos.FormularioDeAlta = Nothing
+        Me.ComboBoxBancos.FormularioDeBusqueda = Nothing
+        Me.ComboBoxBancos.Location = New System.Drawing.Point(74, 9)
+        Me.ComboBoxBancos.MaximumSize = New System.Drawing.Size(500, 25)
+        Me.ComboBoxBancos.MinimumSize = New System.Drawing.Size(200, 25)
+        Me.ComboBoxBancos.Name = "ComboBoxBancos"
+        Me.ComboBoxBancos.SelectedIndex = -1
+        Me.ComboBoxBancos.SelectedItem = Nothing
+        Me.ComboBoxBancos.SelectedText = ""
+        Me.ComboBoxBancos.SelectedValue = Nothing
+        Me.ComboBoxBancos.Size = New System.Drawing.Size(307, 25)
+        Me.ComboBoxBancos.TabIndex = 0
+        Me.ComboBoxBancos.ValueMember = Nothing
+        '
+        'ComboBoxArticulos
+        '
+        Me.ComboBoxArticulos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
+        Me.ComboBoxArticulos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
+        Me.ComboBoxArticulos.BusquedaPorCodigobarra = False
+        Me.ComboBoxArticulos.ColumnasExtras = Nothing
+        Me.ComboBoxArticulos.CustomFormatArt = False
+        Me.ComboBoxArticulos.DataSource = Nothing
+        Me.ComboBoxArticulos.DisplayMember = Nothing
+        Me.ComboBoxArticulos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
+        Me.ComboBoxArticulos.FormularioDeAlta = Nothing
+        Me.ComboBoxArticulos.FormularioDeBusqueda = Nothing
+        Me.ComboBoxArticulos.Location = New System.Drawing.Point(3, 17)
+        Me.ComboBoxArticulos.MaximumSize = New System.Drawing.Size(500, 25)
+        Me.ComboBoxArticulos.MinimumSize = New System.Drawing.Size(200, 25)
+        Me.ComboBoxArticulos.Name = "ComboBoxArticulos"
+        Me.ComboBoxArticulos.SelectedIndex = -1
+        Me.ComboBoxArticulos.SelectedItem = Nothing
+        Me.ComboBoxArticulos.SelectedText = ""
+        Me.ComboBoxArticulos.SelectedValue = Nothing
+        Me.ComboBoxArticulos.Size = New System.Drawing.Size(346, 25)
+        Me.ComboBoxArticulos.TabIndex = 1
+        Me.ComboBoxArticulos.ValueMember = Nothing
+        '
+        'ComboBoxAsoc
+        '
+        Me.ComboBoxAsoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None
+        Me.ComboBoxAsoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None
+        Me.ComboBoxAsoc.BusquedaPorCodigobarra = False
+        Me.ComboBoxAsoc.ColumnasExtras = Nothing
+        Me.ComboBoxAsoc.CustomFormatArt = False
+        Me.ComboBoxAsoc.DataSource = Nothing
+        Me.ComboBoxAsoc.DisplayMember = Nothing
+        Me.ComboBoxAsoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown
+        Me.ComboBoxAsoc.FormularioDeAlta = Nothing
+        Me.ComboBoxAsoc.FormularioDeBusqueda = Nothing
+        Me.ComboBoxAsoc.Location = New System.Drawing.Point(3, 16)
+        Me.ComboBoxAsoc.MaximumSize = New System.Drawing.Size(500, 25)
+        Me.ComboBoxAsoc.MinimumSize = New System.Drawing.Size(200, 25)
+        Me.ComboBoxAsoc.Name = "ComboBoxAsoc"
+        Me.ComboBoxAsoc.SelectedIndex = -1
+        Me.ComboBoxAsoc.SelectedItem = Nothing
+        Me.ComboBoxAsoc.SelectedText = ""
+        Me.ComboBoxAsoc.SelectedValue = Nothing
+        Me.ComboBoxAsoc.Size = New System.Drawing.Size(330, 25)
+        Me.ComboBoxAsoc.TabIndex = 0
+        Me.ComboBoxAsoc.ValueMember = Nothing
         '
         'CtlDetalleCbteAnterior
         '

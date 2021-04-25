@@ -1002,29 +1002,6 @@ Public Class FormCbteCompra
         Cancelar()
     End Sub
 
-    Private Sub CtlCbteDetalle_Totalizado() Handles CtlCbteDetalle.Totalizado
-
-        With CtlCbteDetalle
-            _subtotal = .Subtotal
-            _iva = .Iva
-            _otrostributos = .OtrosTributos
-            _exento = .Exento
-            _nogravado = .NoGravado
-            _noinscripto = .Noinscripto
-            _total = .Total
-            _totalaplicado = .TotalAplicado
-            Call LockDatosProveedor(Not .Articulos.Count = 0)
-        End With
-
-        Me.TextBoxSubtotal.Text = _subtotal.ToString("$ #,##0.00")
-        Me.TextBoxIVAFacturado.Text = _iva.ToString("$ #,##0.00")
-        Me.TextBoxOtrosTributos.Text = _otrostributos.ToString("$ #,##0.00")
-        Me.TextBoxExento.Text = _exento.ToString("$ #,##0.00")
-        Me.TextBoxNogravado.Text = _nogravado.ToString("$ #,##0.00")
-        Me.TextBoxTotal.Text = _total.ToString("$ #,##0.00")
-        Me.LabelTotal.Text = "Items ingresados " & CtlCbteDetalle.Articulos.Count & ", por cargar " & CtlCbteDetalle.MaximoItems - CtlCbteDetalle.Articulos.Count & ". Esta Compra >> " & _total.ToString("$ #,##0.00") & " <<"
-
-    End Sub
 
     Private Sub ComboBoxProveedor_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ComboBoxProveedor.SelectedIndexChanged
         CargaDatosProveedor()
@@ -1342,5 +1319,27 @@ Public Class FormCbteCompra
 
     Private Sub FormCbteCompra_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         e.Cancel = _autorizandoCbte
+    End Sub
+
+    Private Sub CtlCbteDetalle_Totalizado() Handles CtlCbteDetalle.Totalizado
+        With CtlCbteDetalle
+            _subtotal = .Subtotal
+            _iva = .Iva
+            _otrostributos = .OtrosTributos
+            _exento = .Exento
+            _nogravado = .NoGravado
+            _noinscripto = .Noinscripto
+            _total = .Total
+            _totalaplicado = .TotalAplicado
+            Call LockDatosProveedor(Not .Articulos.Count = 0)
+        End With
+
+        Me.TextBoxSubtotal.Text = _subtotal.ToString("$ #,##0.00")
+        Me.TextBoxIVAFacturado.Text = _iva.ToString("$ #,##0.00")
+        Me.TextBoxOtrosTributos.Text = _otrostributos.ToString("$ #,##0.00")
+        Me.TextBoxExento.Text = _exento.ToString("$ #,##0.00")
+        Me.TextBoxNogravado.Text = _nogravado.ToString("$ #,##0.00")
+        Me.TextBoxTotal.Text = _total.ToString("$ #,##0.00")
+        Me.LabelTotal.Text = "Items ingresados " & CtlCbteDetalle.Articulos.Count & ", por cargar " & CtlCbteDetalle.MaximoItems - CtlCbteDetalle.Articulos.Count & ". Esta Compra >> " & _total.ToString("$ #,##0.00") & " <<"
     End Sub
 End Class

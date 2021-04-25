@@ -33,7 +33,6 @@ Partial Class FormCbteCompra
         Me.ToolStripLabelStatus = New System.Windows.Forms.ToolStripLabel()
         Me.PanelControles = New System.Windows.Forms.Panel()
         Me.LabelTotal = New System.Windows.Forms.Label()
-        Me.CtlCbteDetalle = New Principal.CtlDetalleCbte()
         Me.TextBoxSubtotal = New System.Windows.Forms.TextBox()
         Me.TextBoxTotal = New System.Windows.Forms.TextBox()
         Me.TextBoxNogravado = New System.Windows.Forms.TextBox()
@@ -83,6 +82,7 @@ Partial Class FormCbteCompra
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.CtlCbteDetalle = New Principal.CtlDetalleCbte2()
         Me.TableLayoutPanelBase.SuspendLayout()
         Me.ToolStripMenu.SuspendLayout()
         Me.PanelControles.SuspendLayout()
@@ -161,8 +161,8 @@ Partial Class FormCbteCompra
         '
         'PanelControles
         '
-        Me.PanelControles.Controls.Add(Me.LabelTotal)
         Me.PanelControles.Controls.Add(Me.CtlCbteDetalle)
+        Me.PanelControles.Controls.Add(Me.LabelTotal)
         Me.PanelControles.Controls.Add(Me.TextBoxSubtotal)
         Me.PanelControles.Controls.Add(Me.TextBoxTotal)
         Me.PanelControles.Controls.Add(Me.TextBoxNogravado)
@@ -199,29 +199,6 @@ Partial Class FormCbteCompra
         Me.LabelTotal.TabIndex = 27
         Me.LabelTotal.Text = "0.0"
         Me.LabelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'CtlCbteDetalle
-        '
-        Me.CtlCbteDetalle.AgrupaArticulosDetalle = False
-        Me.CtlCbteDetalle.AnularDepositoNro = 0
-        Me.CtlCbteDetalle.Cliente = Nothing
-        Me.CtlCbteDetalle.CompraANoInscripto = False
-        Me.CtlCbteDetalle.CptoBcoEgrPredetermiando = Nothing
-        Me.CtlCbteDetalle.CptoBcoIngPredetermiando = Nothing
-        Me.CtlCbteDetalle.CtaBcoPredeterminada = Nothing
-        Me.CtlCbteDetalle.DescuentoGral = 0.0R
-        Me.CtlCbteDetalle.FechaComprobante = New Date(2017, 10, 25, 0, 0, 0, 0)
-        Me.CtlCbteDetalle.ListaDePrecio = Principal.CtlDetalleCbte.ListaPrecios.LISTA1
-        Me.CtlCbteDetalle.Location = New System.Drawing.Point(9, 233)
-        Me.CtlCbteDetalle.MaximoItems = CType(25US, UShort)
-        Me.CtlCbteDetalle.Name = "CtlCbteDetalle"
-        Me.CtlCbteDetalle.Proveedor = Nothing
-        Me.CtlCbteDetalle.Size = New System.Drawing.Size(868, 272)
-        Me.CtlCbteDetalle.TabIndex = 16
-        Me.CtlCbteDetalle.TipoCargaCbte = Principal.General.TipoEmisionCbte.ELECTRONICO
-        Me.CtlCbteDetalle.TipoDeCbte = Principal.CtlDetalleCbte.TipoCbte.CBTEVTA
-        Me.CtlCbteDetalle.Vendedor = Nothing
-        Me.CtlCbteDetalle.VerCuentaCta = False
         '
         'TextBoxSubtotal
         '
@@ -729,6 +706,29 @@ Partial Class FormCbteCompra
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Documento"
         '
+        'CtlCbteDetalle
+        '
+        Me.CtlCbteDetalle.AgrupaArticulosDetalle = False
+        Me.CtlCbteDetalle.AnularDepositoNro = 0
+        Me.CtlCbteDetalle.Cliente = Nothing
+        Me.CtlCbteDetalle.CompraANoInscripto = False
+        Me.CtlCbteDetalle.CptoBcoEgrPredetermiando = Nothing
+        Me.CtlCbteDetalle.CptoBcoIngPredetermiando = Nothing
+        Me.CtlCbteDetalle.CtaBcoPredeterminada = Nothing
+        Me.CtlCbteDetalle.DescuentoGral = 0R
+        Me.CtlCbteDetalle.FechaComprobante = New Date(2021, 4, 17, 0, 0, 0, 0)
+        Me.CtlCbteDetalle.ListaDePrecio = Principal.CtlDetalleCbte2.ListaPrecios.LISTA1
+        Me.CtlCbteDetalle.Location = New System.Drawing.Point(14, 233)
+        Me.CtlCbteDetalle.MaximoItems = CType(25US, UShort)
+        Me.CtlCbteDetalle.Name = "CtlCbteDetalle"
+        Me.CtlCbteDetalle.Proveedor = Nothing
+        Me.CtlCbteDetalle.Size = New System.Drawing.Size(852, 251)
+        Me.CtlCbteDetalle.TabIndex = 28
+        Me.CtlCbteDetalle.TipoCargaCbte = Principal.General.TipoEmisionCbte.ELECTRONICO
+        Me.CtlCbteDetalle.TipoDeCbte = Principal.CtlDetalleCbte2.TipoCbte.CBTEVTA
+        Me.CtlCbteDetalle.Vendedor = Nothing
+        Me.CtlCbteDetalle.VerCuentaCta = False
+        '
         'FormCbteCompra
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -813,7 +813,6 @@ Partial Class FormCbteCompra
     Friend WithEvents TextBoxExento As System.Windows.Forms.TextBox
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents CtlCbteDetalle As Principal.CtlDetalleCbte
     Friend WithEvents ComboBoxProveedor As Principal.CtlCustomCombo
     Friend WithEvents LabelTotal As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -821,4 +820,5 @@ Partial Class FormCbteCompra
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents ToolStripButtonBarCode As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents CtlCbteDetalle As CtlDetalleCbte2
 End Class

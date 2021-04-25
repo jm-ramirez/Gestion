@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description>
+  </Description>
+  <Author>
+  </Author>
+  <PageHeight>11in</PageHeight>
+  <PageWidth>8.5in</PageWidth>
+  <Width>7.5in</Width>
+  <TopMargin>.25in</TopMargin>
+  <LeftMargin>.25in</LeftMargin>
+  <RightMargin>.25in</RightMargin>
+  <BottomMargin>.25in</BottomMargin>
+  <DataSets>
+    <DataSet Name="Data">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT ca.`Codigo`,ca.`Descripcion`,ca.`Cantidad`,ca.`Kgs`
+FROM cbtecabecera cc LEFT JOIN cbtearticulo ca ON cc.id=ca.CbteId WHERE cc.`Id`=@cbteId</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@cbteId">
+            <Value>=Parameters!cbteId</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="Codigo">
+          <DataField>Codigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Descripcion">
+          <DataField>Descripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Cantidad">
+          <DataField>Cantidad</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Kgs">
+          <DataField>Kgs</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <PageHeader>
+    <Height>188.5pt</Height>
+    <ReportItems>
+      <Textbox Name="Textbox1" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.99pt</Height>
+        <Width>95.05pt</Width>
+        <Value>=Parameters!fecha.Value</Value>
+        <Left>412.9pt</Left>
+        <Top>54.7pt</Top>
+        <Style>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>10pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox3" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>14.99pt</Height>
+        <Width>80.39pt</Width>
+        <Value>Fecha de Emisión:</Value>
+        <Left>332.3pt</Left>
+        <Top>55.0pt</Top>
+        <Style>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox13" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>21.80pt</Height>
+        <Width>204.03pt</Width>
+        <Value>REMITO</Value>
+        <Left>321.50pt</Left>
+        <Top>12.10pt</Top>
+        <Style>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>18pt</FontSize>
+          <TextAlign>Center</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+        <CanGrow>false</CanGrow>
+      </Textbox>
+      <Textbox Name="Textbox20" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>30.75pt</Height>
+        <Width>51.27pt</Width>
+        <Value>R</Value>
+        <Left>245.3pt</Left>
+        <Top>12.2pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>Bold</FontWeight>
+          <FontSize>28pt</FontSize>
+          <TextAlign>Center</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Line Name="Line1" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>0.01pt</Height>
+        <Width>535.35pt</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Left>6.4pt</Left>
+        <Top>117.5pt</Top>
+      </Line>
+      <Rectangle Name="Rectangle1" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>51.23pt</Height>
+        <Width>58.01pt</Width>
+        <Left>241.3pt</Left>
+        <Top>2.8pt</Top>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+            <Left>Solid</Left>
+            <Right>Solid</Right>
+            <Top>Solid</Top>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Rectangle>
+      <Textbox Name="Textbox10" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>151.02pt</Width>
+        <Value>Apellido y Nombre / Razón Social:</Value>
+        <Left>6.4pt</Left>
+        <Top>123.2pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>379.76pt</Width>
+        <Value>=Parameters!clienteNombre.Value</Value>
+        <Left>149.2pt</Left>
+        <Top>123.1pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Normal</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox14" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>106.02pt</Width>
+        <Value>Condición frente al IVA:</Value>
+        <Left>6.4pt</Left>
+        <Top>137.6pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox19" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>212.98pt</Width>
+        <Value>=Parameters!clienteIva.Value</Value>
+        <Left>106.3pt</Left>
+        <Top>137.8pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Normal</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+        <CanGrow>false</CanGrow>
+      </Textbox>
+      <Textbox Name="Textbox31" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>73.02pt</Width>
+        <Value>CUIT: </Value>
+        <Left>317.0pt</Left>
+        <Top>137.1pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox33" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>132.86pt</Width>
+        <Value>=Parameters!OrdenCompra.Value</Value>
+        <Left>392.7pt</Left>
+        <Top>151.3pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox34" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>78.27pt</Width>
+        <Value>Nº Ord. Compras:</Value>
+        <Left>316.50pt</Left>
+        <Top>151.40pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox37" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>13.50pt</Height>
+        <Width>160.06pt</Width>
+        <Value>=Parameters!clienteCuit.Value</Value>
+        <Left>343.4pt</Left>
+        <Top>136.5pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Line Name="Line5" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>0.01pt</Height>
+        <Width>535.35pt</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Left>6.4pt</Left>
+        <Top>181.7pt</Top>
+      </Line>
+      <Textbox Name="Textbox49" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>274.02pt</Width>
+        <Value>=Parameters!clienteDomicilio.Value</Value>
+        <Left>48.7pt</Left>
+        <Top>151.7pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox50" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>45.27pt</Width>
+        <Value>Domicilio:</Value>
+        <Left>7.2pt</Left>
+        <Top>151.7pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox51" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>274.02pt</Width>
+        <Value>=Parameters!clienteCodpostal.Value &amp; ' - ' &amp; Parameters!clienteLocalidad.Value</Value>
+        <Left>59.4pt</Left>
+        <Top>164.6pt</Top>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox52" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>12.00pt</Height>
+        <Width>54.27pt</Width>
+        <Value>Cod. Postal:</Value>
+        <Left>7.50pt</Left>
+        <Top>164.60pt</Top>
+        <Style>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Bold</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Line Name="Line2" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>63.88pt</Height>
+        <Width>0.05pt</Width>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Left>271.4pt</Left>
+        <Top>53.8pt</Top>
+      </Line>
+    </ReportItems>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageHeader>
+  <Body>
+    <Height>29.8pt</Height>
+    <ReportItems>
+      <Table Name="Table2">
+        <DataSetName>Data</DataSetName>
+        <NoRows>No hay datos para mostrar!</NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>64.0pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>89.1pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>380.9pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>12.8pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox45">
+                      <Value>Cantidad</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Right</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <FontFamily>Tahoma</FontFamily>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox32">
+                      <Value>Código</Value>
+                      <Style>
+                        <TextAlign>Left</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <FontFamily>Tahoma</FontFamily>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox27">
+                      <Value>Descripción</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Left</TextAlign>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <BackgroundColor>#ADD5FC</BackgroundColor>
+                        <FontFamily>Tahoma</FontFamily>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Left>8.0pt</Left>
+        <Top>0.0pt</Top>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12.9pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox46">
+                      <Value>=Fields!Cantidad.Value</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                        <FontFamily>Tahoma</FontFamily>
+                        <TextAlign>Right</TextAlign>
+                        <Format>0.00</Format>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox18">
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                        <FontFamily>Tahoma</FontFamily>
+                      </Style>
+                      <Value>=Fields!Codigo.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox28">
+                      <Value>=Fields!Descripcion.Value</Value>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                        <FontSize>9pt</FontSize>
+                        <FontFamily>Tahoma</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <CanShrink>true</CanShrink>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+      </Table>
+    </ReportItems>
+    <Columns>1</Columns>
+  </Body>
+  <PageFooter>
+    <Height>218.0pt</Height>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <ReportItems>
+      <Textbox Name="Textbox2" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>43.0pt</Top>
+        <Left>109.1pt</Left>
+        <Width>81.26pt</Width>
+        <Height>14.35pt</Height>
+        <Value>=Parameters!xUnidad.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox7" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>32.30pt</Height>
+        <Width>481.01pt</Width>
+        <Value>* TRABAJO REALIZADO, ENTREGADO Y/O RETIRADO EN DOMICILIO DE LA EMPRESA
+  CALLE 520 NUMERO 6886 - ROSARIO - PROVINCIA DE SANTA FE *</Value>
+        <Left>68.8pt</Left>
+        <Top>3.2pt</Top>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <FontWeight>Normal</FontWeight>
+          <FontFamily>Tahoma</FontFamily>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <VerticalAlign>Middle</VerticalAlign>
+        </Style>
+        <CanGrow>false</CanGrow>
+      </Textbox>
+      <Textbox Name="Textbox8" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>43.2pt</Top>
+        <Left>68.0pt</Left>
+        <Width>40.67pt</Width>
+        <Height>14.35pt</Height>
+        <Value>x UNID: </Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox9" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>44.3pt</Top>
+        <Left>205.5pt</Left>
+        <Width>37.76pt</Width>
+        <Height>14.35pt</Height>
+        <Value>x KGS: </Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox17" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>44.8pt</Top>
+        <Left>362.5pt</Left>
+        <Width>49.76pt</Width>
+        <Height>14.35pt</Height>
+        <Value>BULTOS: </Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox21" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>44.1pt</Top>
+        <Left>244.1pt</Left>
+        <Width>81.26pt</Width>
+        <Height>14.35pt</Height>
+        <Value>=Parameters!xKgs.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox22" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>44.8pt</Top>
+        <Left>412.6pt</Left>
+        <Width>81.26pt</Width>
+        <Height>14.35pt</Height>
+        <Value>=Parameters!Bultos.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox23" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>60.5pt</Top>
+        <Left>68.5pt</Left>
+        <Width>111.92pt</Width>
+        <Height>14.35pt</Height>
+        <Value>VALOR DECLARADO: </Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox24" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>60.3pt</Top>
+        <Left>181.6pt</Left>
+        <Width>81.26pt</Width>
+        <Height>14.35pt</Height>
+        <Value>=Parameters!valorDeclarado.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox25" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>93.9pt</Top>
+        <Left>69.2pt</Left>
+        <Width>117.17pt</Width>
+        <Height>14.35pt</Height>
+        <Value>DATOS ADICIONALES: </Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox26" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>93.7pt</Top>
+        <Left>187.1pt</Left>
+        <Width>364.76pt</Width>
+        <Height>14.35pt</Height>
+        <Value>=Parameters!tipoEnvio.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox29" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>110.9pt</Top>
+        <Left>69.1pt</Left>
+        <Width>78.17pt</Width>
+        <Height>14.35pt</Height>
+        <Value>TRANSPORTE: </Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox30" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>110.7pt</Top>
+        <Left>147.8pt</Left>
+        <Width>275.51pt</Width>
+        <Height>14.35pt</Height>
+        <Value>=Parameters!transporteNombre.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox35" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>127.6pt</Top>
+        <Left>69.8pt</Left>
+        <Width>64.67pt</Width>
+        <Height>14.35pt</Height>
+        <Value>DIRECCION:</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox36" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>127.4pt</Top>
+        <Left>134.9pt</Left>
+        <Width>193.76pt</Width>
+        <Height>14.35pt</Height>
+        <Value>=Parameters!transporteDireccion.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox38" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>128.2pt</Top>
+        <Left>332.4pt</Left>
+        <Width>30.92pt</Width>
+        <Height>14.35pt</Height>
+        <Value>CUIT:</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox39" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>128.0pt</Top>
+        <Left>363.9pt</Left>
+        <Width>145.76pt</Width>
+        <Height>14.35pt</Height>
+        <Value>=Parameters!transporteCuit.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox40" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>152.2pt</Top>
+        <Left>69.9pt</Left>
+        <Width>114.17pt</Width>
+        <Height>14.35pt</Height>
+        <Value>LUGAR DE ENTREGA:</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox41" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>152.0pt</Top>
+        <Left>184.6pt</Left>
+        <Width>367.01pt</Width>
+        <Height>14.35pt</Height>
+        <Value>=Parameters!lugarEntrega.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox42" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>169.5pt</Top>
+        <Left>70.0pt</Left>
+        <Width>57.92pt</Width>
+        <Height>14.35pt</Height>
+        <Value>CONTROL:</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox43" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>169.3pt</Top>
+        <Left>128.7pt</Left>
+        <Width>202.76pt</Width>
+        <Height>14.35pt</Height>
+        <Value>=Parameters!control.Value</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox44" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Top>77.2pt</Top>
+        <Left>69.2pt</Left>
+        <Width>352.01pt</Width>
+        <Height>14.35pt</Height>
+        <Value>LA MERCADERIA VIAJA POR CUENTA Y RIESGO DEL COMPRADOR</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontFamily>Tahoma</FontFamily>
+        </Style>
+      </Textbox>
+    </ReportItems>
+  </PageFooter>
+  <DataElementStyle>AttributeNormal</DataElementStyle>
+  <DataElementName>Report</DataElementName>
+  <DataSources>
+    <DataSource Name="DS1">
+      <ConnectionProperties>
+        <DataProvider>ODBC</DataProvider>
+        <ConnectString>=Parameters!dsn.Value</ConnectString>
+        <IntegratedSecurity>false</IntegratedSecurity>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <ReportParameters >
+    <ReportParameter Name="dsn">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>driver={Mysql ODBC 5.1 Driver};server=localhost;uid=root;pwd=5826;database=gestion;port=3306;connection=</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="fecha">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>12/07/2016</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="cbteId">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>2</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clienteNombre">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>GIACOMETTI AMADEO S.A. (100)</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clienteDomicilio">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Moreno 2255</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clienteCodpostal">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>2000</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clienteLocalidad">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Rosario</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clienteIva">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Responsable Inscripto</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clienteCuit">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>20-32124578-9</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="OrdenCompra">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>110-0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="xUnidad">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0.00</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="xKgs">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>120.00</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Bultos">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>5</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="valorDeclarado">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>1500.00</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="tipoEnvio">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="transporteNombre">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Retira en planta</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="transporteDireccion">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Sarmiento 2259</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="transporteCuit">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>20-35451212-9</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="lugarEntrega">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Tte. Gral. Aramburu km 24</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="control">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>00023250</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+  </ReportParameters>
+</Report>

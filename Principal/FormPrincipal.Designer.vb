@@ -677,6 +677,7 @@ Partial Class FormPrincipal
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
         Me.ToolStripMenuItem3.Size = New System.Drawing.Size(241, 6)
+        Me.ToolStripMenuItem3.Visible = False
         '
         'EmisiónListasDePreciosToolStripMenuItem
         '
@@ -684,6 +685,7 @@ Partial Class FormPrincipal
         Me.EmisiónListasDePreciosToolStripMenuItem.Size = New System.Drawing.Size(244, 22)
         Me.EmisiónListasDePreciosToolStripMenuItem.Tag = "emisionlistaprecios"
         Me.EmisiónListasDePreciosToolStripMenuItem.Text = "Emisión Listas de Precios"
+        Me.EmisiónListasDePreciosToolStripMenuItem.Visible = False
         '
         'mnuGestionClientes
         '
@@ -759,6 +761,7 @@ Partial Class FormPrincipal
         Me.mnuOrdenesCompra.Name = "mnuOrdenesCompra"
         Me.mnuOrdenesCompra.Size = New System.Drawing.Size(146, 21)
         Me.mnuOrdenesCompra.Text = "Ordenes de Compras"
+        Me.mnuOrdenesCompra.Visible = False
         '
         'CargaDeOrdenesDeComprasToolStripMenuItem
         '
